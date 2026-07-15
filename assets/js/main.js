@@ -80,6 +80,53 @@
     });
   }
 
+  /* --- Buscador del header --- */
+  var SEARCH = [
+    { t: "Bombas de calor", u: "categorias/bombas-de-calor.html", c: "--verde-mar", k: "aerotermia generacion termica" },
+    { t: "Aquabuster", u: "categorias/aquabuster.html", c: "--azul-cielo", k: "agua caliente acs depositos" },
+    { t: "Hidrofox", u: "categorias/hidrofox.html", c: "--verde-lima", k: "armarios hidraulica salas calderas" },
+    { t: "Climatización a baja temperatura", u: "categorias/climatizacion-baja-temperatura.html", c: "--fucsia", k: "radiadores toalleros emisores baja temperatura t30 tower decor" },
+    { t: "Sistemas de control", u: "categorias/sistemas-de-control.html", c: "--azul-marino", k: "control pantalla medida regulacion" },
+    { t: "Contadores", u: "categorias/contadores.html", c: "--amarillo-ambar", k: "lecturas contabilizacion medidores" },
+    { t: "Tarifas", u: "tarifas.html", c: "--verde-lima", k: "precios catalogo pdf" },
+    { t: "Formación", u: "formacion.html", c: "--verde-lima", k: "cursos formacion acceso login" },
+    { t: "Inicio", u: "index.html", c: "--verde-mar", k: "home portada" }
+  ];
+  var searchWrap = document.querySelector(".header-search");
+  if (searchWrap) {
+    var sInput = searchWrap.querySelector("input");
+    var sResults = searchWrap.querySelector(".header-search__results");
+    var sBase = window.TEULA_BASE || "";
+    var sActive = -1;
+    function norm(s) { return s.toLowerCase().replace(/[áàä]/g, "a").replace(/[éèë]/g, "e").replace(/[íìï]/g, "i").replace(/[óòö]/g, "o").replace(/[úùü]/g, "u").replace(/ñ/g, "n"); }
+    function runSearch(q) {
+      q = norm(q.trim());
+      if (!q) { sResults.classList.remove("is-open"); sResults.innerHTML = ""; return; }
+      var list = SEARCH.filter(function (it) { return norm(it.t + " " + it.k).indexOf(q) > -1; });
+      sActive = -1;
+      if (!list.length) {
+        sResults.innerHTML = '<div class="header-search__empty">Sin resultados</div>';
+      } else {
+        sResults.innerHTML = list.map(function (it) {
+          return '<a href="' + sBase + it.u + '" style="--c:var(' + it.c + ');"><span class="dot"></span>' + it.t + "</a>";
+        }).join("");
+      }
+      sResults.classList.add("is-open");
+    }
+    sInput.addEventListener("input", function () { runSearch(sInput.value); });
+    sInput.addEventListener("focus", function () { if (sInput.value.trim()) runSearch(sInput.value); });
+    sInput.addEventListener("keydown", function (e) {
+      var links = sResults.querySelectorAll("a");
+      if (e.key === "ArrowDown") { e.preventDefault(); sActive = Math.min(sActive + 1, links.length - 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); sActive = Math.max(sActive - 1, 0); }
+      else if (e.key === "Enter") { if (links.length) { e.preventDefault(); links[sActive > -1 ? sActive : 0].click(); } return; }
+      else if (e.key === "Escape") { sInput.value = ""; sResults.classList.remove("is-open"); return; }
+      else { return; }
+      links.forEach(function (a, i) { a.classList.toggle("is-active", i === sActive); });
+    });
+    document.addEventListener("click", function (e) { if (!searchWrap.contains(e.target)) sResults.classList.remove("is-open"); });
+  }
+
   /* --- Año en el pie --- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

@@ -1141,11 +1141,11 @@ body.menu-open { overflow: hidden; }
 .tarifas-hero p { font-weight: 300; color: rgba(255,255,255,0.85); max-width: 52ch; margin: 0 0 26px; }
 .tarifas-hero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
 .tarifas-nav {
-  position: sticky; top: 104px; z-index: 40;
+  position: sticky; top: 62px; z-index: 40;
   background: rgba(255,255,255,0.96); backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--gris-linea);
 }
-.cat-section { scroll-margin-top: 170px; }
+.cat-section { scroll-margin-top: 130px; }
 .tarifas-nav__inner { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; min-height: 52px; align-items: center; }
 .tarifas-nav__inner::-webkit-scrollbar { display: none; }
 .tarifas-nav a { flex: none; white-space: nowrap; padding: 8px 14px; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; color: var(--tinta-suave); display: inline-flex; align-items: center; gap: 8px; border-radius: 3px; }
@@ -1267,3 +1267,54 @@ body.menu-open { overflow: hidden; }
 .foot-contact a:hover { color: #fff; }
 @media (max-width: 960px) { .site-footer__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .site-footer__grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   V7 — BUSCADOR · GALERÍA (sin zoom, más aire) · CONTROL=PANEL
+   ============================================================ */
+
+/* Galería de categorías: sin animación de escalado al pasar el ratón */
+.cat-tile:hover .cat-tile__img img { transform: none; }
+
+/* Más espacio vertical entre las dos filas de categorías */
+.cat-band__grid { column-gap: clamp(16px, 2vw, 28px); row-gap: clamp(44px, 5vw, 72px); }
+
+/* Buscador en el header */
+.header-search {
+  position: relative;
+  flex: 1 1 auto; min-width: 0; max-width: 420px;
+  margin-inline: clamp(16px, 4vw, 48px);
+}
+.header-search__box {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--papel); border: 1px solid var(--gris-linea);
+  border-radius: 6px; padding: 9px 13px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.header-search__box:focus-within { border-color: var(--verde-mar); background: #fff; }
+.header-search__box svg { width: 16px; height: 16px; flex: none; color: var(--tinta-suave); }
+.header-search input {
+  border: none; background: none; outline: none; width: 100%;
+  font-family: var(--texto); font-size: 0.92rem; color: var(--tinta);
+}
+.header-search input::placeholder { color: var(--tinta-suave); }
+.header-search__results {
+  position: absolute; top: calc(100% + 7px); left: 0; right: 0;
+  background: #fff; border: 1px solid var(--gris-linea); border-radius: 6px;
+  box-shadow: 0 24px 60px -24px rgba(1,71,81,0.35);
+  overflow: hidden; display: none; z-index: 90;
+}
+.header-search__results.is-open { display: block; }
+.header-search__results a {
+  display: flex; align-items: center; gap: 11px;
+  padding: 11px 15px; color: var(--tinta); font-size: 0.92rem;
+  border-bottom: 1px solid var(--niebla);
+}
+.header-search__results a:last-child { border-bottom: none; }
+.header-search__results a .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--c, var(--verde-lima)); flex: none; }
+.header-search__results a:hover, .header-search__results a.is-active { background: var(--papel); color: var(--verde-mar); }
+.header-search__empty { padding: 13px 15px; color: var(--tinta-suave); font-size: 0.88rem; }
+
+@media (max-width: 620px) {
+  .header-search { margin-inline: 12px; }
+  .header-search input::placeholder { color: transparent; }
+}
