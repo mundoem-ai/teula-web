@@ -1318,3 +1318,10 @@ body.menu-open { overflow: hidden; }
   .header-search { margin-inline: 12px; }
   .header-search input::placeholder { color: transparent; }
 }
+
+/* Corrección: los hijos del tile deben apilarse como bloque (evita que el
+   texto descriptivo se solape con la foto de la fila/tarjeta siguiente) */
+.cat-tile { display: flex; flex-direction: column; }
+.cat-tile__img { display: block; }
+.cat-tile__cap { display: block; }
+.cat-tile__desc { margin-bottom: 4px; }
