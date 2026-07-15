@@ -602,7 +602,6 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   .nav a { padding: 12px 8px; }
   .nav .btn { margin-top: 8px; justify-content: center; }
   .nav-toggle { display: inline-flex; }
-  .site-header__inner { position: relative; flex-wrap: wrap; }
 }
 
 @media (max-width: 560px) {
@@ -1325,3 +1324,23 @@ body.menu-open { overflow: hidden; }
 .cat-tile__img { display: block; }
 .cat-tile__cap { display: block; }
 .cat-tile__desc { margin-bottom: 4px; }
+
+/* ============================================================
+   V8 — HEADER EN UNA SOLA LÍNEA · BUSCADOR MÁS CONTENIDO
+   ============================================================ */
+.site-header__inner { flex-wrap: nowrap; gap: clamp(10px, 2vw, 22px); }
+.site-header .brand { flex: none; }
+.header-actions { flex: none; }
+.header-search { flex: 1 1 auto; min-width: 0; max-width: 340px; margin-inline: clamp(10px, 2vw, 24px); }
+.header-search__box { padding: 8px 12px; }
+.menu-btn { flex: none; }
+
+@media (max-width: 620px) {
+  .site-header__inner { gap: 8px; }
+  .site-header .brand img { height: 22px; }
+  .header-search { margin-inline: 0; max-width: none; }
+  .header-search__box { padding: 7px 10px; gap: 7px; }
+  .header-search__box svg { width: 15px; height: 15px; }
+  .menu-btn { padding: 6px 2px; }
+  .menu-btn__icon-img { width: 24px; height: 24px; }
+}
