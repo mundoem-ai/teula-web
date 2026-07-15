@@ -1233,3 +1233,37 @@ body.menu-open { overflow: hidden; }
   .topbar__inner { justify-content: flex-start; }
   .cat-section__head::after { background: linear-gradient(180deg, transparent 0%, var(--c) 82%); }
 }
+
+/* ============================================================
+   V6 — HEADER BLANCO · ICONO DE MENÚ (IMAGEN) · CONTACTO PIE
+   ============================================================ */
+
+/* Header blanco (barra de menús clara) */
+.site-header {
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--gris-linea);
+}
+.site-header .brand img { height: 26px; }
+
+/* Enlace de Formación en la barra superior (destacado con lima) */
+.topbar a.is-formacion { color: var(--verde-mar); font-weight: 500; }
+.topbar a.is-formacion .dot { background: var(--verde-lima); }
+
+/* Botón de menú con icono de imagen */
+.menu-btn {
+  background: none; border: none; padding: 6px 4px; gap: 9px;
+  color: var(--verde-mar);
+}
+.menu-btn:hover { background: none; opacity: 0.72; }
+.menu-btn__icon-img { width: 26px; height: 26px; display: block; }
+.menu-btn__label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--verde-mar); }
+
+/* Contacto en el pie (banner inferior) */
+.site-footer__grid { grid-template-columns: 1.5fr 1fr 0.9fr 1.25fr; }
+.foot-contact address { font-style: normal; font-weight: 300; font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.82); margin-bottom: 14px; }
+.foot-contact .foot-hours { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; color: var(--verde-lima); margin: 0 0 12px; }
+.foot-contact p { font-weight: 300; font-size: 0.92rem; margin: 0 0 6px; color: rgba(255,255,255,0.82); }
+.foot-contact a { color: rgba(255,255,255,0.85); }
+.foot-contact a:hover { color: #fff; }
+@media (max-width: 960px) { .site-footer__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .site-footer__grid { grid-template-columns: 1fr; } }

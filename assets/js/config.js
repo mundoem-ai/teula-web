@@ -22,8 +22,8 @@ window.TEULA_LINKS = {
   // Cuando tengas la plataforma externa real, puedes poner aquí su URL https://…
   formacion: "formacion.html",
 
-  // (Opcional) Contacto — se usa en el pie de página
+  // (Opcional) Contacto — se usa en el menú
   email: "info@teula.es",
-  telefono: ""
+  telefono: "+34 981 079 480"
 
 };
