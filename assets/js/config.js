@@ -14,13 +14,13 @@
 
 window.TEULA_LINKS = {
 
-  // Botón "Descargar tarifa" (catálogo digital PDF con fichas y vídeos)
-  // Archivo local dentro de la web (carpeta /tarifa). Para usar una versión
-  // online, sustituye por una URL https://…
-  tarifaPDF: "tarifa/Tarifa-Teula-2026.pdf",
+  // Botón "Tarifas" → abre la landing visual de tarifas por categoría (tarifas.html).
+  // El PDF completo se descarga desde un botón dentro de esa página.
+  tarifaPDF: "tarifas.html",
 
-  // Enlace "Formación" (plataforma externa de cursos: registro + acceso)
-  formacion: "#",
+  // Botón "Formación" → abre la landing de formación con acceso (formacion.html).
+  // Cuando tengas la plataforma externa real, puedes poner aquí su URL https://…
+  formacion: "formacion.html",
 
   // (Opcional) Contacto — se usa en el pie de página
   email: "info@teula.es",

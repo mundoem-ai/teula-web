@@ -14,6 +14,18 @@
 </head>
 <body>
 
+  <!-- ============ BARRA SUPERIOR (categorías) ============ -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <a href="categorias/bombas-de-calor.html" style="--c:var(--verde-mar);"><span class="dot"></span>Bombas de calor</a>
+      <a href="categorias/aquabuster.html" style="--c:var(--azul-cielo);"><span class="dot"></span>Aquabuster</a>
+      <a href="categorias/hidrofox.html" style="--c:var(--verde-lima);"><span class="dot"></span>Hidrofox</a>
+      <a href="categorias/climatizacion-baja-temperatura.html" style="--c:var(--fucsia);"><span class="dot"></span>Climatización a baja temperatura</a>
+      <a href="categorias/sistemas-de-control.html" style="--c:var(--azul-marino);"><span class="dot"></span>Sistemas de control</a>
+      <a href="categorias/contadores.html" style="--c:var(--amarillo-ambar);"><span class="dot"></span>Contadores</a>
+    </div>
+  </div>
+
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="wrap site-header__inner">
@@ -32,6 +44,7 @@
 
   <!-- ============ MENÚ OVERLAY ============ -->
   <div class="menu-overlay" id="menu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <div class="menu-overlay__bg"><img src="assets/img/amb-invierno2.png" alt=""></div>
     <div class="menu-overlay__bar">
       <a class="brand" href="index.html" aria-label="Teula — inicio"><img src="assets/logos/teula_verde-lima.svg" alt="Teula"></a>
       <button class="menu-close" aria-label="Cerrar menú">✕</button>
@@ -65,7 +78,7 @@
       </nav>
       <aside class="menu-aside">
         <h4>Recursos</h4>
-        <a class="btn btn--on-dark" data-link="tarifaPDF" href="#">Descargar tarifa <span class="arw">↓</span></a>
+        <a class="btn btn--on-dark" data-link="tarifaPDF" href="#">Ver tarifas <span class="arw">→</span></a>
         <a class="btn btn--ghost btn--on-dark" data-link="formacion" href="#">Formación <span class="arw">→</span></a>
         <div class="menu-aside__contact">
           <a data-contact="email" href="mailto:info@teula.es">info@teula.es</a>
@@ -84,14 +97,11 @@
       </div>
       <div class="wrap">
         <div class="hero-clean__inner">
-          <div class="hero-clean__brandline" data-reveal>
-            <img class="iso" src="assets/logos/isotipo_verde-lima.svg" alt="">
-            <p class="label">Fabricación propia · Galicia · 35 años</p>
-          </div>
+          <p class="label hero-clean__eyebrow" data-reveal>Fabricación propia · Galicia · 35 años</p>
           <h1 data-reveal data-reveal-delay="0.08">Sistemas de climatización de última generación.</h1>
           <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Radiadores de baja temperatura y todos los componentes de la instalación de alta eficiencia. Ingeniería real, medida en datos.</p>
           <div class="hero-clean__cta" data-reveal data-reveal-delay="0.24">
-            <a class="btn btn--on-dark" data-link="tarifaPDF" href="#">Descargar tarifa <span class="arw">↓</span></a>
+            <a class="btn btn--on-dark" data-link="tarifaPDF" href="#">Ver tarifas <span class="arw">→</span></a>
             <a class="btn btn--ghost btn--on-dark" href="#departamentos">Ver departamentos</a>
           </div>
         </div>
@@ -139,16 +149,16 @@
       <div class="wrap">
         <div class="tarifa-split" data-reveal>
           <div class="tarifa-split__body">
-            <p class="label" style="color:var(--verde-lima);margin-bottom:16px;">02 — Catálogo digital</p>
-            <h2>Tarifa Teula 2026.</h2>
-            <p>Catálogo digital en PDF con la gama completa: fichas de producto y referencias. Un único documento, listo para descargar.</p>
+            <p class="label" style="color:var(--verde-lima);margin-bottom:16px;">02 — Tarifas</p>
+            <h2>Tarifas Teula 2026.</h2>
+            <p>Consulta la gama completa por categoría: modelos, referencias y precios. Y descarga el catálogo en PDF cuando lo necesites.</p>
             <div class="tarifa-split__meta">
-              <span class="spec-chip">PDF</span>
-              <span class="spec-chip">Gama completa</span>
-              <span class="spec-chip">Fichas de producto</span>
+              <span class="spec-chip">Por categoría</span>
+              <span class="spec-chip">Precios y referencias</span>
+              <span class="spec-chip">PDF descargable</span>
             </div>
             <div>
-              <a class="btn btn--on-dark" data-link="tarifaPDF" href="#">Descargar tarifa <span class="arw">↓</span></a>
+              <a class="btn btn--on-dark" data-link="tarifaPDF" href="#">Ver tarifas <span class="arw">→</span></a>
             </div>
           </div>
           <div class="tarifa-split__media">
@@ -169,64 +179,40 @@
       <div class="full-bleed cat-band">
         <div class="cat-band__grid">
 
-          <a class="cat-tile" href="categorias/bombas-de-calor.html" style="--c:var(--verde-mar);" data-reveal>
+          <a class="cat-tile" href="categorias/bombas-de-calor.html" style="--c:var(--verde-mar);--band-fg:#fff;" data-reveal>
             <span class="cat-tile__img"><img src="assets/img/cat-bombas.png" alt="Bomba de calor de aerotermia" style="object-position:40% center;"></span>
-            <span class="cat-tile__cap">
-              <span class="cat-tile__meta"><span class="cat-tile__sq"></span><span class="cat-tile__num">01</span></span>
-              <h3 class="cat-tile__title">Bombas de calor</h3>
-              <p class="cat-tile__desc">Aerotermia y generación térmica de alta eficiencia.</p>
-              <span class="cat-tile__go">Ver línea <span class="arw">→</span></span>
-            </span>
+            <span class="cat-tile__band"><span class="cat-tile__num">01</span><h3 class="cat-tile__title">Bombas de calor</h3></span>
+            <span class="cat-tile__cap"><p class="cat-tile__desc">Aerotermia y generación térmica de alta eficiencia.</p></span>
           </a>
 
-          <a class="cat-tile" href="categorias/aquabuster.html" style="--c:var(--verde-lima);" data-reveal>
+          <a class="cat-tile" href="categorias/aquabuster.html" style="--c:var(--azul-cielo);--band-fg:#0f1a17;" data-reveal>
             <span class="cat-tile__img"><img src="assets/img/cat-depositos.png" alt="Depósitos para producción de agua caliente" style="object-position:28% center;"></span>
-            <span class="cat-tile__cap">
-              <span class="cat-tile__meta"><span class="cat-tile__sq"></span><span class="cat-tile__num">02</span></span>
-              <h3 class="cat-tile__title">Aquabuster</h3>
-              <p class="cat-tile__desc">Depósitos para producción de agua caliente.</p>
-              <span class="cat-tile__go">Ver línea <span class="arw">→</span></span>
-            </span>
+            <span class="cat-tile__band"><span class="cat-tile__num">02</span><h3 class="cat-tile__title">Aquabuster</h3></span>
+            <span class="cat-tile__cap"><p class="cat-tile__desc">Depósitos para producción de agua caliente.</p></span>
           </a>
 
-          <a class="cat-tile" href="categorias/hidrofox.html" style="--c:var(--azul-marino);" data-reveal>
+          <a class="cat-tile" href="categorias/hidrofox.html" style="--c:var(--verde-lima);--band-fg:#0f1a17;" data-reveal>
             <span class="cat-tile__img"><img src="assets/img/cat-hidrofox.png" alt="Armarios hidráulicos Hidrofox" style="object-position:center;"></span>
-            <span class="cat-tile__cap">
-              <span class="cat-tile__meta"><span class="cat-tile__sq"></span><span class="cat-tile__num">03</span></span>
-              <h3 class="cat-tile__title">Hidrofox</h3>
-              <p class="cat-tile__desc">Armarios hidráulicos y salas de calderas.</p>
-              <span class="cat-tile__go">Ver línea <span class="arw">→</span></span>
-            </span>
+            <span class="cat-tile__band"><span class="cat-tile__num">03</span><h3 class="cat-tile__title">Hidrofox</h3></span>
+            <span class="cat-tile__cap"><p class="cat-tile__desc">Armarios hidráulicos y salas de calderas.</p></span>
           </a>
 
-          <a class="cat-tile" href="categorias/climatizacion-baja-temperatura.html" style="--c:var(--fucsia);" data-reveal>
+          <a class="cat-tile" href="categorias/climatizacion-baja-temperatura.html" style="--c:var(--fucsia);--band-fg:#fff;" data-reveal>
             <span class="cat-tile__img"><img src="assets/img/cat-radiadores.png" alt="Radiador de baja temperatura en salón" style="object-position:32% 60%;"></span>
-            <span class="cat-tile__cap">
-              <span class="cat-tile__meta"><span class="cat-tile__sq"></span><span class="cat-tile__num">04</span></span>
-              <h3 class="cat-tile__title">Climatización a baja temperatura</h3>
-              <p class="cat-tile__desc">Radiadores, toalleros y emisores de baja temperatura.</p>
-              <span class="cat-tile__go">Ver línea <span class="arw">→</span></span>
-            </span>
+            <span class="cat-tile__band"><span class="cat-tile__num">04</span><h3 class="cat-tile__title">Climatización a baja temperatura</h3></span>
+            <span class="cat-tile__cap"><p class="cat-tile__desc">Radiadores, toalleros y emisores de baja temperatura.</p></span>
           </a>
 
-          <a class="cat-tile" href="categorias/sistemas-de-control.html" style="--c:var(--azul-cielo);" data-reveal>
+          <a class="cat-tile" href="categorias/sistemas-de-control.html" style="--c:var(--azul-marino);--band-fg:#fff;" data-reveal>
             <span class="cat-tile__img"><img src="assets/img/cat-control.png" alt="Pantalla de control Teula" style="object-position:center;"></span>
-            <span class="cat-tile__cap">
-              <span class="cat-tile__meta"><span class="cat-tile__sq"></span><span class="cat-tile__num">05</span></span>
-              <h3 class="cat-tile__title">Sistemas de control</h3>
-              <p class="cat-tile__desc">Pantallas de visualización y medida.</p>
-              <span class="cat-tile__go">Ver línea <span class="arw">→</span></span>
-            </span>
+            <span class="cat-tile__band"><span class="cat-tile__num">05</span><h3 class="cat-tile__title">Sistemas de control</h3></span>
+            <span class="cat-tile__cap"><p class="cat-tile__desc">Pantallas de visualización y medida.</p></span>
           </a>
 
-          <a class="cat-tile" href="categorias/contadores.html" style="--c:var(--amarillo-ambar);" data-reveal>
+          <a class="cat-tile" href="categorias/contadores.html" style="--c:var(--amarillo-ambar);--band-fg:#0f1a17;" data-reveal>
             <span class="cat-tile__img"><img src="assets/img/cat-contadores.png" alt="Aplicación de gestión de lecturas de contadores" style="object-position:left center;"></span>
-            <span class="cat-tile__cap">
-              <span class="cat-tile__meta"><span class="cat-tile__sq"></span><span class="cat-tile__num">06</span></span>
-              <h3 class="cat-tile__title">Contadores</h3>
-              <p class="cat-tile__desc">Aplicación de gestión de lecturas de contadores.</p>
-              <span class="cat-tile__go">Ver línea <span class="arw">→</span></span>
-            </span>
+            <span class="cat-tile__band"><span class="cat-tile__num">06</span><h3 class="cat-tile__title">Contadores</h3></span>
+            <span class="cat-tile__cap"><p class="cat-tile__desc">Aplicación de gestión de lecturas de contadores.</p></span>
           </a>
 
         </div>
@@ -247,7 +233,7 @@
             <p data-reveal data-reveal-delay="0.14">Diseñar bien el sistema emisor es lo que hace que la aerotermia rinda. Aquí aprendes a dimensionarlo sin errores.</p>
             <div class="feature__cta" data-reveal data-reveal-delay="0.18">
               <a class="btn" data-link="formacion" href="#">Acceder a formación <span class="arw">→</span></a>
-              <a class="btn btn--ghost" data-link="tarifaPDF" href="#">Descargar tarifa <span class="arw">↓</span></a>
+              <a class="btn btn--ghost" data-link="tarifaPDF" href="#">Ver tarifas <span class="arw">→</span></a>
             </div>
           </div>
         </div>
@@ -275,7 +261,7 @@
         </div>
         <div class="foot-col">
           <h4>Recursos</h4>
-          <a data-link="tarifaPDF" href="#">Descargar tarifa</a>
+          <a data-link="tarifaPDF" href="#">Tarifas</a>
           <a data-link="formacion" href="#">Formación</a>
           <a data-contact="email" href="mailto:info@teula.es">info@teula.es</a>
           <a data-contact="telefono" href="tel:">Teléfono</a>

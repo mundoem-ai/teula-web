@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formación — Teula Sistemas</title>
+  <meta name="description" content="Formación técnica de Teula Sistemas para instaladores y técnicos. Accede a la plataforma de cursos sobre baja temperatura y eficiencia energética.">
+  <link rel="icon" href="assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <div class="formacion-page">
+    <div class="formacion-page__bg"><img src="assets/img/amb-formacion.png" alt="Formación técnica de Teula"></div>
+
+    <!-- Header con logo sobre la imagen -->
+    <header class="formacion-page__header">
+      <a href="index.html" aria-label="Teula Sistemas — inicio"><img class="logo" src="assets/logos/teula_blanco.svg" alt="Teula"></a>
+      <a class="back" href="index.html">← Volver al inicio</a>
+    </header>
+
+    <div class="formacion-page__main">
+      <!-- Intro -->
+      <div class="formacion-intro">
+        <p class="label eyebrow">Formación técnica</p>
+        <h1>Aprende a diseñar sistemas de baja temperatura.</h1>
+        <p>Cursos para instaladores y técnicos sobre climatización de baja temperatura, aerotermia y eficiencia energética. Regístrate y accede a los contenidos online.</p>
+        <ul>
+          <li>Dimensionado de radiadores de baja temperatura</li>
+          <li>Integración con aerotermia y bomba de calor</li>
+          <li>Errores comunes en instalaciones</li>
+          <li>Ejemplos reales de cálculo</li>
+        </ul>
+      </div>
+
+      <!-- Ventana de login -->
+      <div class="login-card">
+        <h2>Acceso a formación</h2>
+        <p class="sub">Entra con tu cuenta para ver los cursos.</p>
+        <!-- FORMULARIO DE ACCESO (frontal). Conecta el "action" con tu plataforma
+             real de formación cuando la tengas. De momento no envía datos a ningún sitio. -->
+        <form id="login-form" novalidate>
+          <div class="login-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" autocomplete="username" placeholder="tucorreo@empresa.com" required>
+          </div>
+          <div class="login-field">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+          </div>
+          <div class="login-row">
+            <label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-family:var(--texto);color:var(--tinta-suave);">
+              <input type="checkbox" name="remember" style="width:auto;"> Recordarme
+            </label>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          </div>
+          <button type="submit" class="btn">Acceder <span class="arw">→</span></button>
+          <p id="login-msg" role="status" aria-live="polite" style="margin:14px 0 0;font-size:0.85rem;color:var(--verde-mar);"></p>
+        </form>
+        <p class="login-sep">¿Aún no tienes cuenta? <a href="#">Regístrate</a></p>
+        <p class="login-note">Plataforma de formación en preparación. Cuando esté activa, este acceso conectará con los cursos online de Teula.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Formulario de acceso — frontal / de diseño.
+    // Sustituye este bloque por la conexión con tu plataforma real (p. ej. un
+    // <form action="https://tu-plataforma/login" method="post">), o redirige a ella.
+    (function () {
+      var form = document.getElementById('login-form');
+      var msg = document.getElementById('login-msg');
+      if (form) form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.textContent = 'La plataforma de formación estará disponible próximamente.';
+      });
+    })();
+  </script>
+</body>
+</html>

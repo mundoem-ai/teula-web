@@ -10,6 +10,8 @@ proceso de compilación.** Se puede abrir tal cual y subir a cualquier alojamien
 ```
 sitio/
 ├── index.html                  Página principal (landing)
+├── tarifas.html                Catálogo visual de tarifas por categoría
+├── formacion.html              Landing de formación con acceso (login)
 ├── categorias/                 Una landing por departamento (6)
 │   ├── bombas-de-calor.html
 │   ├── aquabuster.html

@@ -34,13 +34,16 @@
       } else if (/^(mailto:|tel:|#|\/)/i.test(url)) {
         el.setAttribute("href", url);
       } else {
-        // Ruta a un archivo dentro de la web (p. ej. la tarifa PDF).
-        // Se resuelve desde la raíz del sitio usando TEULA_BASE ("" en la
-        // portada, "../" en las subpáginas) para que funcione en cualquier nivel.
+        // Ruta a un archivo/página dentro de la web. Se resuelve desde la raíz
+        // usando TEULA_BASE ("" en la portada, "../" en las subpáginas).
         var base = window.TEULA_BASE || "";
         el.setAttribute("href", base + url);
-        el.setAttribute("target", "_blank");
-        el.setAttribute("rel", "noopener");
+        // Las páginas internas (.html) se abren en la misma pestaña;
+        // los archivos (p. ej. un PDF) se abren en pestaña nueva.
+        if (!/\.html?($|[?#])/i.test(url)) {
+          el.setAttribute("target", "_blank");
+          el.setAttribute("rel", "noopener");
+        }
       }
     }
   });
