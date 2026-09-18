@@ -3,6 +3,11 @@
 Sitio web estático (HTML + CSS + JavaScript). **No necesita servidor, base de datos ni
 proceso de compilación.** Se puede abrir tal cual y subir a cualquier alojamiento web.
 
+Arquitectura basada en el documento *Arquitectura Web 2.0: Simplificación, Diseño
+Artesanal y Captación*: 3 categorías, cada una con la misma "Anatomía Universal"
+(titular + intro, cuadrícula de gama, módulo específico, formulario de contacto
+universal), fichas de producto individuales y un hub de formación aparte.
+
 ---
 
 ## 1. Estructura
@@ -10,73 +15,108 @@ proceso de compilación.** Se puede abrir tal cual y subir a cualquier alojamien
 ```
 sitio/
 ├── index.html                  Página principal (landing)
-├── tarifas.html                Catálogo visual de tarifas por categoría
-├── formacion.html              Landing de formación con acceso (login)
-├── categorias/                 Una landing por departamento (6)
-│   ├── bombas-de-calor.html
-│   ├── aquabuster.html
-│   ├── hidrofox.html
-│   ├── climatizacion-baja-temperatura.html
-│   ├── sistemas-de-control.html
-│   └── contadores.html
-├── tarifa/                     Tarifa PDF (se descarga desde la web)
+├── formacion.html               Landing de formación con acceso (login) — módulo aparte
+├── tarifas.html                 Catálogo de tarifas (SIN ENLAZAR por ahora, ver §2)
+├── categorias/                  Una página por línea de producto (3)
+│   ├── radiadores.html          Mural estilo Pinterest + guía de medidas
+│   ├── hidraulica.html          Cuadrícula + banner de armarios (Hidrofox)
+│   └── contabilizacion.html     Cuadrícula + módulo de Servicios
+├── productos/                   Fichas de producto individuales (ejemplo, 2)
+│   ├── t30.html
+│   └── toallero.html
+├── tarifa/                      Tarifa PDF (archivo conservado, sin enlazar)
 │   └── Tarifa-Teula-2026.pdf
 ├── assets/
-│   ├── css/styles.css          Diseño (colores, tipografías, maquetación)
-│   ├── js/config.js            ← ENLACES (lo único a editar a menudo)
-│   ├── js/main.js              Comportamiento: menú + animaciones (no hace falta tocarlo)
-│   ├── js/gsap.min.js          Librería de animación (auto-alojada)
-│   ├── js/ScrollTrigger.min.js Animación al hacer scroll (auto-alojada)
-│   ├── fonts/                  Tipografías Teula (Bakbak One, Archivo, JetBrains Mono)
-│   ├── img/                    Fotografías (cat-* apartados · amb-* ambiente)
-│   └── logos/                  Logotipos e isotipos en SVG
-└── README.md                   Este archivo
+│   ├── css/styles.css           Diseño (colores, tipografías, maquetación)
+│   ├── js/config.js             ← ENLACES (lo único a editar a menudo)
+│   ├── js/main.js               Comportamiento: menú, buscador, formulario, animaciones
+│   ├── js/gsap.min.js           Librería de animación (auto-alojada)
+│   ├── js/ScrollTrigger.min.js  Animación al hacer scroll (auto-alojada)
+│   ├── fonts/                   Tipografías Teula (Bakbak One, Archivo, JetBrains Mono)
+│   ├── img/                     Fotografías (cat-*, pin-*, prod-*, amb-*)
+│   └── logos/                   Logotipos e isotipos en SVG
+└── README.md                    Este archivo
 ```
 
-Las 6 categorías se ocultan tras el **icono de menú** (botón «Menú» del header), que
-abre un panel a pantalla completa. Las secciones aparecen con una **animación suave al
-hacer scroll** (GSAP, auto-alojado; sin conexión externa).
+Las 3 categorías (+ Formación, aparte) se ocultan tras el **icono de menú** del header,
+que abre un panel a pantalla completa con foto de fondo. El header también incluye un
+**buscador** que encuentra categorías, fichas de producto y páginas al escribir.
 
 ---
 
-## 2. Cómo cambiar los enlaces (tarifa y formación)
+## 2. Las 3 categorías y su contenido
 
-Abre **`assets/js/config.js`** con cualquier editor de texto y sustituye el `#`
-por la dirección real, entre comillas:
+| Categoría | Color | Gama (Capa 2) | Módulo específico (Capa 3) |
+|---|---|---|---|
+| **Radiadores** | Verde Lima | Mural tipo Pinterest: T30, Decor, Canales, Toalleros | Guía de medidas y acabados |
+| **Hidráulica** | Azul Marino | Depósitos, Componentes, Sistemas de control | Banner "Armarios hidráulicos" (Hidrofox) |
+| **Contabilización** | Amarillo Ámbar | Equipos de medición, Comunicaciones | Módulo "Servicios" (Auditoría, Plataforma, Telegestión) |
+
+Todas terminan con el mismo **formulario de contacto universal** (Capa 4): un único
+formulario con la rama **Particular / Profesional** (y dentro de Profesional:
+Arquitecto / Instalador / Administrador de fincas), tal como pide el documento de
+arquitectura. **Es solo de diseño: no envía datos a ningún sitio todavía.** Cuando haya
+un CRM (p. ej. Holded) o un backend de correo, se sustituye el `submit` de
+`.lead-form` en `assets/js/main.js` por el envío real.
+
+### Tarifas — aparcado, no eliminado
+El catálogo de tarifas (`tarifas.html` y el PDF en `tarifa/`) se ha **desenlazado** de
+toda la navegación a petición expresa, pero el archivo sigue funcionando si lo abres
+directamente. Para reactivarlo más adelante, basta con volver a poner enlaces a
+`tarifas.html` donde se necesiten.
+
+### Bombas de calor
+No forma parte de esta arquitectura de 3 categorías (el documento de referencia no la
+incluye) y se ha retirado de la navegación. Las fotos específicas de bombas de calor no
+se usan actualmente.
+
+---
+
+## 3. Fichas de producto (ejemplo)
+
+`productos/t30.html` y `productos/toallero.html` muestran el patrón completo de ficha:
+imagen heroica, metadatos mínimos (medidas/material), botón grande de "Descargar ficha
+técnica (PDF)" — **de momento marcado "Próximamente"**, porque no hay un PDF por
+producto — y una galería. El mural Pinterest de Radiadores enlaza a estas dos fichas;
+la tarjeta de **Toallero**, además, muestra el efecto **hover: foto general → detalle
+técnico** al pasar el ratón, tal como pide el documento de arquitectura.
+
+Para añadir una ficha nueva, duplica uno de estos dos archivos, cambia las imágenes y
+los metadatos, y enlázala desde el mural o la cuadrícula de su categoría.
+
+---
+
+## 4. Cómo cambiar los enlaces (formación, contacto)
+
+Abre **`assets/js/config.js`** con cualquier editor de texto:
 
 ```js
 window.TEULA_LINKS = {
-  tarifaPDF: "tarifa/Tarifa-Teula-2026.pdf",   // PDF de la tarifa (archivo local)
-  formacion: "#",                              // ← pega aquí la URL de formación
+  tarifaPDF: "tarifas.html",   // sin usar en la navegación actual (ver §2)
+  formacion: "#",              // ← pega aquí la URL de la plataforma de formación
   email: "info@teula.es",
-  telefono: "+34 900 000 000"
+  telefono: "+34 981 079 480"
 };
 ```
 
-Guarda el archivo. Los botones de **toda la web** se actualizan solos.
-
-- **Tarifa:** ya está enlazada al PDF incluido en la carpeta `tarifa/`. Para actualizarla,
-  reemplaza ese archivo (mismo nombre) o cambia la ruta. También puedes poner una URL online
-  `https://…` si prefieres alojarla fuera.
-- **Formación:** todavía es un placeholder (`#`): su botón aparece atenuado con la etiqueta
-  **«Próximamente»**. En cuanto tengas la URL de la plataforma, pégala entre comillas y el
-  botón se activa (se abre en pestaña nueva).
+Mientras `formacion` valga `#`, cualquier botón que lo use aparece atenuado con la
+etiqueta **«Próximamente»**. En cuanto tengas la URL real, pégala entre comillas.
 
 ---
 
-## 3. Cómo cambiar textos e imágenes de una categoría
+## 5. Cómo cambiar textos e imágenes
 
-Cada categoría es un archivo `.html` dentro de `categorias/`. Ábrelo y edita:
-
-- El texto entre las etiquetas del bloque marcado con
-  `<!-- TEXTO GUÍA (editable) ... -->` (el copy es provisional, para rellenar con datos reales).
-- Para cambiar la **foto** de una categoría, sustituye su imagen en `assets/img/`
-  (las de apartado se llaman `cat-*.png`) o cambia la ruta `src` en el HTML.
-- Añade tus fotos a `assets/img/` (recomendado: máximo ~1600 px de ancho, formato PNG o JPG).
+- **Categorías:** cada archivo en `categorias/` tiene el texto de introducción y los
+  módulos directamente en el HTML — edítalo con cualquier editor.
+- **Fotos del mural o la gama:** sustituye el archivo en `assets/img/` (mismo nombre) o
+  cambia la ruta `src` en el HTML.
+- **Formulario de contacto:** su estructura vive en `assets/js/main.js`
+  (función que genera `.lead-form`) — si solo quieres cambiar textos, edítalos
+  directamente en cada página, dentro de `<section class="section" id="contacto">`.
 
 ---
 
-## 4. Cómo publicarlo
+## 6. Cómo publicarlo
 
 Es un sitio estático: sube **toda la carpeta `sitio/`** a cualquiera de estas opciones.
 
@@ -96,7 +136,7 @@ npx serve sitio
 
 ---
 
-## 5. Identidad de marca
+## 7. Identidad de marca
 
 Colores, tipografías y logotipos siguen el *Manual de identidad visual Teula V-2026*.
 Todo (fuentes e imágenes) está **auto-alojado**: la web no depende de servicios externos,

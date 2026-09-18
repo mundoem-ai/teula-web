@@ -82,13 +82,11 @@
 
   /* --- Buscador del header --- */
   var SEARCH = [
-    { t: "Bombas de calor", u: "categorias/bombas-de-calor.html", c: "--verde-mar", k: "aerotermia generacion termica" },
-    { t: "Aquabuster", u: "categorias/aquabuster.html", c: "--azul-cielo", k: "agua caliente acs depositos" },
-    { t: "Hidrofox", u: "categorias/hidrofox.html", c: "--verde-lima", k: "armarios hidraulica salas calderas" },
-    { t: "Climatización a baja temperatura", u: "categorias/climatizacion-baja-temperatura.html", c: "--fucsia", k: "radiadores toalleros emisores baja temperatura t30 tower decor" },
-    { t: "Sistemas de control", u: "categorias/sistemas-de-control.html", c: "--azul-marino", k: "control pantalla medida regulacion" },
-    { t: "Contadores", u: "categorias/contadores.html", c: "--amarillo-ambar", k: "lecturas contabilizacion medidores" },
-    { t: "Tarifas", u: "tarifas.html", c: "--verde-lima", k: "precios catalogo pdf" },
+    { t: "Radiadores", u: "categorias/radiadores.html", c: "--verde-lima", k: "baja temperatura toalleros decor t30 canales accesorios control" },
+    { t: "Hidráulica", u: "categorias/hidraulica.html", c: "--azul-marino", k: "depositos componentes armarios sistemas de control bombeo" },
+    { t: "Contabilización", u: "categorias/contabilizacion.html", c: "--amarillo-ambar", k: "contadores medicion comunicaciones servicios lecturas" },
+    { t: "T30", u: "productos/t30.html", c: "--verde-lima", k: "radiador ficha producto baja temperatura" },
+    { t: "Toallero", u: "productos/toallero.html", c: "--verde-lima", k: "ficha producto bano" },
     { t: "Formación", u: "formacion.html", c: "--verde-lima", k: "cursos formacion acceso login" },
     { t: "Inicio", u: "index.html", c: "--verde-mar", k: "home portada" }
   ];
@@ -126,6 +124,30 @@
     });
     document.addEventListener("click", function (e) { if (!searchWrap.contains(e.target)) sResults.classList.remove("is-open"); });
   }
+
+  /* --- Formulario de contacto universal (frontal, sin backend) ---
+     Rama Particular/Profesional -> Profesional revela el rol
+     (Arquitecto/Instalador/Administrador de fincas). No envía datos a
+     ningún sitio todavía: cuando haya CRM/backend, se sustituye este
+     bloque por el envío real. */
+  document.querySelectorAll(".lead-form").forEach(function (form) {
+    var typeInputs = form.querySelectorAll('input[name="tipo"]');
+    var roleField = form.querySelector(".lf-role");
+    var msg = form.querySelector(".lf-msg");
+    function syncRole() {
+      var checked = form.querySelector('input[name="tipo"]:checked');
+      var isPro = checked && checked.value === "profesional";
+      if (roleField) roleField.classList.toggle("is-visible", !!isPro);
+    }
+    typeInputs.forEach(function (i) { i.addEventListener("change", syncRole); });
+    syncRole();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (msg) msg.textContent = "Gracias. Hemos recibido tu solicitud y te contactaremos en breve.";
+      form.reset();
+      syncRole();
+    });
+  });
 
   /* --- Año en el pie --- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
