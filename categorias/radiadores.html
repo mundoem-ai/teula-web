@@ -74,37 +74,74 @@
 
   <main>
 
-    <!-- ============ CAPA 1 · TITULAR + INTRO ============ -->
-    <section class="catx-hero">
+    <!-- ============ BANNER (estilo portada) ============ -->
+    <section class="hero-clean">
+      <div class="hero-clean__media">
+        <img src="../assets/img/t30-banner.jpg" alt="Radiador T30 en un salón cálido con vistas a olivos">
+      </div>
       <div class="wrap">
-        <nav class="breadcrumb" aria-label="Ruta" data-reveal>
-          <a href="../index.html">Inicio</a><span class="sep">/</span>
-          <a href="../index.html#departamentos">Departamentos</a><span class="sep">/</span>
-          <span>Radiadores</span>
-        </nav>
-        <p class="catx-hero__tag" data-reveal><span class="dot" style="background:var(--verde-lima);"></span>Línea 01 — Baja temperatura</p>
-        <h1 data-reveal data-reveal-delay="0.06">Radiadores de baja temperatura.</h1>
-        <p class="catx-hero__lead" data-reveal data-reveal-delay="0.1">Emisores para trabajar a 35–45 °C: T30, Decor, toalleros, canales, accesorios y sistemas de control.</p>
+        <div class="hero-clean__inner">
+          <nav class="breadcrumb" aria-label="Ruta" data-reveal style="color:rgba(255,255,255,0.75);">
+            <a href="../index.html" style="color:inherit;">Inicio</a><span class="sep">/</span>
+            <a href="../index.html#departamentos" style="color:inherit;">Departamentos</a><span class="sep">/</span>
+            <span>Radiadores</span>
+          </nav>
+          <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 01 — Baja temperatura</p>
+          <h1 data-reveal data-reveal-delay="0.08">Radiadores de baja temperatura.</h1>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Seis modelos para trabajar a 35–45 °C, de diseño limpio y alta eficiencia: T30, Tower, Decor, Bent, Canales y Toalleros.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ CAPA 2 · CUADRÍCULA DE SUBCATEGORÍAS ============ -->
-    <section class="section section--tight">
+    <!-- ============ GALERÍA DE 6 MODELOS (ancho completo) ============ -->
+    <section class="section" id="modelos">
       <div class="wrap">
-        <p class="label" style="margin-bottom:20px;" data-reveal>02 — Gama</p>
-        <div class="pin-wall" data-reveal>
-        <a class="pin-tile" href="../productos/t30.html"><img src="../assets/img/pin-t30-1.jpg" alt="Radiador T30 junto a ventana"><span class="pin-tile__label">T30</span></a>
-        <div class="pin-tile"><img src="../assets/img/pin-decor-1.jpg" alt="Radiador Decor vertical con espejo, acabado negro"><span class="pin-tile__label">Decor</span></div>
-        <div class="pin-tile"><img src="../assets/img/pin-canal-1.jpg" alt="Canal de suelo radiante en madera"><span class="pin-tile__label">Canales</span></div>
-        <a class="pin-tile pin-tile--hover" href="../productos/toallero.html"><img src="../assets/img/pin-toallero-1.jpg" alt="Toallero cromado en baño moderno"><span class="pin-tile__img2"><img src="../assets/img/prod-toallero-detail.png" alt=""></span><span class="pin-tile__label">Toalleros</span></a>
-        <div class="pin-tile"><img src="../assets/img/pin-t30-2.jpg" alt="Radiador T30 en verde, habitación infantil"><span class="pin-tile__label">T30</span></div>
-        <div class="pin-tile"><img src="../assets/img/pin-decor-2.jpg" alt="Radiador Decor vertical rojo con espejo"><span class="pin-tile__label">Decor</span></div>
-        <div class="pin-tile"><img src="../assets/img/pin-canal-2.jpg" alt="Canal de suelo junto a ventanal con vistas al lago"><span class="pin-tile__label">Canales</span></div>
-        <div class="pin-tile"><img src="../assets/img/pin-toallero-2.jpg" alt="Toallero cromado en baño con luz natural"><span class="pin-tile__label">Toalleros</span></div>
+        <div class="dep-head">
+          <h2 data-reveal>La gama, modelo a modelo.</h2>
+          <p class="label" data-reveal>02 — Modelos</p>
         </div>
-        <p class="tarifa-note" style="margin-top:14px;" data-reveal>Pasa el ratón sobre Toalleros para ver el detalle técnico. T30 y Toalleros enlazan a su ficha de producto.</p>
+      </div>
+      <div class="full-bleed cat-band">
+        <div class="model-grid">
+
+          <a class="model-card" href="../productos/t30.html" data-reveal>
+            <span class="model-card__img"><img src="../assets/img/t30-cocina.jpg" alt="Radiador T30 en una cocina mediterránea"></span>
+            <span class="model-card__name">T30 <span class="arw">→</span></span>
+          </a>
+
+          <div class="model-card model-card--disabled" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img model-card__ph"><img src="../assets/logos/isotipo_blanco.svg" alt=""><span class="model-card__soon">Próximamente</span></span>
+            <span class="model-card__name">Tower</span>
+          </div>
+
+          <a class="model-card" href="../productos/decor.html" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img"><img src="../assets/img/pin-decor-2.jpg" alt="Radiador Decor vertical rojo con espejo"></span>
+            <span class="model-card__name">Decor <span class="arw">→</span></span>
+          </a>
+
+          <div class="model-card model-card--disabled" data-reveal>
+            <span class="model-card__img model-card__ph"><img src="../assets/logos/isotipo_blanco.svg" alt=""><span class="model-card__soon">Próximamente</span></span>
+            <span class="model-card__name">Bent</span>
+          </div>
+
+          <a class="model-card" href="../productos/canales.html" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img"><img src="../assets/img/pin-canal-2.jpg" alt="Canal de suelo junto a ventanal con vistas al lago"></span>
+            <span class="model-card__name">Canales <span class="arw">→</span></span>
+          </a>
+
+          <a class="model-card" href="../productos/toallero.html" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img"><img src="../assets/img/pin-toallero-2.jpg" alt="Toallero cromado en baño con luz natural"></span>
+            <span class="model-card__name">Toalleros <span class="arw">→</span></span>
+          </a>
+
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="tarifa-note" style="margin-top:18px;" data-reveal>Tower y Bent: fotografía de producto en preparación. El resto enlaza a su ficha técnica.</p>
       </div>
     </section>
+
+    <!-- ============ CAPA 2 (accesorios) · MEDIDAS ============ -->
 
     <!-- ============ CAPA 3 · MÓDULO ESPECÍFICO ============ -->
     <section class="section section--tight">

@@ -18,11 +18,13 @@ sitio/
 ├── formacion.html               Landing de formación con acceso (login) — módulo aparte
 ├── tarifas.html                 Catálogo de tarifas (SIN ENLAZAR por ahora, ver §2)
 ├── categorias/                  Una página por línea de producto (3)
-│   ├── radiadores.html          Mural estilo Pinterest + guía de medidas
+│   ├── radiadores.html          Banner + galería de 6 modelos + guía de medidas
 │   ├── hidraulica.html          Cuadrícula + banner de armarios (Hidrofox)
 │   └── contabilizacion.html     Cuadrícula + módulo de Servicios
-├── productos/                   Fichas de producto individuales (ejemplo, 2)
-│   ├── t30.html
+├── productos/                   Fichas de producto individuales (estilo Caleido)
+│   ├── t30.html                 2 acabados (blanco / antracita), galería completa
+│   ├── decor.html
+│   ├── canales.html
 │   └── toallero.html
 ├── tarifa/                      Tarifa PDF (archivo conservado, sin enlazar)
 │   └── Tarifa-Teula-2026.pdf
@@ -48,7 +50,7 @@ que abre un panel a pantalla completa con foto de fondo. El header también incl
 
 | Categoría | Color | Gama (Capa 2) | Módulo específico (Capa 3) |
 |---|---|---|---|
-| **Radiadores** | Verde Lima | Mural tipo Pinterest: T30, Decor, Canales, Toalleros | Guía de medidas y acabados |
+| **Radiadores** | Verde Lima | Banner + galería de 6 modelos: T30, Tower, Decor, Bent, Canales, Toalleros | Guía de medidas y acabados |
 | **Hidráulica** | Azul Marino | Depósitos, Componentes, Sistemas de control | Banner "Armarios hidráulicos" (Hidrofox) |
 | **Contabilización** | Amarillo Ámbar | Equipos de medición, Comunicaciones | Módulo "Servicios" (Auditoría, Plataforma, Telegestión) |
 
@@ -72,17 +74,25 @@ se usan actualmente.
 
 ---
 
-## 3. Fichas de producto (ejemplo)
+## 3. Radiadores: galería de modelos y fichas de producto
 
-`productos/t30.html` y `productos/toallero.html` muestran el patrón completo de ficha:
-imagen heroica, metadatos mínimos (medidas/material), botón grande de "Descargar ficha
-técnica (PDF)" — **de momento marcado "Próximamente"**, porque no hay un PDF por
-producto — y una galería. El mural Pinterest de Radiadores enlaza a estas dos fichas;
-la tarjeta de **Toallero**, además, muestra el efecto **hover: foto general → detalle
-técnico** al pasar el ratón, tal como pide el documento de arquitectura.
+`categorias/radiadores.html` tiene un banner a pantalla completa (estilo portada) y,
+debajo, una **galería a ancho completo con los 6 modelos** (T30, Tower, Decor, Bent,
+Canales, Toalleros). Al hacer clic en un modelo se abre su **ficha individual** en
+`productos/`, con el diseño de referencia (banner + nombre superpuesto, franja de datos
+básicos, ficha técnica, botón "Descargar ficha técnica (PDF)" — marcado
+**"Próximamente"** porque aún no hay un PDF por producto — y una galería de fotos).
 
-Para añadir una ficha nueva, duplica uno de estos dos archivos, cambia las imágenes y
-los metadatos, y enlázala desde el mural o la cuadrícula de su categoría.
+- **Con ficha completa** (fotografía real): `t30.html` (2 acabados: blanco y antracita),
+  `decor.html`, `canales.html`, `toallero.html`.
+- **Sin ficha todavía** (sin fotografía de producto): **Tower** y **Bent** aparecen en la
+  galería como tarjetas de marca con la etiqueta **"Próximamente"**, sin enlace. En
+  cuanto tengas fotos de estos dos modelos, se les puede montar su ficha igual que a
+  los demás (duplica `decor.html` como plantilla, cambia imágenes y metadatos, y enlaza
+  la tarjeta desde `categorias/radiadores.html`).
+
+Las fotos nuevas de T30 (banner, interiores, detalle, y la variante doble en antracita)
+llegan de `landing fotos/t30-*.png`, optimizadas a `assets/img/t30-*.jpg`.
 
 ---
 

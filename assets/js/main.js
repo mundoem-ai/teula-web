@@ -86,6 +86,8 @@
     { t: "Hidráulica", u: "categorias/hidraulica.html", c: "--azul-marino", k: "depositos componentes armarios sistemas de control bombeo" },
     { t: "Contabilización", u: "categorias/contabilizacion.html", c: "--amarillo-ambar", k: "contadores medicion comunicaciones servicios lecturas" },
     { t: "T30", u: "productos/t30.html", c: "--verde-lima", k: "radiador ficha producto baja temperatura" },
+    { t: "Decor", u: "productos/decor.html", c: "--verde-lima", k: "radiador vertical espejo ficha producto" },
+    { t: "Canales", u: "productos/canales.html", c: "--verde-lima", k: "canal de suelo ficha producto" },
     { t: "Toallero", u: "productos/toallero.html", c: "--verde-lima", k: "ficha producto bano" },
     { t: "Formación", u: "formacion.html", c: "--verde-lima", k: "cursos formacion acceso login" },
     { t: "Inicio", u: "index.html", c: "--verde-mar", k: "home portada" }
