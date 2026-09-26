@@ -129,6 +129,25 @@
     document.addEventListener("click", function (e) { if (!searchWrap.contains(e.target)) sResults.classList.remove("is-open"); });
   }
 
+  /* --- Formulario unificado inyectable: <div data-lead-form="Interés"></div> --- */
+  document.querySelectorAll("[data-lead-form]").forEach(function (host) {
+    var interes = host.getAttribute("data-lead-form");
+    var opts = ["Radiadores BT", "Hidráulica", "Contabilización", "Formación", "Otro"].map(function (o) {
+      return "<option" + (o === interes ? " selected" : "") + ">" + o + "</option>";
+    }).join("");
+    host.innerHTML = '<section class="section" id="contacto"><div class="wrap"><form class="lead-form" novalidate data-reveal>' +
+      '<div class="lead-form__head"><p class="label">Contacto</p><h3>Solicita información</h3><p>Cuéntanos qué necesitas. Un único formulario para particulares y profesionales — sin compromiso.</p></div>' +
+      '<div class="lf-type"><input type="radio" name="tipo" id="tipo-particular" value="particular" checked><label for="tipo-particular">Particular</label>' +
+      '<input type="radio" name="tipo" id="tipo-profesional" value="profesional"><label for="tipo-profesional">Profesional</label></div>' +
+      '<div class="lf-role lf-field"><label for="rol">Perfil profesional</label><select id="rol" name="rol"><option value="arquitecto">Arquitecto</option><option value="instalador">Instalador</option><option value="administrador">Administrador de fincas</option></select></div>' +
+      '<div class="lf-grid"><div class="lf-field"><label for="lf-nombre">Nombre</label><input type="text" id="lf-nombre" name="nombre" placeholder="Tu nombre" required></div>' +
+      '<div class="lf-field"><label for="lf-email">Email</label><input type="email" id="lf-email" name="email" placeholder="tucorreo@email.com" required></div>' +
+      '<div class="lf-field"><label for="lf-telefono">Teléfono</label><input type="tel" id="lf-telefono" name="telefono" placeholder="600 000 000"></div>' +
+      '<div class="lf-field"><label for="lf-interes">Interés</label><select id="lf-interes" name="interes">' + opts + '</select></div>' +
+      '<div class="lf-field lf-full"><label for="lf-mensaje">Mensaje</label><textarea id="lf-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos tu proyecto"></textarea></div></div>' +
+      '<button type="submit" class="btn btn--on-dark">Enviar solicitud <span class="arw">→</span></button><p class="lf-msg" role="status" aria-live="polite"></p></form></div></section>';
+  });
+
   /* --- Formulario de contacto universal (frontal, sin backend) ---
      Rama Particular/Profesional -> Profesional revela el rol
      (Arquitecto/Instalador/Administrador de fincas). No envía datos a
