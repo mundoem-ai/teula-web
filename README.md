@@ -18,14 +18,15 @@ sitio/
 ├── formacion.html               Landing de formación con acceso (login) — módulo aparte
 ├── tarifas.html                 Catálogo de tarifas (SIN ENLAZAR por ahora, ver §2)
 ├── categorias/                  Una página por línea de producto (3)
-│   ├── radiadores.html          Banner + galería de 6 modelos + guía de medidas
+│   ├── radiadores.html          Banner + galería de 6 modelos + contacto (azul marino)
 │   ├── hidraulica.html          Cuadrícula + banner de armarios (Hidrofox)
 │   └── contabilizacion.html     Cuadrícula + módulo de Servicios
 ├── productos/                   Fichas de producto individuales (estilo Caleido)
 │   ├── t30.html                 2 acabados (blanco / antracita), galería completa
+│   ├── tower.html
 │   ├── decor.html
-│   ├── canales.html
-│   └── toallero.html
+│   ├── canales.html             incluye modelo Triovent (rejilla madera/aluminio)
+│   └── toallero.html            incluye modelo Carnota
 ├── tarifa/                      Tarifa PDF (archivo conservado, sin enlazar)
 │   └── Tarifa-Teula-2026.pdf
 ├── assets/
@@ -50,7 +51,7 @@ que abre un panel a pantalla completa con foto de fondo. El header también incl
 
 | Categoría | Color | Gama (Capa 2) | Módulo específico (Capa 3) |
 |---|---|---|---|
-| **Radiadores** | Verde Lima | Banner + galería de 6 modelos: T30, Tower, Decor, Bent, Canales, Toalleros | Guía de medidas y acabados |
+| **Radiadores** | Verde Lima | Banner (con overlay de modelos al pasar el cursor en la tarjeta de portada) + galería de 6 modelos: T30, Tower, Decor, Vent, Canales, Toalleros | — (sin módulo específico; ver nota más abajo) |
 | **Hidráulica** | Azul Marino | Depósitos, Componentes, Sistemas de control | Banner "Armarios hidráulicos" (Hidrofox) |
 | **Contabilización** | Amarillo Ámbar | Equipos de medición, Comunicaciones | Módulo "Servicios" (Auditoría, Plataforma, Telegestión) |
 
@@ -77,22 +78,38 @@ se usan actualmente.
 ## 3. Radiadores: galería de modelos y fichas de producto
 
 `categorias/radiadores.html` tiene un banner a pantalla completa (estilo portada) y,
-debajo, una **galería a ancho completo con los 6 modelos** (T30, Tower, Decor, Bent,
+debajo, una **galería a ancho completo con los 6 modelos** (T30, Tower, Decor, Vent,
 Canales, Toalleros). Al hacer clic en un modelo se abre su **ficha individual** en
 `productos/`, con el diseño de referencia (banner + nombre superpuesto, franja de datos
 básicos, ficha técnica, botón "Descargar ficha técnica (PDF)" — marcado
 **"Próximamente"** porque aún no hay un PDF por producto — y una galería de fotos).
 
-- **Con ficha completa** (fotografía real): `t30.html` (2 acabados: blanco y antracita),
-  `decor.html`, `canales.html`, `toallero.html`.
-- **Sin ficha todavía** (sin fotografía de producto): **Tower** y **Bent** aparecen en la
-  galería como tarjetas de marca con la etiqueta **"Próximamente"**, sin enlace. En
-  cuanto tengas fotos de estos dos modelos, se les puede montar su ficha igual que a
-  los demás (duplica `decor.html` como plantilla, cambia imágenes y metadatos, y enlaza
-  la tarjeta desde `categorias/radiadores.html`).
+Los 6 modelos tienen ya ficha completa con fotografía real: `t30.html` (2 acabados:
+blanco y antracita), `tower.html`, `decor.html`, `vent.html` (radiador de convección
+forzada con turbina interna — sus medidas exactas figuran como "Consultar" hasta
+recibir la ficha técnica del fabricante), `canales.html` (incluye el modelo Triovent),
+`toallero.html` (incluye el modelo Carnota).
 
-Las fotos nuevas de T30 (banner, interiores, detalle, y la variante doble en antracita)
-llegan de `landing fotos/t30-*.png`, optimizadas a `assets/img/t30-*.jpg`.
+Las 6 tarjetas llevan el nombre superpuesto en la propia foto (clase `.model-card__cap`
+en `styles.css`), al estilo de la referencia Caleido. Por defecto solo se ve el título;
+al pasar el cursor aparece una descripción breve, el título sube un poco para dejarle
+sitio, y toda la tarjeta (foto + rótulo) crece ligeramente con una sombra suave — no es
+solo un zoom de la foto. La nota "Los seis modelos enlazan ya a su ficha técnica" se
+retiró (redundante con el propio rótulo).
+
+La sección "Medidas y acabados" (tabla con ancho/alto/fondo/acabados por modelo) se
+retiró de la página — se probó primero a mostrar esos datos también en el hover de la
+galería, pero se decidió no duplicar la información y simplificar la página.
+
+La caja del formulario de contacto se probó en Azul Marino solo en esta página, pero se
+volvió al Verde Mar universal (`var(--verde-mar)`, la regla compartida de `styles.css`
+sin overrides) — igual que en Hidráulica y Contabilización.
+
+Las fotos nuevas de T30, Tower, Canales (Triovent) y Toalleros (Carnota) llegan de
+`landing fotos/*.png`, optimizadas a `assets/img/*.jpg`.
+
+La tarjeta "Radiadores" de la página principal muestra, al pasar el cursor por encima,
+un overlay con el listado de los 6 modelos (`.cat-tile__hover` en `styles.css`).
 
 ---
 
@@ -160,3 +177,8 @@ por lo que es estable y no requiere mantenimiento técnico.
 | Fucsia        | `#E72380` |
 | Azul Cielo    | `#A6DAEA` |
 | Amarillo Ámbar| `#F7AD1A` |
+
+Además, `--gris-oscuro` (`#2B2F31`) es un neutro añadido fuera del manual de marca,
+usado únicamente como fondo del **pie de página** (`site-footer`) en toda la web —
+antes era Verde Mar; se cambió a gris para diferenciarlo visualmente de las cajas de
+contacto (que sí siguen en Verde Mar) y darle un cierre más neutro a cada página.

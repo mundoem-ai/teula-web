@@ -64,6 +64,7 @@
   --gris-linea: #d9ddd6;
   --tinta: #0f1a17;
   --tinta-suave: #4a544f;
+  --gris-oscuro: #2b2f31;
 
   /* Color de acento por página (se sobrescribe en cada categoría) */
   --acento: var(--verde-lima);
@@ -446,7 +447,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
    FOOTER
    ============================================================ */
 .site-footer {
-  background: var(--verde-mar);
+  background: var(--gris-oscuro);
   color: rgba(255, 255, 255, 0.8);
   padding-block: clamp(48px, 6vw, 80px) 32px;
 }
@@ -1025,6 +1026,25 @@ body.menu-open { overflow: hidden; }
 .cat-tile:hover .cat-tile__img img { transform: scale(1.04); }
 /* Barra de color (identidad de categoría) — es un bloque sólido, no un lavado sobre la foto */
 .cat-tile__img::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: var(--c); }
+
+/* Overlay al pasar el cursor: nombre/modelos de la categoría sobre la foto */
+.cat-tile__hover {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 18px; gap: 6px;
+  background: linear-gradient(0deg, rgba(8,10,12,0.78) 0%, rgba(8,10,12,0.15) 60%, rgba(8,10,12,0) 80%);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cat-tile:hover .cat-tile__hover { opacity: 1; transform: translateY(0); }
+.cat-tile__hover-label {
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--c);
+}
+.cat-tile__hover-list {
+  font-family: var(--display); font-size: clamp(0.98rem, 1.3vw, 1.15rem); line-height: 1.3;
+  color: #fff;
+}
 .cat-tile__cap { padding-top: 18px; }
 .cat-tile__meta { display: flex; align-items: center; gap: 10px; }
 .cat-tile__sq { width: 11px; height: 11px; border-radius: 2px; background: var(--c); flex: none; }
@@ -1514,25 +1534,50 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- Galería de modelos (radiadores.html) — ancho completo ---------- */
 .model-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 1.8vw, 22px); }
-.model-card { display: block; }
-.model-card__img { position: relative; overflow: hidden; border-radius: 4px; aspect-ratio: 4 / 3; background: var(--niebla); }
-.model-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.2,0.7,0.2,1); }
-.model-card:hover .model-card__img img { transform: scale(1.035); }
+.model-card { display: block; position: relative; z-index: 1; }
+.model-card:hover { z-index: 3; }
+.model-card__img {
+  display: block; position: relative; overflow: hidden; border-radius: 4px; aspect-ratio: 4 / 3; background: var(--niebla);
+  transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.4s ease;
+}
+.model-card:hover .model-card__img { transform: scale(1.045); box-shadow: 0 20px 44px rgba(8,10,12,0.28); }
+.model-card__img img { width: 100%; height: 100%; object-fit: cover; }
 .model-card__ph { display: grid; place-items: center; background: var(--verde-mar); }
-.model-card__ph img { width: 42px; height: 42px; object-fit: contain; opacity: 0.9; transition: none; }
+.model-card__ph img { width: 42px; height: 42px; object-fit: contain; opacity: 0.9; }
 .model-card__soon {
   position: absolute; top: 12px; right: 12px;
   font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
   background: rgba(255,255,255,0.92); color: var(--verde-mar); padding: 4px 9px; border-radius: 3px;
 }
-.model-card__name {
-  margin-top: 14px; font-family: var(--display); font-size: 1.3rem; letter-spacing: -0.01em; color: var(--verde-mar);
+.model-card--disabled { cursor: default; }
+.model-card--disabled:hover { transform: none; }
+
+/* Rótulo dentro de la foto: solo el título es visible por defecto; al pasar el
+   cursor aparece la descripción y el título sube ligeramente para dejarle sitio. */
+.model-card__cap {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 18px;
+  background: linear-gradient(0deg, rgba(8,10,12,0.5) 0%, rgba(8,10,12,0) 48%);
+  transition: background 0.4s ease;
+}
+.model-card:hover .model-card__cap {
+  background: linear-gradient(0deg, rgba(8,10,12,0.8) 0%, rgba(8,10,12,0.16) 62%, rgba(8,10,12,0) 84%);
+}
+.model-card__cap-name {
+  font-family: var(--display); font-size: 1.3rem; letter-spacing: -0.01em; color: #fff;
   display: flex; align-items: center; gap: 8px;
 }
-.model-card__name .arw { font-family: var(--mono); font-size: 0.9rem; transition: transform 0.2s ease; }
-.model-card:hover .model-card__name .arw { transform: translateX(5px); }
-.model-card--disabled { cursor: default; }
-.model-card--disabled .model-card__name { color: var(--tinta-suave); }
+.model-card__cap-name .arw { font-family: var(--mono); font-size: 0.9rem; transition: transform 0.2s ease; }
+.model-card:hover .model-card__cap-name .arw { transform: translateX(5px); }
+.model-card__cap-more {
+  display: flex; flex-direction: column; gap: 5px; max-width: 34ch;
+  max-height: 0; opacity: 0; margin-top: 0; overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+}
+.model-card:hover .model-card__cap-more { max-height: 7em; opacity: 1; margin-top: 6px; }
+.model-card__cap-desc { font-family: var(--texto); font-weight: 300; font-size: 0.82rem; line-height: 1.35; color: rgba(255,255,255,0.9); }
+.model-card__cap-specs { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.02em; line-height: 1.5; color: rgba(255,255,255,0.68); }
 @media (max-width: 900px) { .model-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .model-grid { grid-template-columns: 1fr; } }
 

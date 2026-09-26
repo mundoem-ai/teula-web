@@ -86,7 +86,9 @@
     { t: "Hidráulica", u: "categorias/hidraulica.html", c: "--azul-marino", k: "depositos componentes armarios sistemas de control bombeo" },
     { t: "Contabilización", u: "categorias/contabilizacion.html", c: "--amarillo-ambar", k: "contadores medicion comunicaciones servicios lecturas" },
     { t: "T30", u: "productos/t30.html", c: "--verde-lima", k: "radiador ficha producto baja temperatura" },
+    { t: "Tower", u: "productos/tower.html", c: "--verde-lima", k: "radiador vertical estrecho ficha producto" },
     { t: "Decor", u: "productos/decor.html", c: "--verde-lima", k: "radiador vertical espejo ficha producto" },
+    { t: "Vent", u: "productos/vent.html", c: "--verde-lima", k: "conveccion forzada turbina ficha producto" },
     { t: "Canales", u: "productos/canales.html", c: "--verde-lima", k: "canal de suelo ficha producto" },
     { t: "Toallero", u: "productos/toallero.html", c: "--verde-lima", k: "ficha producto bano" },
     { t: "Formación", u: "formacion.html", c: "--verde-lima", k: "cursos formacion acceso login" },
@@ -141,12 +143,17 @@
       var isPro = checked && checked.value === "profesional";
       if (roleField) roleField.classList.toggle("is-visible", !!isPro);
     }
+    var sel = form.querySelector('select[name="interes"]');
+    var q = new URLSearchParams(location.search).get("interes");
+    if (sel && q) { for (var k = 0; k < sel.options.length; k++) { if (sel.options[k].text === q) sel.selectedIndex = k; } }
     typeInputs.forEach(function (i) { i.addEventListener("change", syncRole); });
     syncRole();
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (msg) msg.textContent = "Gracias. Hemos recibido tu solicitud y te contactaremos en breve.";
+      var keep = sel ? sel.selectedIndex : 0;
       form.reset();
+      if (sel) sel.selectedIndex = keep;
       syncRole();
     });
   });
