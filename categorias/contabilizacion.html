@@ -74,90 +74,74 @@
 
   <main>
 
-    <!-- ============ CAPA 1 · TITULAR + INTRO ============ -->
-    <section class="catx-hero">
+    <!-- ============ BANNER (estilo portada, igual que Radiadores e Hidráulica) ============ -->
+    <section class="hero-clean">
+      <div class="hero-clean__media">
+        <img src="../assets/img/hero_contabilizacion.png" alt="Sala técnica con contadores digitales y módulo de telelectura">
+      </div>
       <div class="wrap">
-        <nav class="breadcrumb" aria-label="Ruta" data-reveal>
-          <a href="../index.html">Inicio</a><span class="sep">/</span>
-          <a href="../index.html#departamentos">Departamentos</a><span class="sep">/</span>
-          <span>Contabilización</span>
-        </nav>
-        <p class="catx-hero__tag" data-reveal><span class="dot" style="background:var(--amarillo-ambar);"></span>Línea 03 — Contabilización</p>
-        <h1 data-reveal data-reveal-delay="0.06">Contabilización de consumos.</h1>
-        <p class="catx-hero__lead" data-reveal data-reveal-delay="0.1">Equipos de medición, comunicaciones y servicios. Un dato justo, medible y verificable.</p>
+        <div class="hero-clean__inner">
+          <nav class="breadcrumb" aria-label="Ruta" data-reveal style="color:rgba(255,255,255,0.75);">
+            <a href="../index.html" style="color:inherit;">Inicio</a><span class="sep">/</span>
+            <a href="../index.html#departamentos" style="color:inherit;">Departamentos</a><span class="sep">/</span>
+            <a href="../index.html" style="color:inherit;">Contabilización</a>
+          </nav>
+          <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 03 — Contabilización</p>
+          <h1 data-reveal data-reveal-delay="0.08">Contabilización de consumos.</h1>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Equipos de medición, comunicaciones y servicios. Un dato justo, medible y verificable.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ CAPA 2 · CUADRÍCULA DE SUBCATEGORÍAS ============ -->
-    <section class="section section--tight">
+    <!-- ============ CAPA 2 · SERVICIOS (tarjetas al mismo tamaño que el resto) ============ -->
+    <section class="section">
       <div class="wrap">
-        <p class="label" style="margin-bottom:20px;" data-reveal>02 — Gama</p>
+        <div class="dep-head">
+          <h2 data-reveal>Más allá del contador.</h2>
+          <p class="label" data-reveal>02 — Servicios</p>
+        </div>
+        <div class="subcat-grid">
+          <div class="subcat-card" data-reveal>
+            <span class="subcat-card__img"><img src="../assets/img/auditoria_energetica.png" alt="Auditoría energética de una instalación"><span class="subcat-card__cap"><h3 class="subcat-card__title">Auditoría energética</h3><span class="subcat-card__note">Diagnóstico y propuesta de mejora</span></span></span>
+          </div>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.04">
+            <span class="subcat-card__img"><img src="../assets/img/plataforma_consumos.png" alt="Plataforma digital de gestión de consumos"><span class="subcat-card__cap"><h3 class="subcat-card__title">Plataforma de consumos</h3><span class="subcat-card__note">Visualización y reparto verificable</span></span></span>
+          </div>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.08">
+            <span class="subcat-card__img"><img src="../assets/img/telegestion_sala.png" alt="Telegestión remota de la sala de calderas"><span class="subcat-card__cap"><h3 class="subcat-card__title">Telegestión de sala</h3><span class="subcat-card__note">Supervisión remota de equipos</span></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CAPA 3 · GAMA Y PROCESO (una sola galería, justo antes del formulario) ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="dep-head">
+          <h2 data-reveal>Toda la solución, paso a paso.</h2>
+          <p class="label" data-reveal>03 — Gama y proceso</p>
+        </div>
         <div class="subcat-grid">
           <a class="subcat-card" href="../contacto.html?interes=Contabilización" data-reveal data-reveal-delay="0">
-            <span class="subcat-card__img"><span class="ph" style="--ph:var(--amarillo-ambar);"><b>contabilizacion-medicion.jpg</b></span></span>
-            <span class="subcat-card__cap"><h3 class="subcat-card__title">Medición</h3><span class="subcat-card__note">Contadores y lecturas</span></span>
+            <span class="subcat-card__img"><img src="../assets/img/medicion.png" alt="Contadores de medición instalados"><span class="subcat-card__cap"><h3 class="subcat-card__title">Medición</h3><span class="subcat-card__note">Contadores y lecturas</span></span></span>
           </a>
-          <a class="subcat-card" href="../contacto.html?interes=Contabilización" data-reveal data-reveal-delay="0.06">
-            <span class="subcat-card__img"><span class="ph" style="--ph:var(--azul-marino);"><b>contabilizacion-comunicaciones.jpg</b></span></span>
-            <span class="subcat-card__cap"><h3 class="subcat-card__title">Comunicaciones</h3><span class="subcat-card__note">Transmisión de datos</span></span>
+          <a class="subcat-card" href="../contacto.html?interes=Contabilización" data-reveal data-reveal-delay="0.04">
+            <span class="subcat-card__img"><img src="../assets/img/comunicaciones.png" alt="Módulo de comunicaciones para transmisión de datos"><span class="subcat-card__cap"><h3 class="subcat-card__title">Comunicaciones</h3><span class="subcat-card__note">Transmisión de datos</span></span></span>
           </a>
-          <a class="subcat-card" href="../contacto.html?interes=Contabilización" data-reveal data-reveal-delay="0.12">
-            <span class="subcat-card__img"><span class="ph" style="--ph:var(--verde-mar);"><b>contabilizacion-servicios.jpg</b></span></span>
-            <span class="subcat-card__cap"><h3 class="subcat-card__title">Servicios</h3><span class="subcat-card__note">Auditoría, plataforma y telegestión</span></span>
+          <a class="subcat-card" href="../contacto.html?interes=Contabilización" data-reveal data-reveal-delay="0.08">
+            <span class="subcat-card__img"><img src="../assets/img/auditoria_energetica.png" alt="Servicios de auditoría, plataforma y telegestión"><span class="subcat-card__cap"><h3 class="subcat-card__title">Servicios</h3><span class="subcat-card__note">Auditoría, plataforma y telegestión</span></span></span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CAPA 3 · MÓDULO ESPECÍFICO ============ -->
-    <section class="section section--tight">
-      <div class="wrap">
-        <div class="services-mod" data-reveal>
-          <div class="services-mod__head">
-            <p class="label">03 — Servicios</p>
-            <h3>Más allá del contador.</h3>
+          <div class="subcat-card" data-reveal>
+            <span class="subcat-card__img"><img src="../assets/img/solicitud.png" alt="Solicitud de instalación de contabilización"><span class="subcat-card__cap"><h3 class="subcat-card__title">Solicitud</h3><span class="subcat-card__note">Paso 01 · Cuéntanos tu instalación</span></span></span>
           </div>
-          <div class="services-grid">
-            <div class="service-card">
-              <span class="service-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></span>
-              <h4>Auditoría energética</h4>
-              <p>Diagnóstico del consumo real de la instalación y propuesta de mejora.</p>
-            </div>
-            <div class="service-card">
-              <span class="service-card__icon"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M20 19H4"/></svg></span>
-              <h4>Plataforma de consumos</h4>
-              <p>Visualización y reparto de consumos por usuario, con datos verificables.</p>
-            </div>
-            <div class="service-card">
-              <span class="service-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M17.7 6.3l-2.1 2.1M8.4 15.6l-2.1 2.1"/></svg></span>
-              <h4>Telegestión de sala</h4>
-              <p>Supervisión remota de la sala de calderas y sus equipos de medición.</p>
-            </div>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.04">
+            <span class="subcat-card__img"><img src="../assets/img/propuesta.png" alt="Estudio técnico y propuesta de presupuesto"><span class="subcat-card__cap"><h3 class="subcat-card__title">Propuesta</h3><span class="subcat-card__note">Paso 02 · Estudio y presupuesto</span></span></span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROCESO DE CONTRATACIÓN ============ -->
-    <section class="section section--tight">
-      <div class="wrap">
-        <p class="label" style="margin-bottom:20px;" data-reveal>04 — Proceso de contratación</p>
-        <div class="process">
-          <div class="process__step" data-reveal data-reveal-delay="0.00">
-            <span class="process__img"><span class="ph" style="--ph:var(--amarillo-ambar);"><b>proceso-paso-1.jpg</b></span></span>
-            <span class="process__num">PASO 01</span><h4>Solicitud</h4><p>Cuéntanos tu instalación y necesidades.</p>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.08">
+            <span class="subcat-card__img"><img src="../assets/img/instalacion.png" alt="Montaje y puesta en marcha de los equipos"><span class="subcat-card__cap"><h3 class="subcat-card__title">Instalación</h3><span class="subcat-card__note">Paso 03 · Montaje y puesta en marcha</span></span></span>
           </div>
-          <div class="process__step" data-reveal data-reveal-delay="0.06">
-            <span class="process__img"><span class="ph" style="--ph:var(--azul-marino);"><b>proceso-paso-2.jpg</b></span></span>
-            <span class="process__num">PASO 02</span><h4>Propuesta</h4><p>Estudio técnico y presupuesto cerrado.</p>
-          </div>
-          <div class="process__step" data-reveal data-reveal-delay="0.12">
-            <span class="process__img"><span class="ph" style="--ph:var(--amarillo-ambar);"><b>proceso-paso-3.jpg</b></span></span>
-            <span class="process__num">PASO 03</span><h4>Instalación</h4><p>Montaje y puesta en marcha de los equipos.</p>
-          </div>
-          <div class="process__step" data-reveal data-reveal-delay="0.18">
-            <span class="process__img"><span class="ph" style="--ph:var(--azul-marino);"><b>proceso-paso-4.jpg</b></span></span>
-            <span class="process__num">PASO 04</span><h4>Servicio</h4><p>Lecturas, plataforma y soporte continuado.</p>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.12">
+            <span class="subcat-card__img"><img src="../assets/img/servicio.png" alt="Servicio de lecturas y soporte continuado"><span class="subcat-card__cap"><h3 class="subcat-card__title">Servicio</h3><span class="subcat-card__note">Paso 04 · Lecturas y soporte</span></span></span>
           </div>
         </div>
       </div>

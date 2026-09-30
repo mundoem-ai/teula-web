@@ -74,47 +74,76 @@
 
   <main>
 
-    <!-- ============ CAPA 1 · TITULAR + INTRO ============ -->
-    <section class="catx-hero">
+    <!-- ============ BANNER (estilo portada, igual que Radiadores) ============ -->
+    <section class="hero-clean">
+      <div class="hero-clean__media">
+        <img src="../assets/img/hero-hidraulica.jpg" alt="Sala técnica con depósitos de inercia, colector y armario de control hidráulico">
+      </div>
       <div class="wrap">
-        <nav class="breadcrumb" aria-label="Ruta" data-reveal>
-          <a href="../index.html">Inicio</a><span class="sep">/</span>
-          <a href="../index.html#departamentos">Departamentos</a><span class="sep">/</span>
-          <span>Hidráulica</span>
-        </nav>
-        <p class="catx-hero__tag" data-reveal><span class="dot" style="background:var(--azul-marino);"></span>Línea 02 — Hidráulica</p>
-        <h1 data-reveal data-reveal-delay="0.06">Hidráulica.</h1>
-        <p class="catx-hero__lead" data-reveal data-reveal-delay="0.1">Depósitos, componentes y sistemas de control para una instalación eficiente y ordenada.</p>
+        <div class="hero-clean__inner">
+          <nav class="breadcrumb" aria-label="Ruta" data-reveal style="color:rgba(255,255,255,0.75);">
+            <a href="../index.html" style="color:inherit;">Inicio</a><span class="sep">/</span>
+            <a href="../index.html#departamentos" style="color:inherit;">Departamentos</a><span class="sep">/</span>
+            <span>Hidráulica</span>
+          </nav>
+          <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 02 — Hidráulica</p>
+          <h1 data-reveal data-reveal-delay="0.08">Hidráulica.</h1>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Depósitos, componentes y sistemas de control para una instalación eficiente y ordenada.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ CAPA 2 · CUADRÍCULA DE SUBCATEGORÍAS ============ -->
-    <section class="section section--tight">
+    <!-- ============ CAPA 2 · GALERÍA DE 3 MODELOS (ancho completo, estilo Radiadores) ============ -->
+    <section class="section" id="gama">
       <div class="wrap">
-        <p class="label" style="margin-bottom:20px;" data-reveal>02 — Gama</p>
-        <div class="subcat-grid">
-          <a class="subcat-card" href="../contacto.html?interes=Hidráulica" data-reveal>
-            <span class="subcat-card__img"><img src="../assets/img/cat-depositos.png" alt="Depósitos de inercia y ACS" style="object-position:28% center;"></span>
-            <span class="subcat-card__cap"><h3 class="subcat-card__title">Depósitos</h3><span class="subcat-card__note">Inercia y ACS</span></span>
+        <div class="dep-head">
+          <h2 data-reveal>Depósitos, componentes y control.</h2>
+          <p class="label" data-reveal>02 — Gama</p>
+        </div>
+      </div>
+      <div class="full-bleed cat-band">
+        <div class="model-grid">
+
+          <a class="model-card" href="depositos.html" data-reveal>
+            <span class="model-card__img">
+              <img src="../assets/img/inercia_200_general.png" alt="Depósitos de inercia y ACS">
+              <span class="model-card__cap">
+                <span class="model-card__cap-name">Depósitos <span class="arw">→</span></span>
+                <span class="model-card__cap-desc">Inercia y ACS para acumular y ceder calor con precisión.</span>
+              </span>
+            </span>
           </a>
-          <a class="subcat-card" href="../contacto.html?interes=Hidráulica" data-reveal data-reveal-delay="0.06">
-            <span class="subcat-card__img"><img src="../assets/img/amb-bodegon.png" alt="Componentes hidráulicos: bombas, vasos, valvulería" style="object-position:center;"></span>
-            <span class="subcat-card__cap"><h3 class="subcat-card__title">Componentes</h3><span class="subcat-card__note">Bombeo, vasos, valvulería</span></span>
+
+          <a class="model-card" href="componentes.html" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img">
+              <img src="../assets/img/vaso_expansion_ve_18_general.png" alt="Componentes hidráulicos: bombas, vasos, valvulería">
+              <span class="model-card__cap">
+                <span class="model-card__cap-name">Componentes <span class="arw">→</span></span>
+                <span class="model-card__cap-desc">Bombeo, vasos de expansión y valvulería de la instalación.</span>
+              </span>
+            </span>
           </a>
-          <a class="subcat-card" href="../contacto.html?interes=Hidráulica" data-reveal data-reveal-delay="0.12">
-            <span class="subcat-card__img"><img src="../assets/img/cat-control.png" alt="Sistemas de control de la instalación" style="object-position:center 38%;"></span>
-            <span class="subcat-card__cap"><h3 class="subcat-card__title">Sistemas de control</h3><span class="subcat-card__note">Regulación y medida</span></span>
+
+          <a class="model-card" href="sistemas-control.html" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img">
+              <img src="../assets/img/termostato_tc_200_wifi_general.png" alt="Sistemas de control de la instalación">
+              <span class="model-card__cap">
+                <span class="model-card__cap-name">Sistemas de control <span class="arw">→</span></span>
+                <span class="model-card__cap-desc">Regulación, medida y automatización de la instalación.</span>
+              </span>
+            </span>
           </a>
+
         </div>
       </div>
     </section>
 
     <!-- ============ CAPA 3 · MÓDULO ESPECÍFICO ============ -->
-    <section class="section section--tight">
+    <section class="section">
       <div class="wrap">
         <p class="label" style="margin-bottom:20px;" data-reveal>03 — Soluciones modulares</p>
         <div class="inject-banner" data-reveal>
-          <div class="inject-banner__media"><span class="ph" style="--ph:var(--azul-marino);"><b>hidraulica-modular-banner.jpg</b></span></div>
+          <div class="inject-banner__media"><span class="ph" style="--ph:var(--azul-marino);"><b>Banner Hidráulica</b></span></div>
           <div class="inject-banner__body">
             <p class="label inject-banner__eyebrow">Instalaciones modulares</p>
             <h3>Descubre nuestras soluciones modulares.</h3>
