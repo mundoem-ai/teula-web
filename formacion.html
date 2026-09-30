@@ -74,14 +74,20 @@
 
   <main>
 
-    <section class="catx-hero">
+    <!-- ============ BANNER (estilo portada, igual que el resto) ============ -->
+    <section class="hero-clean">
+      <div class="hero-clean__media">
+        <img src="assets/img/hero-formacion.jpg" alt="Grupo de instaladores en formación técnica en una sala de máquinas">
+      </div>
       <div class="wrap">
-        <nav class="breadcrumb" aria-label="Ruta" data-reveal>
-          <a href="index.html">Inicio</a><span class="sep">/</span><span>Formación</span>
-        </nav>
-        <p class="catx-hero__tag" data-reveal><span class="dot" style="background:var(--azul-cielo);"></span>Módulo aparte — Plataforma externa</p>
-        <h1 data-reveal data-reveal-delay="0.06">Formación técnica.</h1>
-        <p class="catx-hero__lead" data-reveal data-reveal-delay="0.1">Cursos online para instaladores y técnicos sobre baja temperatura, aerotermia y eficiencia energética.</p>
+        <div class="hero-clean__inner">
+          <nav class="breadcrumb" aria-label="Ruta" data-reveal style="color:rgba(255,255,255,0.75);">
+            <a href="index.html" style="color:inherit;">Inicio</a><span class="sep">/</span><span>Formación</span>
+          </nav>
+          <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Módulo aparte — Plataforma externa</p>
+          <h1 data-reveal data-reveal-delay="0.08">Formación técnica.</h1>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Cursos online para instaladores y técnicos sobre baja temperatura, aerotermia y eficiencia energética.</p>
+        </div>
       </div>
     </section>
 
@@ -90,33 +96,57 @@
         <p class="label" style="margin-bottom:20px;" data-reveal>02 — Categorías</p>
         <div class="edu-grid">
           <article class="edu-card" data-reveal data-reveal-delay="0.00">
-            <span class="edu-card__img"><span class="ph" style="--ph:var(--verde-mar);"><b>formacion-baja-temperatura.jpg</b></span></span>
-            <h3>Baja temperatura</h3><p>Fundamentos y dimensionado de radiadores a 35–45 °C.</p>
+            <span class="edu-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="assets/img/formacion-baja-temperatura.jpg" alt="Formación técnica en baja temperatura">
+              <img class="rollover__img rollover__img--detalle" src="assets/img/formacion-baja-temperatura.jpg" alt="Formación técnica en baja temperatura">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Baja temperatura</h3></span>
+            </span></span>
+            <p>Fundamentos y dimensionado de radiadores a 35–45 °C.</p>
             <a class="btn btn--ghost" data-link="plataformaFormacion" href="#">Acceder al curso <span class="arw">→</span></a>
           </article>
           <article class="edu-card" data-reveal data-reveal-delay="0.06">
-            <span class="edu-card__img"><span class="ph" style="--ph:var(--azul-marino);"><b>formacion-aerotermia.jpg</b></span></span>
-            <h3>Aerotermia</h3><p>Integración de radiadores con bomba de calor.</p>
+            <span class="edu-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="assets/img/formacion-aerotermia.jpg" alt="Formación técnica en aerotermia">
+              <img class="rollover__img rollover__img--detalle" src="assets/img/formacion-aerotermia.jpg" alt="Formación técnica en aerotermia">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Aerotermia</h3></span>
+            </span></span>
+            <p>Integración de radiadores con bomba de calor.</p>
             <a class="btn btn--ghost" data-link="plataformaFormacion" href="#">Acceder al curso <span class="arw">→</span></a>
           </article>
           <article class="edu-card" data-reveal data-reveal-delay="0.12">
-            <span class="edu-card__img"><span class="ph" style="--ph:var(--azul-marino);"><b>formacion-hidraulica.jpg</b></span></span>
-            <h3>Hidráulica</h3><p>Depósitos, bombeo y equilibrado de la instalación.</p>
+            <span class="edu-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="assets/img/formacion-hidraulica.jpg" alt="Formación técnica en hidráulica">
+              <img class="rollover__img rollover__img--detalle" src="assets/img/formacion-hidraulica.jpg" alt="Formación técnica en hidráulica">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Hidráulica</h3></span>
+            </span></span>
+            <p>Depósitos, bombeo y equilibrado de la instalación.</p>
             <a class="btn btn--ghost" data-link="plataformaFormacion" href="#">Acceder al curso <span class="arw">→</span></a>
           </article>
           <article class="edu-card" data-reveal data-reveal-delay="0.00">
-            <span class="edu-card__img"><span class="ph" style="--ph:var(--verde-mar);"><b>formacion-regulacion.jpg</b></span></span>
-            <h3>Regulación y control</h3><p>Termostatos, zonificación y sistemas de control.</p>
+            <span class="edu-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="assets/img/formacion-regulacion-control.jpg" alt="Formación técnica en regulación y control">
+              <img class="rollover__img rollover__img--detalle" src="assets/img/formacion-regulacion-control.jpg" alt="Formación técnica en regulación y control">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Regulación y control</h3></span>
+            </span></span>
+            <p>Termostatos, zonificación y sistemas de control.</p>
             <a class="btn btn--ghost" data-link="plataformaFormacion" href="#">Acceder al curso <span class="arw">→</span></a>
           </article>
           <article class="edu-card" data-reveal data-reveal-delay="0.06">
-            <span class="edu-card__img"><span class="ph" style="--ph:var(--amarillo-ambar);"><b>formacion-contabilizacion.jpg</b></span></span>
-            <h3>Contabilización</h3><p>Medición y reparto de consumos en comunidades.</p>
+            <span class="edu-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="assets/img/formacion-contabilizacion.jpg" alt="Formación técnica en contabilización">
+              <img class="rollover__img rollover__img--detalle" src="assets/img/formacion-contabilizacion.jpg" alt="Formación técnica en contabilización">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Contabilización</h3></span>
+            </span></span>
+            <p>Medición y reparto de consumos en comunidades.</p>
             <a class="btn btn--ghost" data-link="plataformaFormacion" href="#">Acceder al curso <span class="arw">→</span></a>
           </article>
           <article class="edu-card" data-reveal data-reveal-delay="0.12">
-            <span class="edu-card__img"><span class="ph" style="--ph:var(--azul-marino);"><b>formacion-puesta-en-marcha.jpg</b></span></span>
-            <h3>Puesta en marcha</h3><p>Errores comunes y buenas prácticas de obra.</p>
+            <span class="edu-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="assets/img/formacion-puesta-en-marcha.jpg" alt="Formación técnica en puesta en marcha">
+              <img class="rollover__img rollover__img--detalle" src="assets/img/formacion-puesta-en-marcha.jpg" alt="Formación técnica en puesta en marcha">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Puesta en marcha</h3></span>
+            </span></span>
+            <p>Errores comunes y buenas prácticas de obra.</p>
             <a class="btn btn--ghost" data-link="plataformaFormacion" href="#">Acceder al curso <span class="arw">→</span></a>
           </article>
         </div>
@@ -126,7 +156,7 @@
     <section class="section">
       <div class="wrap">
         <div class="cta-installers" data-reveal>
-          <div class="cta-installers__media"><span class="ph" style="--ph:var(--verde-mar);"><b>formacion-instaladores-cta.jpg</b></span></div>
+          <div class="cta-installers__media"><img src="assets/img/formacion-instaladores-cta.jpg" alt="Instalador técnico trabajando en una caldera"></div>
           <div class="cta-installers__body">
             <p class="label" style="color:var(--azul-cielo);">Para instaladores</p>
             <h3>Instala mejor. Certifícate con Teula.</h3>
