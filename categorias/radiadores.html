@@ -4,57 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Radiadores — Teula Sistemas</title>
-  <meta name="description" content="Radiadores de baja temperatura Teula: T30, Decor, toalleros, canales, fancoils y accesorios.">
+  <meta name="description" content="Radiadores de baja temperatura Teula: T30, Decor, toalleros, canales y accesorios.">
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <style>
-        /* <button> con el aspecto exacto de los <a> originales */
-    button.model-card,button.subcat-card{all:unset;display:block;box-sizing:border-box;width:100%;cursor:pointer;position:relative}
-    button.model-card:focus-visible,button.subcat-card:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
-    .subcat-view [data-reveal],.subcat-view .subcat-card{opacity:1 !important}
-    .cat-view,.subcat-view{display:none}
-    .cat-view.is-active,.subcat-view.is-active{display:block}
-    .modal-ficha{display:none;position:fixed;inset:0;z-index:900;background:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch}
-    .modal-ficha.is-open{display:block}
-    .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem;font-family:var(--mono)}
-    .gal-back::before{content:'←';font-size:1em}
-    .gal-back:hover{opacity:.7}
-    .subcat-heading{margin-bottom:2.5rem}
-    .subcat-heading .label{display:block;margin-bottom:.4rem}
-    /* Canales */
-    .canales-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
-    @media(max-width:600px){.canales-grid{grid-template-columns:1fr}}
-    .canales-grid figure{margin:0;border-radius:4px;overflow:hidden;background:var(--niebla);aspect-ratio:4/3}
-    .canales-grid figure img{width:100%;height:100%;object-fit:cover}
-    .canales-texto{background:var(--niebla);border-radius:4px;padding:2rem 2.5rem}
-    .canales-modelo{margin-bottom:1.4rem}
-    .canales-modelo:last-child{margin-bottom:0}
-    .canales-modelo h4{font-family:var(--display);font-size:1rem;margin:0 0 .25rem}
-    .canales-modelo p{font-family:var(--texto);font-size:.9rem;line-height:1.6;color:#555;margin:0}
-    /* Fancoils */
-    .fancoils-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:clamp(14px,1.8vw,22px);margin-bottom:2rem}
-    .fancoils-specs{background:var(--niebla);border-radius:4px;padding:1.8rem 2.2rem;font-family:var(--texto);font-size:.9rem;line-height:1.65;color:#555}
-    .fancoils-specs strong{color:var(--tinta)}
-    /* Modal */
-    .modal-ficha__bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.8rem;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.08)}
-    .modal-ficha__breadcrumb{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#888}
-    .modal-ficha__breadcrumb span{color:var(--tinta)}
-    .modal-ficha__close{background:none;border:none;cursor:pointer;font-size:2rem;line-height:1;color:var(--tinta);padding:.2rem .5rem;transition:opacity .15s}
-    .modal-ficha__close:hover{opacity:.5}
-    .modal-ficha__body{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem}
-    .modal-ficha__name{font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 .4rem}
-    .modal-ficha__note{font-family:var(--texto);font-size:1.05rem;color:#666;margin:0 0 3rem}
-    .modal-ficha__img-ph{width:100%;aspect-ratio:16/7;background:var(--niebla);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:.85rem;margin-bottom:3rem}
-    .modal-ficha__img-ph img{width:100%;height:100%;object-fit:cover}
-    .modal-ficha__specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;background:var(--niebla);border-radius:4px;padding:2rem}
-    .modal-ficha__spec dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#888;margin-bottom:.2rem}
-    .modal-ficha__spec dd{margin:0;font-size:.95rem;font-weight:600}
-    /* subcategorías con pocas tarjetas: centradas y más grandes */
-    .subcat-grid--few{grid-template-columns:repeat(auto-fit,minmax(320px,400px));justify-content:center}
-  </style>
   <script>
     document.documentElement.classList.add('js-anim');
-    setTimeout(function(){if(!window.__teulaAnimated){document.documentElement.classList.remove('js-anim');}},5000);
+    setTimeout(function(){ if(!window.__teulaAnimated){ document.documentElement.classList.remove('js-anim'); } }, 5000);
   </script>
 </head>
 <body style="--acento:var(--verde-lima);--acento-contraste:var(--verde-mar);">
@@ -118,9 +73,11 @@
   </div>
 
   <main>
+
+    <!-- ============ BANNER (estilo portada) ============ -->
     <section class="hero-clean">
       <div class="hero-clean__media">
-        <img src="../assets/img/t30-banner.jpg" alt="Radiador T30 en ambiente interior">
+        <img src="../assets/img/t30-banner.jpg" alt="Radiador T30 en un salón cálido con vistas a olivos">
       </div>
       <div class="wrap">
         <div class="hero-clean__inner">
@@ -131,108 +88,81 @@
           </nav>
           <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 01 — Baja temperatura</p>
           <h1 data-reveal data-reveal-delay="0.08">Radiadores de baja temperatura.</h1>
-          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">T30, Decor, toalleros, canales, fancoils y accesorios. Diseñados para trabajar a 35–45 °C con aerotermia y caldera de condensación.</p>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Seis familias para trabajar a 35–45 °C, de diseño limpio y alta eficiencia: T30, Decor, Toalleros, Canales, Fancoils y Accesorios.</p>
         </div>
       </div>
     </section>
 
+    <!-- ============ GALERÍA DE 6 MODELOS (ancho completo) ============ -->
     <section class="section" id="modelos">
-      <div class="wrap">
+      <div class="wrap gal-intro">
         <div class="dep-head">
           <h2 data-reveal>La gama, modelo a modelo.</h2>
           <p class="label" data-reveal>02 — Modelos</p>
         </div>
       </div>
 
-      <!-- VISTA 1: 6 categorías -->
+      <!-- NIVEL 1: categorías a ancho completo -->
       <div class="cat-view is-active" id="vista-categorias">
         <div class="full-bleed cat-band">
           <div class="model-grid">
-            <button class="model-card" data-cat="t30" data-reveal>
-              <span class="model-card__img">
-                <img src="../assets/img/t30-cocina.jpg" alt="Radiador T30">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">T30 <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Superficie continua y diseño limpio, ideal para aerotermia.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="decor" data-reveal data-reveal-delay="0.04">
-              <span class="model-card__img">
-                <img src="../assets/img/decor-cristal.jpg" alt="Radiadores Decor">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Decor <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Radiador vertical con acabado espejo integrado en el ambiente.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="toallero" data-reveal data-reveal-delay="0.08">
-              <span class="model-card__img">
-                <img src="../assets/img/toallero-carnota-1.jpg" alt="Toalleros Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Toallero <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Calor y secado de toallas en el mismo circuito hidráulico.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="canales" data-reveal>
-              <span class="model-card__img">
-                <img src="../assets/img/canales-triovent-salon.jpg" alt="Canales de suelo Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Canales <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Canal de suelo integrado a ras de pavimento, sin ocupar pared.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="fancoils" data-reveal data-reveal-delay="0.04">
-              <span class="model-card__img">
-                <img src="../assets/img/pin-t30-1.jpg" alt="Fancoils Serie Reverso Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Fancoils <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Serie Reverso: calefacción, refrigeración y purificación en un solo equipo.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="accesorios" data-reveal data-reveal-delay="0.08">
-              <span class="model-card__img">
-                <img src="../assets/img/cat-control.png" alt="Accesorios para radiadores Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Accesorios <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Válvulas, zócalos, tuberías, resistencias, complementos y control.</span>
-                </span>
-              </span>
-            </button>
+          <button type="button" class="model-card" data-cat="t30" data-reveal>
+            <span class="model-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="../assets/img/t30-cocina.jpg" alt="T30">
+              <img class="rollover__img rollover__img--detalle" src="../assets/img/t30-detalle-boton.jpg" alt="Detalle de T30">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">T30</h3><span class="subcat-card__note">Superficie continua y diseño limpio, ideal para aerotermia.</span></span>
+            </span></span>
+          </button>
+          <button type="button" class="model-card" data-cat="decor" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="../assets/img/decor-cristal.jpg" alt="Decor">
+              <img class="rollover__img rollover__img--detalle" src="../assets/img/decor-detalle.png" alt="Detalle de Decor">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Decor</h3><span class="subcat-card__note">Radiador vertical con acabado espejo integrado en el ambiente.</span></span>
+            </span></span>
+          </button>
+          <button type="button" class="model-card" data-cat="toallero" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="../assets/img/toallero-carnota-1.jpg" alt="Toalleros">
+              <img class="rollover__img rollover__img--detalle" src="../assets/img/toallero-carnota-2.jpg" alt="Detalle de Toalleros">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Toalleros</h3><span class="subcat-card__note">Calor y secado de toallas en el mismo circuito hidráulico.</span></span>
+            </span></span>
+          </button>
+          <button type="button" class="model-card" data-cat="canales" data-reveal>
+            <span class="model-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="../assets/img/canales-triovent-salon.jpg" alt="Canales">
+              <img class="rollover__img rollover__img--detalle" src="../assets/img/canales-triovent-detalle.jpg" alt="Detalle de Canales">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Canales</h3><span class="subcat-card__note">Canal de suelo integrado a ras de pavimento, sin ocupar pared.</span></span>
+            </span></span>
+          </button>
+          <button type="button" class="model-card" data-cat="fancoils" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="../assets/img/pin-t30-1.jpg" alt="Fancoils">
+              <img class="rollover__img rollover__img--detalle" src="../assets/img/pin-t30-2.jpg" alt="Detalle de Fancoils">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Fancoils</h3><span class="subcat-card__note">Serie Reverso: calefacción, refrigeración y purificación en un equipo.</span></span>
+            </span></span>
+          </button>
+          <button type="button" class="model-card" data-cat="accesorios" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img"><span class="rollover">
+              <img class="rollover__img rollover__img--general" src="../assets/img/cat-control.png" alt="Accesorios">
+              <img class="rollover__img rollover__img--detalle" src="../assets/img/termostato_tc_200_wifi_general.png" alt="Detalle de Accesorios">
+              <span class="subcat-card__cap"><h3 class="subcat-card__title">Accesorios</h3><span class="subcat-card__note">Válvulas, zócalos, tuberías, resistencias, complementos y control.</span></span>
+            </span></span>
+          </button>
           </div>
         </div>
       </div>
 
-      <!-- VISTA 2: subcategorías -->
+      <!-- NIVEL 2: subcategorías (se rellena por JS) -->
       <div class="subcat-view" id="vista-subcategorias">
-        <div class="wrap">
-          <button class="gal-back" id="btn-volver-cat">Radiadores</button>
-          <div class="subcat-heading">
-            <span class="label" id="subcat-label"></span>
-            <h2 id="subcat-titulo"></h2>
-          </div>
-          <div id="subcat-contenido"></div>
+        <div class="wrap gal-head">
+          <button type="button" class="gal-back">← Radiadores</button>
+          <p class="gal-title" id="subcat-titulo"></p>
         </div>
+        <div id="subcat-contenido"></div>
       </div>
     </section>
-  </main>
 
-  <!-- MODAL pantalla completa -->
-  <div class="modal-ficha" id="modal-ficha" role="dialog" aria-modal="true" aria-labelledby="modal-nombre">
-    <div class="modal-ficha__bar">
-      <span class="modal-ficha__breadcrumb">Radiadores / <span id="modal-cat-label"></span> / <span id="modal-prod-label"></span></span>
-      <button class="modal-ficha__close" id="btn-cerrar-modal" aria-label="Cerrar ficha">✕</button>
-    </div>
-    <div class="modal-ficha__body">
-      <h2 class="modal-ficha__name" id="modal-nombre"></h2>
-      <p class="modal-ficha__note" id="modal-nota"></p>
-      <div class="modal-ficha__img-ph" id="modal-img-wrap"><span>Imagen del producto</span></div>
-      <dl class="modal-ficha__specs" id="modal-specs"></dl>
-    </div>
-  </div>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap">
@@ -271,201 +201,742 @@
   <script>window.TEULA_BASE = "../";</script>
   <script src="../assets/js/config.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/galerias.js"></script>
   <script>
-  (function(){
-    var CATS={
-      t30:{label:'01 — T30',titulo:'Serie T30.',tipo:'subcats',items:[
-        {id:'t30r',nombre:'T30R',nota:'Panel horizontal recto, conexión derecha.',img:'prod-t30-hero.png'},
-        {id:'t30l',nombre:'T30L',nota:'Panel horizontal recto, conexión izquierda.',img:'prod-t30-hero.png'},
-        {id:'t30r-doble',nombre:'T30R Doble',nota:'Doble panel horizontal, conexión derecha. Mayor potencia.',img:'amb-t30-doble.png'},
-        {id:'t30l-doble',nombre:'T30L Doble',nota:'Doble panel horizontal, conexión izquierda. Mayor potencia.',img:'amb-t30-doble.png'},
-        {id:'t30r-vent',nombre:'T30R Vent',nota:'Panel horizontal con ventilador integrado, conexión derecha.',img:'vent-banner.jpg'},
-        {id:'t30l-vent',nombre:'T30L Vent',nota:'Panel horizontal con ventilador integrado, conexión izquierda.',img:'vent-banner.jpg'},
-        {id:'t30-tower',nombre:'T30 Tower',nota:'Panel vertical de gran formato, máxima potencia en poco ancho.',img:'tower-banner.jpg'},
-        {id:'t30-tower-vent',nombre:'T30 Tower Vent',nota:'Panel vertical con ventilador integrado para convección forzada.',img:'tower-banner.jpg'}
-      ]},
-      decor:{label:'02 — Decor',titulo:'Serie Decor.',tipo:'subcats',items:[
-        {id:'bel',nombre:'Bel',nota:'Líneas sobrias y acabado liso.',img:'decor-cristal.jpg'},
-        {id:'besta',nombre:'Besta',nota:'Perfil delgado, elegancia contenida.',img:'decor-cristal.jpg'},
-        {id:'cento',nombre:'Cento',nota:'Formato cuadrado, presencia central.',img:'decor-cristal.jpg'},
-        {id:'veta',nombre:'Veta',nota:'Acabado veteado, textura natural.',img:'decor-vinilos.jpg'},
-        {id:'vertica',nombre:'Vertica',nota:'Vertical puro, máxima altura.',img:'decor-cristal.jpg'},
-        {id:'meiga',nombre:'Meiga',nota:'Formas curvas, carácter escultórico.',img:'decor-cristal.jpg'},
-        {id:'heat-e',nombre:'Heat-E',nota:'Con resistencia eléctrica auxiliar.',img:'decor-cristal.jpg'},
-        {id:'nova-e',nombre:'Nova-E',nota:'Nova con resistencia eléctrica integrada.',img:'decor-cristal.jpg'},
-        {id:'nova-plan-e',nombre:'Nova Plan-E',nota:'Nova plana con resistencia eléctrica.',img:'decor-cristal.jpg'}
-      ]},
-      toallero:{label:'03 — Toallero',titulo:'Serie Toalleros.',tipo:'subcats',items:[
-        {id:'iria',nombre:'Iria',nota:'Diseño horizontal clásico.',img:'toallero-carnota-1.jpg'},
-        {id:'arosa',nombre:'Arosa',nota:'Formato compacto de baño.',img:'toallero-carnota-1.jpg'},
-        {id:'artai',nombre:'Artai',nota:'Líneas geométricas definidas.',img:'toallero-carnota-1.jpg'},
-        {id:'cadro',nombre:'Cadro',nota:'Marco cuadrado y equilibrado.',img:'toallero-carnota-1.jpg'},
-        {id:'esteiro',nombre:'Esteiro',nota:'Perfil esbelto y vertical.',img:'toallero-carnota-2.jpg'},
-        {id:'lois',nombre:'Lois',nota:'Toallero de diseño neutro.',img:'toallero-carnota-2.jpg'},
-        {id:'nerea',nombre:'Nerea',nota:'Acabado refinado y suave.',img:'toallero-carnota-2.jpg'},
-        {id:'celtia',nombre:'Celtia',nota:'Inspiración en formas célticas.',img:'toallero-carnota-2.jpg'},
-        {id:'aramis',nombre:'Aramis',nota:'Elegancia clásica actualizada.',img:'toallero-carnota-1.jpg'},
-        {id:'carnota',nombre:'Carnota',nota:'Arquitectónico, de gran presencia.',img:'toallero-carnota-1.jpg'},
-        {id:'corme',nombre:'Corme',nota:'Proporciones equilibradas.',img:'toallero-carnota-2.jpg'},
-        {id:'larino',nombre:'Lariño',nota:'Formato cuadrado horizontal.',img:'toallero-carnota-2.jpg'},
-        {id:'louro',nombre:'Louro',nota:'Toallero vertical de cocina.',img:'toallero-carnota-1.jpg'},
-        {id:'pindo',nombre:'Pindo',nota:'Formato mural de doble barra.',img:'toallero-carnota-2.jpg'},
-        {id:'muros',nombre:'Muros',nota:'Diseño mural ligero.',img:'toallero-carnota-1.jpg'},
-        {id:'larino-e',nombre:'Lariño-E',nota:'Lariño con resistencia eléctrica auxiliar.',img:'toallero-carnota-2.jpg'},
-        {id:'xinzo',nombre:'Xinzo',nota:'Toallero mixto hidráulico-eléctrico.',img:'toallero-carnota-1.jpg'}
-      ]},
-      canales:{label:'04 — Canales',titulo:'Canales de suelo.',tipo:'especial-canales'},
-      fancoils:{label:'05 — Fancoils',titulo:'Fancoils Serie Reverso.',tipo:'especial-fancoils'},
-      accesorios:{label:'06 — Accesorios',titulo:'Accesorios.',tipo:'subcats',items:[
-        {id:'valvulas',nombre:'Válvulas y cabezales',nota:'Válvulas de zona, cabezales termoeléctricos y termoestáticos.',img:'cat-control.png'},
-        {id:'zocalos',nombre:'Zócalos',nota:'Zócalos de acabado para instalación limpia al pie del muro.',img:'cat-control.png'},
-        {id:'tuberias',nombre:'Tuberías',nota:'Tuberías multicapa y conexiones de obra.',img:'cat-control.png'},
-        {id:'resistencias',nombre:'Resistencias',nota:'Resistencias eléctricas de apoyo para modo eléctrico.',img:'cat-control.png'},
-        {id:'complementos',nombre:'Complementos',nota:'Soportes, tapas, tornillería y elementos de fijación.',img:'cat-control.png'},
-        {id:'control',nombre:'Control',nota:'Termostatos, controladores Wi-Fi y sistemas de regulación.',img:'termostato_tc_200_wifi_general.png'}
-      ]}
-    };
-
-    var vistaCat=document.getElementById('vista-categorias');
-    var vistaSubcat=document.getElementById('vista-subcategorias');
-    var btnVolver=document.getElementById('btn-volver-cat');
-    var subcatLabel=document.getElementById('subcat-label');
-    var subcatTit=document.getElementById('subcat-titulo');
-    var subcatCont=document.getElementById('subcat-contenido');
-    var modal=document.getElementById('modal-ficha');
-    var modalCatLbl=document.getElementById('modal-cat-label');
-    var modalProdLbl=document.getElementById('modal-prod-label');
-    var modalNombre=document.getElementById('modal-nombre');
-    var modalNota=document.getElementById('modal-nota');
-    var modalImgWrap=document.getElementById('modal-img-wrap');
-    var modalSpecs=document.getElementById('modal-specs');
-    var btnCerrar=document.getElementById('btn-cerrar-modal');
-    var _catActual='';
-
-    function mostrarCats(){
-      vistaSubcat.classList.remove('is-active');
-      vistaCat.classList.add('is-active');
-      document.body.style.overflow='';
+  TeulaGaleria({
+ "raiz": "Radiadores",
+ "interes": "Radiadores BT",
+ "ficha": true,
+ "series": {
+  "t30": {
+   "banner": "t30-banner.jpg",
+   "esquema": "esquema-t30.png",
+   "lead": "Radiador de baja temperatura de superficie continua y diseño limpio. Trabaja a 35–45 °C, ideal para aerotermia y suelo radiante.",
+   "specs": [
+    [
+     "Línea",
+     "Baja temperatura"
+    ],
+    [
+     "Tipología",
+     "Radiador mural"
+    ],
+    [
+     "Temperatura",
+     "35–45 °C"
+    ],
+    [
+     "Acabados",
+     "Blanco, antracita, RAL"
+    ]
+   ],
+   "meta": [
+    [
+     "Ancho",
+     "60–200 cm"
+    ],
+    [
+     "Alto",
+     "39–57 cm"
+    ],
+    [
+     "Fondo",
+     "9 cm"
+    ],
+    [
+     "Material",
+     "Aluminio + cobre"
+    ]
+   ],
+   "gal": [
+    [
+     "t30-cocina.jpg",
+     "t30-detalle-boton.jpg",
+     "T30 en blanco"
+    ],
+    [
+     "t30-doble-banner.jpg",
+     "t30-doble-detalle.jpg",
+     "T30 doble en antracita"
+    ]
+   ]
+  },
+  "doble": {
+   "banner": "t30-doble-banner.jpg",
+   "esquema": "esquema-t30.png",
+   "lead": "Doble panel de baja temperatura: más potencia en el mismo ancho de pared, a 35–45 °C.",
+   "specs": [
+    [
+     "Línea",
+     "Baja temperatura"
+    ],
+    [
+     "Tipología",
+     "Radiador mural doble"
+    ],
+    [
+     "Temperatura",
+     "35–45 °C"
+    ],
+    [
+     "Acabados",
+     "Blanco, antracita, RAL"
+    ]
+   ],
+   "meta": [
+    [
+     "Ancho",
+     "60–200 cm"
+    ],
+    [
+     "Alto",
+     "39–57 cm"
+    ],
+    [
+     "Fondo",
+     "Consultar"
+    ],
+    [
+     "Material",
+     "Aluminio + cobre"
+    ]
+   ],
+   "gal": [
+    [
+     "t30-doble-banner.jpg",
+     "t30-doble-detalle.jpg",
+     "T30 doble en antracita"
+    ],
+    [
+     "t30-doble-galeria.jpg",
+     "t30-doble-profundidad.jpg",
+     "T30 doble, en profundidad"
+    ],
+    [
+     "t30-doble-oliva.jpg",
+     "t30-doble-detalle.jpg",
+     "T30 doble en oliva"
+    ]
+   ]
+  },
+  "vent": {
+   "banner": "vent-banner.jpg",
+   "esquema": "esquema-vent.png",
+   "lead": "Radiador de baja temperatura con convección forzada: una turbina interna acelera la difusión del calor para una respuesta más rápida en el ambiente.",
+   "specs": [
+    [
+     "Línea",
+     "Baja temperatura"
+    ],
+    [
+     "Tipología",
+     "Convección forzada"
+    ],
+    [
+     "Temperatura",
+     "35–45 °C"
+    ],
+    [
+     "Acabados",
+     "Blanco, verde mar, colores RAL"
+    ]
+   ],
+   "meta": [
+    [
+     "Formato",
+     "Mural vertical / horizontal"
+    ],
+    [
+     "Medidas",
+     "Consultar"
+    ],
+    [
+     "Ventilación",
+     "Turbina tangencial silenciosa"
+    ],
+    [
+     "Material",
+     "Aluminio + cobre"
+    ]
+   ],
+   "gal": [
+    [
+     "vent-vertical.jpg",
+     "vent-detalle-motor.jpg",
+     "Vent en verde mar"
+    ],
+    [
+     "vent-banner.jpg",
+     "vent-corte-motor.jpg",
+     "La turbina, al detalle"
+    ]
+   ]
+  },
+  "tower": {
+   "banner": "tower-banner.jpg",
+   "esquema": "esquema-tower.png",
+   "lead": "Radiador vertical de baja temperatura, estrecho y esbelto. Máxima potencia en poco ancho de pared, sin renunciar al diseño.",
+   "specs": [
+    [
+     "Línea",
+     "Baja temperatura"
+    ],
+    [
+     "Tipología",
+     "Radiador vertical"
+    ],
+    [
+     "Temperatura",
+     "35–45 °C"
+    ],
+    [
+     "Acabados",
+     "Blanco, colores RAL"
+    ]
+   ],
+   "meta": [
+    [
+     "Ancho",
+     "40–60 cm"
+    ],
+    [
+     "Alto",
+     "140–200 cm"
+    ],
+    [
+     "Fondo",
+     "9 cm"
+    ],
+    [
+     "Material",
+     "Aluminio + cobre"
+    ]
+   ],
+   "gal": [
+    [
+     "tower-terracota.jpg",
+     "tower-detalle.jpg",
+     "Tower en terracota"
+    ],
+    [
+     "tower-oliva.jpg",
+     "tower-detalle.jpg",
+     "Tower en oliva"
+    ]
+   ]
+  },
+  "decor": {
+   "banner": "decor-vinilos.jpg",
+   "lead": "Radiador vertical de baja temperatura con acabado espejo. Calor suave integrado como elemento de diseño en el ambiente.",
+   "specs": [
+    [
+     "Línea",
+     "Baja temperatura"
+    ],
+    [
+     "Tipología",
+     "Radiador vertical"
+    ],
+    [
+     "Temperatura",
+     "35–45 °C"
+    ],
+    [
+     "Acabados",
+     "Vinilado, espejo, cristal"
+    ]
+   ],
+   "meta": [
+    [
+     "Ancho",
+     "40–80 cm"
+    ],
+    [
+     "Alto",
+     "140–200 cm"
+    ],
+    [
+     "Fondo",
+     "9 cm"
+    ],
+    [
+     "Material",
+     "Aluminio + cobre"
+    ]
+   ],
+   "gal": [
+    [
+     "decor-cristal.jpg",
+     "decor-detalle.png",
+     "Decor"
+    ]
+   ]
+  },
+  "toallero": {
+   "banner": "pin-toallero-1.jpg",
+   "lead": "Toallero de baja temperatura en acero cromado. Calor suave y secado de toallas integrados en el circuito hidráulico del baño.",
+   "specs": [
+    [
+     "Línea",
+     "Baja temperatura"
+    ],
+    [
+     "Tipología",
+     "Toallero"
+    ],
+    [
+     "Instalación",
+     "Circuito hidráulico"
+    ],
+    [
+     "Acabados",
+     "Cromo brillante"
+    ]
+   ],
+   "meta": [
+    [
+     "Material",
+     "Acero cromado"
+    ],
+    [
+     "Acabado",
+     "Cromo brillante"
+    ],
+    [
+     "Instalación",
+     "Circuito hidráulico"
+    ],
+    [
+     "Uso",
+     "Baño"
+    ]
+   ],
+   "gal": [
+    [
+     "pin-toallero-1.jpg",
+     "pin-toallero-2.jpg",
+     "Toallero cromado"
+    ],
+    [
+     "prod-toallero-detail.png",
+     "prod-toallero-detail2.png",
+     "Detalle técnico"
+    ]
+   ]
+  }
+ },
+ "cats": {
+  "t30": {
+   "titulo": "Serie T30",
+   "corto": "T30",
+   "ficha": true,
+   "items": [
+    {
+     "id": "t30r",
+     "nombre": "T30R",
+     "nota": "Panel horizontal recto, conexión derecha.",
+     "img": "t30-dormitorio.jpg",
+     "det": "t30-detalle-boton.jpg",
+     "serie": "t30"
+    },
+    {
+     "id": "t30l",
+     "nombre": "T30L",
+     "nota": "Panel horizontal recto, conexión izquierda.",
+     "img": "t30-cocina.jpg",
+     "det": "t30-detalle-boton.jpg",
+     "serie": "t30"
+    },
+    {
+     "id": "t30r-doble",
+     "nombre": "T30R Doble",
+     "nota": "Doble panel horizontal, conexión derecha. Mayor potencia.",
+     "img": "t30-doble-oliva.jpg",
+     "det": "t30-doble-detalle.jpg",
+     "serie": "doble"
+    },
+    {
+     "id": "t30l-doble",
+     "nombre": "T30L Doble",
+     "nota": "Doble panel horizontal, conexión izquierda. Mayor potencia.",
+     "img": "t30-doble-banner.jpg",
+     "det": "t30-doble-detalle.jpg",
+     "serie": "doble"
+    },
+    {
+     "id": "t30r-vent",
+     "nombre": "T30R Vent",
+     "nota": "Panel horizontal con ventilador integrado, conexión derecha.",
+     "img": "vent-vertical.jpg",
+     "det": "vent-corte-motor.jpg",
+     "serie": "vent"
+    },
+    {
+     "id": "t30l-vent",
+     "nombre": "T30L Vent",
+     "nota": "Panel horizontal con ventilador integrado, conexión izquierda.",
+     "img": "vent-corte-motor.jpg",
+     "det": "vent-detalle-motor.jpg",
+     "serie": "vent"
+    },
+    {
+     "id": "t30-tower",
+     "nombre": "T30 Tower",
+     "nota": "Panel vertical de gran formato: máxima potencia en poco ancho.",
+     "img": "tower-terracota.jpg",
+     "det": "tower-detalle.jpg",
+     "serie": "tower"
+    },
+    {
+     "id": "t30-tower-vent",
+     "nombre": "T30 Tower Vent",
+     "nota": "Panel vertical con ventilador integrado para convección forzada.",
+     "img": "tower-vent-vertical.jpg",
+     "det": "vent-detalle-motor.jpg",
+     "serie": "tower",
+     "banner": "tower-vent-banner.jpg",
+     "gal": [
+      [
+       "tower-vent-vertical.jpg",
+       "vent-detalle-motor.jpg",
+       "Tower Vent en vertical"
+      ],
+      [
+       "tower-vent-banner.jpg",
+       "tower-detalle.jpg",
+       "Tower Vent en el ambiente"
+      ]
+     ]
     }
-
-    function buildSubcatGrid(catId,items){
-      var few=items.length<=3;
-      var html='<div class="subcat-grid'+(few?' subcat-grid--few':'')+'">';
-      items.forEach(function(item,i){
-        var delay=(i%3)*0.04;
-        html+='<button class="subcat-card" data-prod="'+item.id+'">';
-        html+='<span class="subcat-card__img">';
-        if(item.img){
-          html+='<img src="../assets/img/'+item.img+'" alt="'+item.nombre+'">';
-        }
-        html+='<span class="subcat-card__cap">';
-        html+='<h3 class="subcat-card__title">'+item.nombre+'</h3>';
-        html+='<span class="subcat-card__note">'+item.nota+'</span>';
-        html+='</span></span></button>';
-      });
-      html+='</div>';
-      return html;
+   ]
+  },
+  "decor": {
+   "titulo": "Serie Decor",
+   "corto": "Decor",
+   "ficha": true,
+   "items": [
+    {
+     "id": "bel",
+     "nombre": "Bel",
+     "nota": "Líneas sobrias y acabado liso.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "besta",
+     "nombre": "Besta",
+     "nota": "Perfil delgado, elegancia contenida.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "cento",
+     "nombre": "Cento",
+     "nota": "Formato cuadrado, presencia central.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "veta",
+     "nombre": "Veta",
+     "nota": "Acabado veteado, textura natural.",
+     "img": "decor-vinilos.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "vertica",
+     "nombre": "Vertica",
+     "nota": "Vertical puro, máxima altura.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "meiga",
+     "nombre": "Meiga",
+     "nota": "Formas curvas, carácter escultórico.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "heat-e",
+     "nombre": "Heat-E",
+     "nota": "Con resistencia eléctrica auxiliar.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "nova-e",
+     "nombre": "Nova-E",
+     "nota": "Nova con resistencia eléctrica integrada.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
+    },
+    {
+     "id": "nova-plan-e",
+     "nombre": "Nova Plan-E",
+     "nota": "Nova plana con resistencia eléctrica.",
+     "img": "decor-cristal.jpg",
+     "det": "decor-detalle.png",
+     "serie": "decor"
     }
-
-    function buildCanales(){
-      return '<div class="canales-grid">'+
-        '<figure><img src="../assets/img/canales-triovent-salon.jpg" alt="Canal de suelo Teula en salón"></figure>'+
-        '<figure><img src="../assets/img/canales-triovent-detalle.jpg" alt="Detalle rejilla enrollable canal de suelo"></figure>'+
-        '</div>'+
-        '<div class="canales-texto">'+
-        '<div class="canales-modelo"><h4>Quattrovent</h4><p>Canal de suelo de fondo 100 mm y ancho 300 mm. Ventilador 24 V CC. Solo calefacción. Conexión eurocono 3/4".</p></div>'+
-        '<div class="canales-modelo"><h4>Octavent</h4><p>Canal de suelo de fondo 105 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. Circuito hidráulico reversible.</p></div>'+
-        '<div class="canales-modelo"><h4>Tetravent</h4><p>Canal de baja silueta: fondo 80 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. La solución más discreta para cristaleras y bajo ventana.</p></div>'+
-        '</div>';
+   ]
+  },
+  "toallero": {
+   "titulo": "Toalleros",
+   "corto": "Toalleros",
+   "ficha": true,
+   "items": [
+    {
+     "id": "iria",
+     "nombre": "Iria",
+     "nota": "Diseño horizontal clásico.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "arosa",
+     "nombre": "Arosa",
+     "nota": "Formato compacto de baño.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "artai",
+     "nombre": "Artai",
+     "nota": "Líneas geométricas definidas.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "cadro",
+     "nombre": "Cadro",
+     "nota": "Marco cuadrado y equilibrado.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "esteiro",
+     "nombre": "Esteiro",
+     "nota": "Perfil esbelto y vertical.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "lois",
+     "nombre": "Lois",
+     "nota": "Toallero de diseño neutro.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "nerea",
+     "nombre": "Nerea",
+     "nota": "Acabado refinado y suave.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "celtia",
+     "nombre": "Celtia",
+     "nota": "Inspiración en formas célticas.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "aramis",
+     "nombre": "Aramis",
+     "nota": "Elegancia clásica actualizada.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "carnota",
+     "nombre": "Carnota",
+     "nota": "Arquitectónico, de gran presencia.",
+     "img": "toallero-carnota-1.jpg",
+     "det": "toallero-carnota-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "corme",
+     "nombre": "Corme",
+     "nota": "Proporciones equilibradas.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "larino",
+     "nombre": "Lariño",
+     "nota": "Formato cuadrado horizontal.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "louro",
+     "nombre": "Louro",
+     "nota": "Toallero vertical de cocina.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "pindo",
+     "nombre": "Pindo",
+     "nota": "Formato mural de doble barra.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "muros",
+     "nombre": "Muros",
+     "nota": "Diseño mural ligero.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "larino-e",
+     "nombre": "Lariño-E",
+     "nota": "Lariño con resistencia eléctrica auxiliar.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
+    },
+    {
+     "id": "xinzo",
+     "nombre": "Xinzo",
+     "nota": "Toallero mixto hidráulico-eléctrico.",
+     "img": "pin-toallero-1.jpg",
+     "det": "pin-toallero-2.jpg",
+     "serie": "toallero"
     }
-
-    function buildFancoils(){
-      var tipos=[
-        {id:'hw',sigla:'HW',nombre:'High Wall',desc:'Instalación en pared alta.',img:'pin-t30-1.jpg'},
-        {id:'fs',sigla:'FS',nombre:'Floor / Low Wall',desc:'Instalación en pared baja o a pie de muro.',img:'pin-t30-2.jpg'},
-        {id:'sm',sigla:'SM',nombre:'Slim Profile',desc:'Perfil bajado para debajo de ventana.',img:'pin-t30-1.jpg'},
-        {id:'bt',sigla:'BT',nombre:'Bathroom',desc:'Versión para baño con protección contra la humedad.',img:'pin-t30-2.jpg'}
-      ];
-      var html='<div class="subcat-grid">';
-      tipos.forEach(function(t,i){
-        var delay=(i%3)*0.04;
-        html+='<button class="subcat-card">';
-        html+='<span class="subcat-card__img">';
-        html+='<img src="../assets/img/'+t.img+'" alt="Fancoil Reverso '+t.nombre+'">';
-        html+='<span class="subcat-card__cap">';
-        html+='<h3 class="subcat-card__title">'+t.sigla+' — '+t.nombre+'</h3>';
-        html+='<span class="subcat-card__note">'+t.desc+'</span>';
-        html+='</span></span></button>';
-      });
-      html+='</div>';
-      html+='<div class="fancoils-specs" style="margin-top:2rem"><strong>Características comunes Serie Reverso:</strong> Motor inverter DC · Ventilador tangencial de aluminio · Frontal de vidrio templado · 8 velocidades · Control Wi-Fi · Calefacción + refrigeración + purificación.</div>';
-      return html;
+   ]
+  },
+  "canales": {
+   "titulo": "Canales de suelo",
+   "bloques": [
+    {
+     "titulo": "Quattrovent",
+     "texto": "Canal de suelo de fondo 100 mm y ancho 300 mm. Ventilador 24 V CC. Solo calefacción. Conexión eurocono 3/4\".",
+     "fotos": [
+      "canales-triovent-salon.jpg",
+      "canales-triovent-detalle.jpg",
+      "canales-triovent-esquina.jpg"
+     ]
+    },
+    {
+     "titulo": "Octavent",
+     "texto": "Canal de suelo de fondo 105 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. Circuito hidráulico reversible.",
+     "fotos": [
+      "canales-triovent-bano.jpg",
+      "canales-triovent-esquina.jpg",
+      "canales-triovent-banner.jpg"
+     ]
+    },
+    {
+     "titulo": "Tetravent",
+     "texto": "Canal de baja silueta: fondo 80 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. La solución más discreta para cristaleras y bajo ventana.",
+     "fotos": [
+      "canales-triovent-banner.jpg",
+      "canales-triovent-bano.jpg",
+      "canales-triovent-detalle.jpg"
+     ]
     }
-
-    function mostrarSubcat(catId){
-      var cat=CATS[catId];
-      if(!cat) return;
-      _catActual=catId;
-      subcatLabel.textContent=cat.label;
-      subcatTit.textContent=cat.titulo;
-      subcatCont.innerHTML='';
-      if(cat.tipo==='subcats') subcatCont.innerHTML=buildSubcatGrid(catId,cat.items);
-      else if(cat.tipo==='especial-canales') subcatCont.innerHTML=buildCanales();
-      else if(cat.tipo==='especial-fancoils') subcatCont.innerHTML=buildFancoils();
-      subcatCont.querySelectorAll('[data-prod]').forEach(function(el){
-        el.addEventListener('click',function(){abrirModal(catId,el.dataset.prod);});
-      });
-      vistaCat.classList.remove('is-active');
-      vistaSubcat.classList.add('is-active');
-      window.scrollTo({top:0,behavior:'smooth'});
+   ]
+  },
+  "fancoils": {
+   "titulo": "Fancoils Serie Reverso",
+   "items": [
+    {
+     "id": "hw",
+     "nombre": "HW — High Wall",
+     "nota": "Instalación en pared alta.",
+     "img": "pin-t30-1.jpg"
+    },
+    {
+     "id": "fs",
+     "nombre": "FS — Floor / Low Wall",
+     "nota": "Instalación en pared baja o a pie de muro.",
+     "img": "pin-t30-2.jpg"
+    },
+    {
+     "id": "sm",
+     "nombre": "SM — Slim Profile",
+     "nota": "Perfil bajo para colocar bajo ventana.",
+     "img": "pin-t30-1.jpg"
+    },
+    {
+     "id": "bt",
+     "nombre": "BT — Bathroom",
+     "nota": "Versión para baño con protección frente a la humedad.",
+     "img": "pin-t30-2.jpg"
     }
-
-    function abrirModal(catId,prodId){
-      var cat=CATS[catId];
-      if(!cat||cat.tipo!=='subcats') return;
-      var prod=cat.items.find(function(i){return i.id===prodId;});
-      if(!prod) return;
-      var catNombre=cat.label.split(' — ')[1]||catId;
-      modalCatLbl.textContent=catNombre;
-      modalProdLbl.textContent=prod.nombre;
-      modalNombre.textContent=prod.nombre;
-      modalNota.textContent=prod.nota;
-      if(prod.img){
-        modalImgWrap.innerHTML='<img src="../assets/img/'+prod.img+'" alt="'+prod.nombre+'">';
-      } else {
-        modalImgWrap.innerHTML='<span>Imagen del producto — próximamente</span>';
-      }
-      modalSpecs.innerHTML='<div class="modal-ficha__spec"><dt>Referencia</dt><dd>'+prod.id.toUpperCase()+'</dd></div>'+
-        '<div class="modal-ficha__spec"><dt>Categoría</dt><dd>'+catNombre+'</dd></div>'+
-        '<div class="modal-ficha__spec"><dt>Conexión</dt><dd>Eurocono 3/4"</dd></div>'+
-        '<div class="modal-ficha__spec"><dt>Temperatura</dt><dd>35 – 45 °C</dd></div>';
-      modal.classList.add('is-open');
-      document.body.style.overflow='hidden';
-      btnCerrar.focus();
+   ],
+   "nota": "Características comunes de la Serie Reverso: motor inverter DC, ventilador tangencial de aluminio, frontal de vidrio templado, 8 velocidades, control Wi-Fi. Calefacción, refrigeración y purificación en un solo equipo."
+  },
+  "accesorios": {
+   "titulo": "Accesorios",
+   "items": [
+    {
+     "id": "valvulas",
+     "nombre": "Válvulas y cabezales",
+     "nota": "Válvulas de zona, cabezales termoeléctricos y termostáticos.",
+     "img": "valvula_mezcladora_vm_3v_general.png"
+    },
+    {
+     "id": "zocalos",
+     "nombre": "Zócalos",
+     "nota": "Acabado para una instalación limpia al pie del muro.",
+     "img": "cat-radiadores.png"
+    },
+    {
+     "id": "tuberias",
+     "nombre": "Tuberías",
+     "nota": "Tuberías multicapa y conexiones de obra.",
+     "img": "valvula_equilibrado_dn20_general.png"
+    },
+    {
+     "id": "resistencias",
+     "nombre": "Resistencias",
+     "nota": "Resistencias eléctricas de apoyo.",
+     "img": "cat-radiadores.png"
+    },
+    {
+     "id": "complementos",
+     "nombre": "Complementos",
+     "nota": "Soportes, tapas, tornillería y fijaciones.",
+     "img": "purgador_automatico_pa_1_general.png"
+    },
+    {
+     "id": "control",
+     "nombre": "Control",
+     "nota": "Termostatos, controladores Wi-Fi y regulación.",
+     "img": "termostato_tc_200_wifi_general.png"
     }
-
-    function cerrarModal(){
-      modal.classList.remove('is-open');
-      document.body.style.overflow='';
-    }
-
-    document.querySelectorAll('[data-cat]').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        history.pushState({cat:btn.dataset.cat},'');
-        mostrarSubcat(btn.dataset.cat);
-      });
-    });
-    btnVolver.addEventListener('click',function(){history.back();});
-    btnCerrar.addEventListener('click',cerrarModal);
-    document.addEventListener('keydown',function(e){
-      if(e.key==='Escape'&&modal.classList.contains('is-open')) cerrarModal();
-    });
-    window.addEventListener('popstate',function(e){
-      if(modal.classList.contains('is-open')){cerrarModal();return;}
-      if(e.state&&e.state.cat) mostrarSubcat(e.state.cat);
-      else mostrarCats();
-    });
-  }());
+   ]
+  }
+ }
+});
   </script>
 </body>
 </html>

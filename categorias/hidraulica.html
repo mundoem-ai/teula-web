@@ -4,42 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hidráulica — Teula Sistemas</title>
-  <meta name="description" content="Hidráulica Teula: grupos de bombeo, componentes, armarios, boosters, depósitos y depósitos a medida.">
+  <meta name="description" content="Hidráulica Teula: depósitos, componentes y sistemas de control de la instalación.">
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <style>
-        /* <button> con el aspecto exacto de los <a> originales */
-    button.model-card,button.subcat-card{all:unset;display:block;box-sizing:border-box;width:100%;cursor:pointer;position:relative}
-    button.model-card:focus-visible,button.subcat-card:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
-    .subcat-view [data-reveal],.subcat-view .subcat-card{opacity:1 !important}
-    .cat-view,.subcat-view{display:none}
-    .cat-view.is-active,.subcat-view.is-active{display:block}
-    .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem;font-family:var(--mono)}
-    .gal-back::before{content:'←';font-size:1em}
-    .gal-back:hover{opacity:.7}
-    .subcat-heading{margin-bottom:2.5rem}
-    .subcat-heading .label{display:block;margin-bottom:.4rem}
-    /* Bloques alternados para armarios y depósitos a medida */
-    .alt-block{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;padding:3rem 0;border-top:1px solid rgba(0,0,0,.08)}
-    .alt-block:first-child{border-top:none;padding-top:0}
-    @media(max-width:700px){.alt-block{grid-template-columns:1fr}}
-    .alt-block--reverse .alt-block__fotos{order:2}
-    .alt-block--reverse .alt-block__texto{order:1}
-    @media(max-width:700px){.alt-block--reverse .alt-block__fotos,.alt-block--reverse .alt-block__texto{order:unset}}
-    .alt-block__fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .alt-block__fotos figure{margin:0;border-radius:4px;overflow:hidden;background:var(--niebla);aspect-ratio:3/4}
-    .alt-block__fotos figure img{width:100%;height:100%;object-fit:cover}
-    .alt-block__texto h3{font-family:var(--display);font-size:1.4rem;margin:0 0 .6rem}
-    .alt-block__texto p{font-family:var(--texto);font-size:.95rem;line-height:1.7;color:#555;margin:0}
-    /* subcategorías con pocas tarjetas */
-    .subcat-grid--few{grid-template-columns:repeat(auto-fit,minmax(320px,400px));justify-content:center}
-  </style>
   <script>
     document.documentElement.classList.add('js-anim');
-    setTimeout(function(){if(!window.__teulaAnimated){document.documentElement.classList.remove('js-anim');}},5000);
+    setTimeout(function(){ if(!window.__teulaAnimated){ document.documentElement.classList.remove('js-anim'); } }, 5000);
   </script>
 </head>
-<body style="--acento:var(--azul-marino);--acento-contraste:var(--azul-mar);">
+<body style="--acento:var(--azul-marino);--acento-contraste:var(--azul-marino);">
 
   <header class="site-header">
     <div class="wrap site-header__inner">
@@ -100,9 +73,11 @@
   </div>
 
   <main>
+
+    <!-- ============ BANNER (estilo portada, igual que Radiadores) ============ -->
     <section class="hero-clean">
       <div class="hero-clean__media">
-        <img src="../assets/img/cat-hidrofox.png" alt="Hidráulica Teula">
+        <img src="../assets/img/hero-hidraulica.jpg" alt="Sala técnica con depósitos de inercia, colector y armario de control hidráulico">
       </div>
       <div class="wrap">
         <div class="hero-clean__inner">
@@ -112,94 +87,93 @@
             <span>Hidráulica</span>
           </nav>
           <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 02 — Hidráulica</p>
-          <h1 data-reveal data-reveal-delay="0.08">Hidráulica de precisión.</h1>
-          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Grupos de bombeo, componentes, armarios, boosters y depósitos para instalaciones de climatización de alta eficiencia.</p>
+          <h1 data-reveal data-reveal-delay="0.08">Hidráulica.</h1>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Depósitos, componentes y sistemas de control para una instalación eficiente y ordenada.</p>
         </div>
       </div>
     </section>
 
+    <!-- ============ CAPA 2 · GALERÍA DE 3 MODELOS (ancho completo, estilo Radiadores) ============ -->
     <section class="section" id="modelos">
-      <div class="wrap">
+      <div class="wrap gal-intro">
         <div class="dep-head">
           <h2 data-reveal>La gama, categoría a categoría.</h2>
-          <p class="label" data-reveal>02 — Hidráulica</p>
+          <p class="label" data-reveal>02 — Gama</p>
         </div>
       </div>
 
-      <!-- VISTA 1: 6 categorías -->
+      <!-- NIVEL 1: categorías a ancho completo -->
       <div class="cat-view is-active" id="vista-categorias">
         <div class="full-bleed cat-band">
           <div class="model-grid">
-            <button class="model-card" data-cat="grupos" data-reveal>
-              <span class="model-card__img">
-                <img src="../assets/img/grupo_bombeo_gb_25_general.png" alt="Grupos de bombeo Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Grupos de bombeo <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Grupos hidráulicos compactos para circuito primario.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="componentes" data-reveal data-reveal-delay="0.04">
-              <span class="model-card__img">
-                <img src="../assets/img/vaso_expansion_ve_18_general.png" alt="Componentes hidráulicos Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Componentes <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Vasos de expansión, purgadores y componentes de red.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="armarios" data-reveal data-reveal-delay="0.08">
-              <span class="model-card__img">
-                <img src="../assets/img/colector_modular_cm_4_general.png" alt="Armarios hidráulicos Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Armarios <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Armarios hidráulicos prefabricados, listos para instalar.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="booster" data-reveal>
-              <span class="model-card__img">
-                <img src="../assets/img/grupo_bombeo_gb_32_general.png" alt="Booster hidráulico Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Booster <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Grupos de presión para instalaciones con demanda variable.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="depositos" data-reveal data-reveal-delay="0.04">
-              <span class="model-card__img">
-                <img src="../assets/img/inercia_300_general.png" alt="Depósitos Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Depósitos <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Inercia, ACS y combinados para máxima acumulación.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="depositos-medida" data-reveal data-reveal-delay="0.08">
-              <span class="model-card__img">
-                <img src="../assets/img/combinado_800_general.png" alt="Depósitos a medida Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Depósitos a medida <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Fabricación específica para proyectos singulares.</span>
-                </span>
-              </span>
-            </button>
+          <button type="button" class="model-card" data-cat="grupos" data-reveal>
+            <span class="model-card__img">
+              <img src="../assets/img/grupo_bombeo_gb_25_general.png" alt="Grupos de bombeo">
+              <span class="model-card__cap"><span class="model-card__cap-name">Grupos de bombeo <span class="arw">→</span></span><span class="model-card__cap-desc">Grupos hidráulicos compactos para circuito primario.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="componentes" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img">
+              <img src="../assets/img/vaso_expansion_ve_18_general.png" alt="Componentes">
+              <span class="model-card__cap"><span class="model-card__cap-name">Componentes <span class="arw">→</span></span><span class="model-card__cap-desc">Vasos de expansión, purgadores, válvulas y sondas.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="armarios" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img">
+              <img src="../assets/img/cat-hidrofox.png" alt="Armarios">
+              <span class="model-card__cap"><span class="model-card__cap-name">Armarios <span class="arw">→</span></span><span class="model-card__cap-desc">Armarios hidráulicos prefabricados, listos para instalar.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="booster" data-reveal>
+            <span class="model-card__img">
+              <img src="../assets/img/grupo_bombeo_gb_32_general.png" alt="Booster">
+              <span class="model-card__cap"><span class="model-card__cap-name">Booster <span class="arw">→</span></span><span class="model-card__cap-desc">Grupos de presión para demanda variable.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="depositos" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img">
+              <img src="../assets/img/inercia_200_general.png" alt="Depósitos">
+              <span class="model-card__cap"><span class="model-card__cap-name">Depósitos <span class="arw">→</span></span><span class="model-card__cap-desc">Inercia, ACS y combinados para máxima acumulación.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="depositos-medida" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img">
+              <img src="../assets/img/cat-depositos.png" alt="Depósitos a medida">
+              <span class="model-card__cap"><span class="model-card__cap-name">Depósitos a medida <span class="arw">→</span></span><span class="model-card__cap-desc">Fabricación específica para proyectos singulares.</span></span>
+            </span>
+          </button>
           </div>
         </div>
       </div>
 
-      <!-- VISTA 2: subcategorías -->
+      <!-- NIVEL 2: subcategorías (se rellena por JS) -->
       <div class="subcat-view" id="vista-subcategorias">
-        <div class="wrap">
-          <button class="gal-back" id="btn-volver-cat">Hidráulica</button>
-          <div class="subcat-heading">
-            <span class="label" id="subcat-label"></span>
-            <h2 id="subcat-titulo"></h2>
+        <div class="wrap gal-head">
+          <button type="button" class="gal-back">← Hidráulica</button>
+          <p class="gal-title" id="subcat-titulo"></p>
+        </div>
+        <div id="subcat-contenido"></div>
+      </div>
+    </section>
+
+    <!-- ============ CAPA 3 · MÓDULO ESPECÍFICO ============ -->
+    <section class="section">
+      <div class="wrap">
+        <p class="label" style="margin-bottom:20px;" data-reveal>03 — Soluciones modulares</p>
+        <div class="inject-banner" data-reveal>
+          <div class="inject-banner__media"><span class="ph" style="--ph:var(--azul-marino);"><b>Banner Hidráulica</b></span></div>
+          <div class="inject-banner__body">
+            <p class="label inject-banner__eyebrow">Instalaciones modulares</p>
+            <h3>Descubre nuestras soluciones modulares.</h3>
+            <p>Grupos de bombeo, distribución y regulación montados y probados de fábrica. Cada componente ocupa su lugar exacto, listo para la sala de calderas.</p>
+            <a class="btn btn--on-dark" href="../contacto.html?interes=Hidráulica">Solicitar información <span class="arw">→</span></a>
           </div>
-          <div id="subcat-contenido"></div>
         </div>
       </div>
     </section>
+
+
+    <div data-lead-form="Hidráulica"></div>
   </main>
 
   <footer class="site-footer">
@@ -239,130 +213,249 @@
   <script>window.TEULA_BASE = "../";</script>
   <script src="../assets/js/config.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/galerias.js"></script>
   <script>
-  (function(){
-    var CATS={
-      grupos:{label:'01 — Grupos de bombeo',titulo:'Grupos de bombeo.',tipo:'subcats',items:[
-        {id:'gb25',nombre:'GB 25',nota:'Grupo bomba simple DN25, caudal hasta 1,2 m³/h.',img:'grupo_bombeo_gb_25_general.png'},
-        {id:'gb32',nombre:'GB 32',nota:'Grupo bomba simple DN32, caudal hasta 2,4 m³/h.',img:'grupo_bombeo_gb_32_general.png'},
-        {id:'gb25d',nombre:'GB 25 Doble',nota:'Grupo bomba doble DN25 con by-pass automático.',img:'grupo_bombeo_gb_25_general.png'},
-        {id:'gb32d',nombre:'GB 32 Doble',nota:'Grupo bomba doble DN32 con by-pass automático.',img:'grupo_bombeo_gb_32_general.png'},
-        {id:'gb-solar',nombre:'GB Solar',nota:'Grupo solar con caudalímetro y sonda de temperatura.',img:'solar_300_general.png'},
-        {id:'gb-modular',nombre:'GB Modular',nota:'Grupo modular para sistemas de distribución multizonal.',img:'modular_1000_general.png'},
-        {id:'gb-prim',nombre:'GB Primario',nota:'Grupo de circuito primario con válvula de equilibrado.',img:'valvula_equilibrado_dn20_general.png'}
-      ]},
-      componentes:{label:'02 — Componentes',titulo:'Componentes hidráulicos.',tipo:'subcats',items:[
-        {id:'ve18',nombre:'Vaso expansión VE-18',nota:'Vaso de expansión 18 litros para circuito cerrado.',img:'vaso_expansion_ve_18_general.png'},
-        {id:'ve35',nombre:'Vaso expansión VE-35',nota:'Vaso de expansión 35 litros para instalaciones mayores.',img:'vaso_expansion_ve_35_general.png'},
-        {id:'pa1',nombre:'Purgador automático PA-1',nota:'Purgador automático de aire para circuitos cerrados.',img:'purgador_automatico_pa_1_general.png'},
-        {id:'vm3v',nombre:'Válvula mezcladora VM-3V',nota:'Válvula mezcladora de 3 vías con actuador de 24 V.',img:'valvula_mezcladora_vm_3v_general.png'},
-        {id:'veq20',nombre:'Válvula equilibrado DN20',nota:'Válvula de equilibrado estático DN20.',img:'valvula_equilibrado_dn20_general.png'},
-        {id:'cm4',nombre:'Colector modular CM-4',nota:'Colector modular de 4 salidas con caudalímetros.',img:'colector_modular_cm_4_general.png'},
-        {id:'cm6',nombre:'Colector modular CM-6',nota:'Colector modular de 6 salidas con caudalímetros.',img:'colector_modular_cm_6_general.png'},
-        {id:'sc20',nombre:'Sonda caudal SC-20',nota:'Sonda de caudal ultrasónica clamp-on DN20.',img:'sonda_caudal_sc_20_general.png'},
-        {id:'st10',nombre:'Sonda temperatura ST-10',nota:'Sonda de temperatura de inmersión con vaina.',img:'sonda_temperatura_st_10_general.png'}
-      ]},
-      armarios:{label:'03 — Armarios',titulo:'Armarios hidráulicos.',tipo:'alternado',bloques:[
-        {fotos:['colector_modular_cm_4_general.png','colector_modular_cm_6_general.png','valvula_mezcladora_vm_3v_general.png'],texto:{titulo:'Armario compacto',desc:'Armario prefabricado para instalaciones de hasta 4 zonas. Colector de distribución, válvulas de equilibrado y grupo de bombeo premontados en caja de acero galvanizado. Listo para conexión hidráulica y eléctrica en obra.'}},
-        {fotos:['grupo_bombeo_gb_25_general.png','vaso_expansion_ve_18_general.png','purgador_automatico_pa_1_general.png'],texto:{titulo:'Armario de producción',desc:'Módulo de producción para aerotermia y solar. Integra el grupo primario, el vaso de expansión, el purgador automático y la válvula de seguridad en una única bancada compacta sobre perfilería de acero inoxidable.'}},
-        {fotos:['grupo_bombeo_gb_32_general.png','valvula_equilibrado_dn20_general.png','sonda_temperatura_st_10_general.png'],texto:{titulo:'Armario de distribución',desc:'Armario de distribución multizonal para edificios y grandes instalaciones. Incluye circuitos de distribución primario y secundario con aislamiento incorporado, centralita de control y pasacables para cableado de sondas y actuadores.'}}
-      ]},
-      booster:{label:'04 — Booster',titulo:'Grupos booster.',tipo:'subcats',items:[
-        {id:'boost25',nombre:'Booster DN25',nota:'Grupo de presión con presostato y variador integrado.',img:'grupo_bombeo_gb_25_general.png'},
-        {id:'boost32',nombre:'Booster DN32',nota:'Grupo de presión de mayor caudal con by-pass de seguridad.',img:'grupo_bombeo_gb_32_general.png'}
-      ]},
-      depositos:{label:'05 — Depósitos',titulo:'Depósitos de acumulación.',tipo:'subcats',items:[
-        {id:'iner200',nombre:'Inercia 200',nota:'Depósito de inercia de 200 litros.',img:'inercia_200_general.png'},
-        {id:'iner300',nombre:'Inercia 300',nota:'Depósito de inercia de 300 litros.',img:'inercia_300_general.png'},
-        {id:'iner500',nombre:'Inercia 500',nota:'Depósito de inercia de 500 litros.',img:'inercia_500_general.png'},
-        {id:'acs150',nombre:'ACS 150',nota:'Acumulador de agua caliente sanitaria de 150 litros.',img:'acs_150_general.png'},
-        {id:'acs200',nombre:'ACS 200',nota:'Acumulador de agua caliente sanitaria de 200 litros.',img:'acs_200_general.png'},
-        {id:'comb500',nombre:'Combinado 500',nota:'Depósito combinado inercia + ACS de 500 litros.',img:'combinado_500_general.png'},
-        {id:'comb800',nombre:'Combinado 800',nota:'Depósito combinado inercia + ACS de 800 litros.',img:'combinado_800_general.png'}
-      ]},
-      'depositos-medida':{label:'06 — Depósitos a medida',titulo:'Depósitos a medida.',tipo:'alternado',bloques:[
-        {fotos:['inercia_500_general.png','combinado_500_general.png','acs_200_general.png'],texto:{titulo:'Inercia de gran volumen',desc:'Depósitos de inercia de acero carbono con revestimiento epoxy interior, para volúmenes superiores a 1.000 litros. Fabricados bajo pedido con bridas y conexiones según proyecto. Ideales para instalaciones con producción solar + aerotermia.'}},
-        {fotos:['combinado_800_general.png','combinado_500_general.png','inercia_300_general.png'],texto:{titulo:'Combinados multicircuito',desc:'Depósitos combinados con dos o más serpentines para integración simultánea de aerotermia, solar y caldera de apoyo. Fabricación en acero inoxidable AISI 316L para ACS y vitrificado en esmalte sanitario para calidad de agua potable.'}},
-        {fotos:['acs_150_general.png','acs_200_general.png','modular_1000_general.png'],texto:{titulo:'ACS industrial',desc:'Acumuladores de ACS de gran capacidad para edificios, hoteles y residencias. Aislamiento de poliuretano expandido de 80 mm y envolvente exterior de PVC blanco. Connexiones DN65 en los modelos superiores a 2.000 litros.'}}
-      ]}
-    };
-
-    var vistaCat=document.getElementById('vista-categorias');
-    var vistaSubcat=document.getElementById('vista-subcategorias');
-    var btnVolver=document.getElementById('btn-volver-cat');
-    var subcatLabel=document.getElementById('subcat-label');
-    var subcatTit=document.getElementById('subcat-titulo');
-    var subcatCont=document.getElementById('subcat-contenido');
-
-    function mostrarCats(){
-      vistaSubcat.classList.remove('is-active');
-      vistaCat.classList.add('is-active');
-      document.body.style.overflow='';
+  TeulaGaleria({
+ "raiz": "Hidráulica",
+ "interes": "Hidráulica",
+ "ficha": false,
+ "cats": {
+  "grupos": {
+   "titulo": "Grupos de bombeo",
+   "items": [
+    {
+     "id": "gb25",
+     "nombre": "GB 25",
+     "nota": "Grupo bomba simple DN25, caudal hasta 1,2 m³/h.",
+     "img": "grupo_bombeo_gb_25_general.png"
+    },
+    {
+     "id": "gb32",
+     "nombre": "GB 32",
+     "nota": "Grupo bomba simple DN32, caudal hasta 2,4 m³/h.",
+     "img": "grupo_bombeo_gb_32_general.png"
+    },
+    {
+     "id": "gb25d",
+     "nombre": "GB 25 Doble",
+     "nota": "Grupo bomba doble DN25 con by-pass automático.",
+     "img": "grupo_bombeo_gb_25_general.png"
+    },
+    {
+     "id": "gb32d",
+     "nombre": "GB 32 Doble",
+     "nota": "Grupo bomba doble DN32 con by-pass automático.",
+     "img": "grupo_bombeo_gb_32_general.png"
+    },
+    {
+     "id": "gbs",
+     "nombre": "GB Solar",
+     "nota": "Grupo solar con caudalímetro y sonda de temperatura.",
+     "img": "solar_300_general.png"
+    },
+    {
+     "id": "gbm",
+     "nombre": "GB Modular",
+     "nota": "Grupo modular para distribución multizonal.",
+     "img": "modular_1000_general.png"
+    },
+    {
+     "id": "gbp",
+     "nombre": "GB Primario",
+     "nota": "Grupo de circuito primario con válvula de equilibrado.",
+     "img": "valvula_equilibrado_dn20_general.png"
     }
-
-    function buildSubcatGrid(items){
-      var few=items.length<=3;
-      var html='<div class="subcat-grid'+(few?' subcat-grid--few':'')+'">';
-      items.forEach(function(item,i){
-        var delay=(i%3)*0.04;
-        html+='<div class="subcat-card">';
-        html+='<span class="subcat-card__img">';
-        if(item.img){
-          html+='<img src="../assets/img/'+item.img+'" alt="'+item.nombre+'">';
-        }
-        html+='<span class="subcat-card__cap">';
-        html+='<h3 class="subcat-card__title">'+item.nombre+'</h3>';
-        html+='<span class="subcat-card__note">'+item.nota+'</span>';
-        html+='</span></span></div>';
-      });
-      html+='</div>';
-      return html;
+   ]
+  },
+  "componentes": {
+   "titulo": "Componentes",
+   "items": [
+    {
+     "id": "ve18",
+     "nombre": "Vaso de expansión VE-18",
+     "nota": "Vaso de expansión de 18 litros para circuito cerrado.",
+     "img": "vaso_expansion_ve_18_general.png"
+    },
+    {
+     "id": "ve35",
+     "nombre": "Vaso de expansión VE-35",
+     "nota": "Vaso de expansión de 35 litros para instalaciones mayores.",
+     "img": "vaso_expansion_ve_35_general.png"
+    },
+    {
+     "id": "pa1",
+     "nombre": "Purgador automático PA-1",
+     "nota": "Purgador automático de aire para circuitos cerrados.",
+     "img": "purgador_automatico_pa_1_general.png"
+    },
+    {
+     "id": "vm3v",
+     "nombre": "Válvula mezcladora VM-3V",
+     "nota": "Válvula mezcladora de 3 vías con actuador de 24 V.",
+     "img": "valvula_mezcladora_vm_3v_general.png"
+    },
+    {
+     "id": "veq",
+     "nombre": "Válvula de equilibrado DN20",
+     "nota": "Válvula de equilibrado estático DN20.",
+     "img": "valvula_equilibrado_dn20_general.png"
+    },
+    {
+     "id": "cm4",
+     "nombre": "Colector modular CM-4",
+     "nota": "Colector modular de 4 salidas con caudalímetros.",
+     "img": "colector_modular_cm_4_general.png"
+    },
+    {
+     "id": "cm6",
+     "nombre": "Colector modular CM-6",
+     "nota": "Colector modular de 6 salidas con caudalímetros.",
+     "img": "colector_modular_cm_6_general.png"
+    },
+    {
+     "id": "sc20",
+     "nombre": "Sonda de caudal SC-20",
+     "nota": "Sonda de caudal ultrasónica clamp-on DN20.",
+     "img": "sonda_caudal_sc_20_general.png"
+    },
+    {
+     "id": "st10",
+     "nombre": "Sonda de temperatura ST-10",
+     "nota": "Sonda de inmersión con vaina.",
+     "img": "sonda_temperatura_st_10_general.png"
     }
-
-    function buildAlternado(bloques){
-      var html='';
-      bloques.forEach(function(bloque,i){
-        var reverse=i%2===1;
-        html+='<div class="alt-block'+(reverse?' alt-block--reverse':'')+'">';
-        html+='<div class="alt-block__fotos">';
-        bloque.fotos.forEach(function(f){
-          html+='<figure><img src="../assets/img/'+f+'" alt="'+bloque.texto.titulo+'"></figure>';
-        });
-        html+='</div>';
-        html+='<div class="alt-block__texto">';
-        html+='<h3>'+bloque.texto.titulo+'</h3>';
-        html+='<p>'+bloque.texto.desc+'</p>';
-        html+='</div>';
-        html+='</div>';
-      });
-      return html;
+   ]
+  },
+  "armarios": {
+   "titulo": "Armarios hidráulicos",
+   "bloques": [
+    {
+     "titulo": "Armario compacto",
+     "texto": "Armario prefabricado para instalaciones de hasta 4 zonas. Colector de distribución, válvulas de equilibrado y grupo de bombeo premontados en caja de acero galvanizado.",
+     "fotos": [
+      "colector_modular_cm_4_general.png",
+      "colector_modular_cm_6_general.png",
+      "valvula_mezcladora_vm_3v_general.png"
+     ]
+    },
+    {
+     "titulo": "Armario de producción",
+     "texto": "Módulo de producción para aerotermia y solar. Integra grupo primario, vaso de expansión, purgador automático y válvula de seguridad en una única bancada compacta.",
+     "fotos": [
+      "grupo_bombeo_gb_25_general.png",
+      "vaso_expansion_ve_18_general.png",
+      "purgador_automatico_pa_1_general.png"
+     ]
+    },
+    {
+     "titulo": "Armario de distribución",
+     "texto": "Distribución multizonal para edificios y grandes instalaciones, con circuitos primario y secundario aislados, centralita de control y pasacables para sondas y actuadores.",
+     "fotos": [
+      "grupo_bombeo_gb_32_general.png",
+      "valvula_equilibrado_dn20_general.png",
+      "sonda_temperatura_st_10_general.png"
+     ]
     }
-
-    function mostrarSubcat(catId){
-      var cat=CATS[catId];
-      if(!cat) return;
-      subcatLabel.textContent=cat.label;
-      subcatTit.textContent=cat.titulo;
-      subcatCont.innerHTML='';
-      if(cat.tipo==='subcats') subcatCont.innerHTML=buildSubcatGrid(cat.items);
-      else if(cat.tipo==='alternado') subcatCont.innerHTML=buildAlternado(cat.bloques);
-      vistaCat.classList.remove('is-active');
-      vistaSubcat.classList.add('is-active');
-      window.scrollTo({top:0,behavior:'smooth'});
+   ]
+  },
+  "booster": {
+   "titulo": "Grupos booster",
+   "items": [
+    {
+     "id": "b25",
+     "nombre": "Booster DN25",
+     "nota": "Grupo de presión con presostato y variador integrado.",
+     "img": "grupo_bombeo_gb_25_general.png"
+    },
+    {
+     "id": "b32",
+     "nombre": "Booster DN32",
+     "nota": "Grupo de presión de mayor caudal con by-pass de seguridad.",
+     "img": "grupo_bombeo_gb_32_general.png"
     }
-
-    document.querySelectorAll('[data-cat]').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        history.pushState({cat:btn.dataset.cat},'');
-        mostrarSubcat(btn.dataset.cat);
-      });
-    });
-    btnVolver.addEventListener('click',function(){history.back();});
-    window.addEventListener('popstate',function(e){
-      if(e.state&&e.state.cat) mostrarSubcat(e.state.cat);
-      else mostrarCats();
-    });
-  }());
+   ]
+  },
+  "depositos": {
+   "titulo": "Depósitos",
+   "items": [
+    {
+     "id": "in200",
+     "nombre": "Inercia 200",
+     "nota": "Depósito de inercia de 200 litros.",
+     "img": "inercia_200_general.png"
+    },
+    {
+     "id": "in300",
+     "nombre": "Inercia 300",
+     "nota": "Depósito de inercia de 300 litros.",
+     "img": "inercia_300_general.png"
+    },
+    {
+     "id": "in500",
+     "nombre": "Inercia 500",
+     "nota": "Depósito de inercia de 500 litros.",
+     "img": "inercia_500_general.png"
+    },
+    {
+     "id": "acs150",
+     "nombre": "ACS 150",
+     "nota": "Acumulador de agua caliente sanitaria de 150 litros.",
+     "img": "acs_150_general.png"
+    },
+    {
+     "id": "acs200",
+     "nombre": "ACS 200",
+     "nota": "Acumulador de agua caliente sanitaria de 200 litros.",
+     "img": "acs_200_general.png"
+    },
+    {
+     "id": "co500",
+     "nombre": "Combinado 500",
+     "nota": "Depósito combinado inercia + ACS de 500 litros.",
+     "img": "combinado_500_general.png"
+    },
+    {
+     "id": "co800",
+     "nombre": "Combinado 800",
+     "nota": "Depósito combinado inercia + ACS de 800 litros.",
+     "img": "combinado_800_general.png"
+    }
+   ]
+  },
+  "depositos-medida": {
+   "titulo": "Depósitos a medida",
+   "bloques": [
+    {
+     "titulo": "Inercia de gran volumen",
+     "texto": "Depósitos de inercia de acero carbono con revestimiento epoxi interior para volúmenes superiores a 1.000 litros, fabricados bajo pedido con bridas y conexiones según proyecto.",
+     "fotos": [
+      "inercia_500_general.png",
+      "combinado_500_general.png",
+      "acs_200_general.png"
+     ]
+    },
+    {
+     "titulo": "Combinados multicircuito",
+     "texto": "Depósitos combinados con dos o más serpentines para integrar aerotermia, solar y caldera de apoyo. Acero inoxidable AISI 316L o vitrificado sanitario.",
+     "fotos": [
+      "combinado_800_general.png",
+      "combinado_500_general.png",
+      "inercia_300_general.png"
+     ]
+    },
+    {
+     "titulo": "ACS industrial",
+     "texto": "Acumuladores de ACS de gran capacidad para edificios, hoteles y residencias, con aislamiento de poliuretano de 80 mm y conexiones DN65 en los modelos mayores.",
+     "fotos": [
+      "acs_150_general.png",
+      "acs_200_general.png",
+      "modular_1000_general.png"
+     ]
+    }
+   ]
+  }
+ }
+});
   </script>
 </body>
 </html>

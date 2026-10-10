@@ -4,37 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contabilización — Teula Sistemas</title>
-  <meta name="description" content="Contabilización de energía Teula: pantallas, centralitas, accesorios, contadores, comunicaciones y servicios.">
+  <meta name="description" content="Contabilización Teula: equipos de medición, comunicaciones y servicios de gestión de consumos.">
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <style>
-        /* <button> con el aspecto exacto de los <a> originales */
-    button.model-card,button.subcat-card{all:unset;display:block;box-sizing:border-box;width:100%;cursor:pointer;position:relative}
-    button.model-card:focus-visible,button.subcat-card:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
-    .subcat-view [data-reveal],.subcat-view .subcat-card{opacity:1 !important}
-    .cat-view,.subcat-view{display:none}
-    .cat-view.is-active,.subcat-view.is-active{display:block}
-    .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem;font-family:var(--mono)}
-    .gal-back::before{content:'←';font-size:1em}
-    .gal-back:hover{opacity:.7}
-    .subcat-heading{margin-bottom:2.5rem}
-    .subcat-heading .label{display:block;margin-bottom:.4rem}
-    /* subcategorías con pocas tarjetas */
-    .subcat-grid--few{grid-template-columns:repeat(auto-fit,minmax(320px,400px));justify-content:center}
-    /* Servicios */
-    .servicios-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,40px)}
-    .servicio-item{border-top:2px solid var(--acento);padding-top:1.4rem}
-    .servicio-item h3{font-family:var(--display);font-size:1.1rem;margin:0 0 .5rem}
-    .servicio-item p{font-family:var(--texto);font-size:.9rem;line-height:1.65;color:#555;margin:0}
-    .servicio-item__img{width:100%;aspect-ratio:16/9;background:var(--niebla);border-radius:4px;overflow:hidden;margin-bottom:1rem}
-    .servicio-item__img img{width:100%;height:100%;object-fit:cover}
-  </style>
   <script>
     document.documentElement.classList.add('js-anim');
-    setTimeout(function(){if(!window.__teulaAnimated){document.documentElement.classList.remove('js-anim');}},5000);
+    setTimeout(function(){ if(!window.__teulaAnimated){ document.documentElement.classList.remove('js-anim'); } }, 5000);
   </script>
 </head>
-<body style="--acento:var(--amarillo-ambar);--acento-contraste:var(--amarillo-dorado);">
+<body style="--acento:var(--amarillo-ambar);--acento-contraste:var(--verde-mar);">
 
   <header class="site-header">
     <div class="wrap site-header__inner">
@@ -85,7 +63,7 @@
       </nav>
       <aside class="menu-aside">
         <h4>Contacto</h4>
-        <a class="btn btn--on-dark" href="../contacto.html?interes=Contabilizacion">Solicitar información <span class="arw">→</span></a>
+        <a class="btn btn--on-dark" href="../contacto.html?interes=Contabilización">Solicitar información <span class="arw">→</span></a>
         <div class="menu-aside__contact">
           <a data-contact="email" href="mailto:info@teula.es">info@teula.es</a>
           <a data-contact="telefono" href="tel:">Teléfono</a>
@@ -95,106 +73,114 @@
   </div>
 
   <main>
+
+    <!-- ============ BANNER (estilo portada, igual que Radiadores e Hidráulica) ============ -->
     <section class="hero-clean">
       <div class="hero-clean__media">
-        <img src="../assets/img/telegestion_sala.png" alt="Contabilización de energía Teula">
+        <img src="../assets/img/hero_contabilizacion.png" alt="Sala técnica con contadores digitales y módulo de telelectura">
       </div>
       <div class="wrap">
         <div class="hero-clean__inner">
           <nav class="breadcrumb" aria-label="Ruta" data-reveal style="color:rgba(255,255,255,0.75);">
             <a href="../index.html" style="color:inherit;">Inicio</a><span class="sep">/</span>
             <a href="../index.html#departamentos" style="color:inherit;">Departamentos</a><span class="sep">/</span>
-            <span>Contabilización</span>
+            <a href="../index.html" style="color:inherit;">Contabilización</a>
           </nav>
           <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 03 — Contabilización</p>
-          <h1 data-reveal data-reveal-delay="0.08">Contabilización de energía.</h1>
-          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Pantallas, centralitas, contadores MID, comunicaciones y servicios de auditoría y telegestión para instalaciones de calefacción centralizada.</p>
+          <h1 data-reveal data-reveal-delay="0.08">Contabilización de consumos.</h1>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Equipos de medición, comunicaciones y servicios. Un dato justo, medible y verificable.</p>
         </div>
       </div>
     </section>
 
+    <!-- ============ CAPA 2 · SERVICIOS (tarjetas al mismo tamaño que el resto) ============ -->
     <section class="section" id="modelos">
-      <div class="wrap">
+      <div class="wrap gal-intro">
         <div class="dep-head">
-          <h2 data-reveal>La gama, categoría a categoría.</h2>
-          <p class="label" data-reveal>03 — Contabilización</p>
+          <h2 data-reveal>Medición, comunicaciones y servicios.</h2>
+          <p class="label" data-reveal>02 — Gama</p>
         </div>
       </div>
 
-      <!-- VISTA 1: 6 categorías -->
+      <!-- NIVEL 1: categorías a ancho completo -->
       <div class="cat-view is-active" id="vista-categorias">
         <div class="full-bleed cat-band">
           <div class="model-grid">
-            <button class="model-card" data-cat="pantallas" data-reveal>
-              <span class="model-card__img">
-                <img src="../assets/img/plataforma_consumos.png" alt="Pantallas de consumo Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Pantallas <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Displays de consumo para lectura en vivienda o portal.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="centralitas" data-reveal data-reveal-delay="0.04">
-              <span class="model-card__img">
-                <img src="../assets/img/centralita_cz_4_general.png" alt="Centralitas Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Centralitas <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Centralitas de zona para gestión de contadores por planta.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="accesorios" data-reveal data-reveal-delay="0.08">
-              <span class="model-card__img">
-                <img src="../assets/img/sonda_temperatura_st_10_general.png" alt="Accesorios de contabilización Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Accesorios <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Sondas, sensores y elementos auxiliares de medición.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="contadores" data-reveal>
-              <span class="model-card__img">
-                <img src="../assets/img/cat-contadores.png" alt="Contadores de energía Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Contadores <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Contadores ultrasónicos de energía térmica homologados MID.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="comunicaciones" data-reveal data-reveal-delay="0.04">
-              <span class="model-card__img">
-                <img src="../assets/img/comunicaciones.png" alt="Comunicaciones Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Comunicaciones <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">M-Bus, Wireless M-Bus y LoRa/NB-IoT para telecontaje.</span>
-                </span>
-              </span>
-            </button>
-            <button class="model-card" data-cat="servicios" data-reveal data-reveal-delay="0.08">
-              <span class="model-card__img">
-                <img src="../assets/img/auditoria_energetica.png" alt="Servicios Teula">
-                <span class="model-card__cap">
-                  <span class="model-card__cap-name">Servicios <span class="arw">→</span></span>
-                  <span class="model-card__cap-desc">Auditoría energética, plataforma de consumos y telegestión.</span>
-                </span>
-              </span>
-            </button>
+          <button type="button" class="model-card" data-cat="pantallas" data-reveal>
+            <span class="model-card__img">
+              <img src="../assets/img/plataforma_consumos.png" alt="Pantallas">
+              <span class="model-card__cap"><span class="model-card__cap-name">Pantallas <span class="arw">→</span></span><span class="model-card__cap-desc">Displays de consumo para vivienda o portal.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="centralitas" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img">
+              <img src="../assets/img/centralita_cz_4_general.png" alt="Centralitas">
+              <span class="model-card__cap"><span class="model-card__cap-name">Centralitas <span class="arw">→</span></span><span class="model-card__cap-desc">Gestión de contadores por zona o planta.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="accesorios" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img">
+              <img src="../assets/img/sonda_temperatura_st_10_general.png" alt="Accesorios">
+              <span class="model-card__cap"><span class="model-card__cap-name">Accesorios <span class="arw">→</span></span><span class="model-card__cap-desc">Sondas, pasarelas y elementos de medición.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="contadores" data-reveal>
+            <span class="model-card__img">
+              <img src="../assets/img/medicion.png" alt="Contadores">
+              <span class="model-card__cap"><span class="model-card__cap-name">Contadores <span class="arw">→</span></span><span class="model-card__cap-desc">Contadores ultrasónicos de energía térmica, homologados MID.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="comunicaciones" data-reveal data-reveal-delay="0.04">
+            <span class="model-card__img">
+              <img src="../assets/img/comunicaciones.png" alt="Comunicaciones">
+              <span class="model-card__cap"><span class="model-card__cap-name">Comunicaciones <span class="arw">→</span></span><span class="model-card__cap-desc">M-Bus, Wireless M-Bus y LoRa / NB-IoT.</span></span>
+            </span>
+          </button>
+          <button type="button" class="model-card" data-cat="servicios" data-reveal data-reveal-delay="0.08">
+            <span class="model-card__img">
+              <img src="../assets/img/auditoria_energetica.png" alt="Servicios">
+              <span class="model-card__cap"><span class="model-card__cap-name">Servicios <span class="arw">→</span></span><span class="model-card__cap-desc">Auditoría energética, plataforma de consumos y telegestión.</span></span>
+            </span>
+          </button>
           </div>
         </div>
       </div>
 
-      <!-- VISTA 2: subcategorías -->
+      <!-- NIVEL 2: subcategorías (se rellena por JS) -->
       <div class="subcat-view" id="vista-subcategorias">
-        <div class="wrap">
-          <button class="gal-back" id="btn-volver-cat">Contabilización</button>
-          <div class="subcat-heading">
-            <span class="label" id="subcat-label"></span>
-            <h2 id="subcat-titulo"></h2>
+        <div class="wrap gal-head">
+          <button type="button" class="gal-back">← Contabilización</button>
+          <p class="gal-title" id="subcat-titulo"></p>
+        </div>
+        <div id="subcat-contenido"></div>
+      </div>
+    </section>
+
+    <!-- ============ CAPA 3 · GAMA Y PROCESO (una sola galería, justo antes del formulario) ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="dep-head">
+          <h2 data-reveal>Toda la solución, paso a paso.</h2>
+          <p class="label" data-reveal>03 — Proceso</p>
+        </div>
+        <div class="subcat-grid">
+          <div class="subcat-card" data-reveal>
+            <span class="subcat-card__img"><img src="../assets/img/solicitud.png" alt="Solicitud de instalación de contabilización"><span class="subcat-card__cap"><h3 class="subcat-card__title">Solicitud</h3><span class="subcat-card__note">Paso 01 · Cuéntanos tu instalación</span></span></span>
           </div>
-          <div id="subcat-contenido"></div>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.04">
+            <span class="subcat-card__img"><img src="../assets/img/propuesta.png" alt="Estudio técnico y propuesta de presupuesto"><span class="subcat-card__cap"><h3 class="subcat-card__title">Propuesta</h3><span class="subcat-card__note">Paso 02 · Estudio y presupuesto</span></span></span>
+          </div>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.08">
+            <span class="subcat-card__img"><img src="../assets/img/instalacion.png" alt="Montaje y puesta en marcha de los equipos"><span class="subcat-card__cap"><h3 class="subcat-card__title">Instalación</h3><span class="subcat-card__note">Paso 03 · Montaje y puesta en marcha</span></span></span>
+          </div>
+          <div class="subcat-card" data-reveal data-reveal-delay="0.12">
+            <span class="subcat-card__img"><img src="../assets/img/servicio.png" alt="Servicio de lecturas y soporte continuado"><span class="subcat-card__cap"><h3 class="subcat-card__title">Servicio</h3><span class="subcat-card__note">Paso 04 · Lecturas y soporte</span></span></span>
+          </div>
         </div>
       </div>
     </section>
+
+    <div data-lead-form="Contabilización"></div>
   </main>
 
   <footer class="site-footer">
@@ -234,107 +220,132 @@
   <script>window.TEULA_BASE = "../";</script>
   <script src="../assets/js/config.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/galerias.js"></script>
   <script>
-  (function(){
-    var CATS={
-      pantallas:{label:'01 — Pantallas',titulo:'Pantallas de consumo.',tipo:'subcats',items:[
-        {id:'pd-basic',nombre:'PD Basic',nota:'Display LCD de consumo. Montaje en pared o caja de empotrar.',img:'plataforma_consumos.png'},
-        {id:'pd-touch',nombre:'PD Touch',nota:'Pantalla táctil 3,5" con histórico de 12 meses y exportación USB.',img:'plataforma_consumos.png'}
-      ]},
-      centralitas:{label:'02 — Centralitas',titulo:'Centralitas de zona.',tipo:'subcats',items:[
-        {id:'cz4',nombre:'Centralita CZ-4',nota:'Centralita para hasta 4 contadores con concentrador M-Bus integrado.',img:'centralita_cz_4_general.png'},
-        {id:'cz8',nombre:'Centralita CZ-8',nota:'Centralita para hasta 8 contadores con Ethernet y relé de corte.',img:'centralita_cz_8_general.png'}
-      ]},
-      accesorios:{label:'03 — Accesorios',titulo:'Accesorios de medición.',tipo:'subcats',items:[
-        {id:'st10',nombre:'Sonda temperatura ST-10',nota:'Sonda de inmersión Pt1000 con vaina de acero inoxidable.',img:'sonda_temperatura_st_10_general.png'},
-        {id:'sc20',nombre:'Sonda caudal SC-20',nota:'Sonda de caudal ultrasónica clamp-on, DN20 a DN50.',img:'sonda_caudal_sc_20_general.png'},
-        {id:'pg1',nombre:'Pasarela IoT PG-1',nota:'Pasarela IoT con entrada M-Bus y salida MQTT/REST.',img:'pasarela_iot_pg_1_general.png'}
-      ]},
-      contadores:{label:'04 — Contadores',titulo:'Contadores de energía.',tipo:'subcats',items:[
-        {id:'cu-mid',nombre:'Contador ultrasónico MID',nota:'Contador de energía térmica ultrasónico homologado MID clase 2. DN15 a DN50. Salida M-Bus, Wireless M-Bus y LoRa/NB-IoT opcionales.',img:'cat-contadores.png'}
-      ]},
-      comunicaciones:{label:'05 — Comunicaciones',titulo:'Módulos de comunicaciones.',tipo:'subcats',items:[
-        {id:'mbus',nombre:'M-Bus',nota:'Módulo M-Bus cableado para conexión a centralita o pasarela.',img:'comunicaciones.png'},
-        {id:'wmbus',nombre:'Wireless M-Bus',nota:'Módulo inalámbrico 868 MHz para telecontaje sin cableado.',img:'comunicaciones.png'},
-        {id:'lora',nombre:'LoRa / NB-IoT',nota:'Módulo de comunicación LPWAN para cobertura extendida en edificios.',img:'comunicaciones.png'}
-      ]},
-      servicios:{label:'06 — Servicios',titulo:'Servicios.',tipo:'servicios',items:[
-        {id:'auditoria',nombre:'Auditoría energética',desc:'Análisis completo del consumo del edificio: medición de referencia, identificación de pérdidas e informe de recomendaciones con ahorro estimado y retorno de inversión.',img:'auditoria_energetica.png'},
-        {id:'plataforma',nombre:'Plataforma de consumos',desc:'Plataforma web de monitorización en tiempo real por vivienda, zona o edificio. Panel de administración para la comunidad, histórico exportable y alertas configurables.',img:'plataforma_consumos.png'},
-        {id:'telegestion',nombre:'Telegestión',desc:'Servicio gestionado de telecontaje y mantenimiento remoto. Lectura automática de contadores, detección de anomalías y soporte técnico dedicado para la sala de máquinas.',img:'telegestion_sala.png'}
-      ]}
-    };
-
-    var vistaCat=document.getElementById('vista-categorias');
-    var vistaSubcat=document.getElementById('vista-subcategorias');
-    var btnVolver=document.getElementById('btn-volver-cat');
-    var subcatLabel=document.getElementById('subcat-label');
-    var subcatTit=document.getElementById('subcat-titulo');
-    var subcatCont=document.getElementById('subcat-contenido');
-
-    function mostrarCats(){
-      vistaSubcat.classList.remove('is-active');
-      vistaCat.classList.add('is-active');
-      document.body.style.overflow='';
+  TeulaGaleria({
+ "raiz": "Contabilización",
+ "interes": "Contabilización",
+ "ficha": false,
+ "cats": {
+  "pantallas": {
+   "titulo": "Pantallas",
+   "items": [
+    {
+     "id": "pd-basic",
+     "nombre": "PD Basic",
+     "nota": "Display LCD de consumo. Montaje en pared o caja de empotrar.",
+     "img": "plataforma_consumos.png"
+    },
+    {
+     "id": "pd-touch",
+     "nombre": "PD Touch",
+     "nota": "Pantalla táctil de 3,5\" con histórico de 12 meses y exportación USB.",
+     "img": "plataforma_consumos.png"
     }
-
-    function buildSubcatGrid(items){
-      var few=items.length<=3;
-      var html='<div class="subcat-grid'+(few?' subcat-grid--few':'')+'">';
-      items.forEach(function(item,i){
-        var delay=(i%3)*0.04;
-        html+='<div class="subcat-card">';
-        html+='<span class="subcat-card__img">';
-        if(item.img){
-          html+='<img src="../assets/img/'+item.img+'" alt="'+item.nombre+'">';
-        }
-        html+='<span class="subcat-card__cap">';
-        html+='<h3 class="subcat-card__title">'+item.nombre+'</h3>';
-        html+='<span class="subcat-card__note">'+item.nota+'</span>';
-        html+='</span></span></div>';
-      });
-      html+='</div>';
-      return html;
+   ]
+  },
+  "centralitas": {
+   "titulo": "Centralitas",
+   "items": [
+    {
+     "id": "cz4",
+     "nombre": "Centralita CZ-4",
+     "nota": "Hasta 4 contadores con concentrador M-Bus integrado.",
+     "img": "centralita_cz_4_general.png"
+    },
+    {
+     "id": "cz8",
+     "nombre": "Centralita CZ-8",
+     "nota": "Hasta 8 contadores con Ethernet y relé de corte.",
+     "img": "centralita_cz_8_general.png"
     }
-
-    function buildServicios(items){
-      var html='<div class="servicios-list">';
-      items.forEach(function(item,i){
-        html+='<div class="servicio-item">';
-        html+='<div class="servicio-item__img"><img src="../assets/img/'+item.img+'" alt="'+item.nombre+'"></div>';
-        html+='<h3>'+item.nombre+'</h3>';
-        html+='<p>'+item.desc+'</p>';
-        html+='</div>';
-      });
-      html+='</div>';
-      return html;
+   ]
+  },
+  "accesorios": {
+   "titulo": "Accesorios",
+   "items": [
+    {
+     "id": "st10",
+     "nombre": "Sonda de temperatura ST-10",
+     "nota": "Sonda de inmersión Pt1000 con vaina de acero inoxidable.",
+     "img": "sonda_temperatura_st_10_general.png"
+    },
+    {
+     "id": "sc20",
+     "nombre": "Sonda de caudal SC-20",
+     "nota": "Sonda de caudal ultrasónica clamp-on, DN20 a DN50.",
+     "img": "sonda_caudal_sc_20_general.png"
+    },
+    {
+     "id": "pg1",
+     "nombre": "Pasarela IoT PG-1",
+     "nota": "Pasarela IoT con entrada M-Bus y salida MQTT/REST.",
+     "img": "pasarela_iot_pg_1_general.png"
     }
-
-    function mostrarSubcat(catId){
-      var cat=CATS[catId];
-      if(!cat) return;
-      subcatLabel.textContent=cat.label;
-      subcatTit.textContent=cat.titulo;
-      subcatCont.innerHTML='';
-      if(cat.tipo==='subcats') subcatCont.innerHTML=buildSubcatGrid(cat.items);
-      else if(cat.tipo==='servicios') subcatCont.innerHTML=buildServicios(cat.items);
-      vistaCat.classList.remove('is-active');
-      vistaSubcat.classList.add('is-active');
-      window.scrollTo({top:0,behavior:'smooth'});
+   ]
+  },
+  "contadores": {
+   "titulo": "Contadores",
+   "items": [
+    {
+     "id": "cu",
+     "nombre": "Contador ultrasónico MID",
+     "nota": "Contador de energía térmica ultrasónico homologado MID clase 2, DN15 a DN50.",
+     "img": "cat-contadores.png"
     }
-
-    document.querySelectorAll('[data-cat]').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        history.pushState({cat:btn.dataset.cat},'');
-        mostrarSubcat(btn.dataset.cat);
-      });
-    });
-    btnVolver.addEventListener('click',function(){history.back();});
-    window.addEventListener('popstate',function(e){
-      if(e.state&&e.state.cat) mostrarSubcat(e.state.cat);
-      else mostrarCats();
-    });
-  }());
+   ]
+  },
+  "comunicaciones": {
+   "titulo": "Comunicaciones",
+   "items": [
+    {
+     "id": "mbus",
+     "nombre": "M-Bus",
+     "nota": "Módulo M-Bus cableado para centralita o pasarela.",
+     "img": "comunicaciones.png"
+    },
+    {
+     "id": "wmbus",
+     "nombre": "Wireless M-Bus",
+     "nota": "Módulo inalámbrico 868 MHz para telecontaje sin cableado.",
+     "img": "comunicaciones.png"
+    },
+    {
+     "id": "lora",
+     "nombre": "LoRa / NB-IoT",
+     "nota": "Comunicación LPWAN para cobertura extendida en edificios.",
+     "img": "comunicaciones.png"
+    }
+   ]
+  },
+  "servicios": {
+   "titulo": "Servicios",
+   "bloques": [
+    {
+     "titulo": "Auditoría energética",
+     "texto": "Análisis del consumo del edificio: medición de referencia, identificación de pérdidas e informe de recomendaciones con ahorro estimado y retorno de la inversión.",
+     "fotos": [
+      "auditoria_energetica.png"
+     ]
+    },
+    {
+     "titulo": "Plataforma de consumos",
+     "texto": "Monitorización en tiempo real por vivienda, zona o edificio. Panel de administración para la comunidad, histórico exportable y alertas configurables.",
+     "fotos": [
+      "plataforma_consumos.png"
+     ]
+    },
+    {
+     "titulo": "Telegestión de sala",
+     "texto": "Telecontaje y mantenimiento remoto: lectura automática de contadores, detección de anomalías y soporte técnico dedicado para la sala de máquinas.",
+     "fotos": [
+      "telegestion_sala.png"
+     ]
+    }
+   ]
+  }
+ }
+});
   </script>
 </body>
 </html>
