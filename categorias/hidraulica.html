@@ -4,12 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hidráulica — Teula Sistemas</title>
-  <meta name="description" content="Hidráulica Teula: depósitos, componentes y sistemas de control de la instalación.">
+  <meta name="description" content="Hidráulica Teula: grupos, componentes, armarios, booster ACS, depósitos y depósitos a medida.">
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .hid-cat-view,.hid-subcat-view{display:none}
+    .hid-cat-view.is-active,.hid-subcat-view.is-active{display:block}
+    .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem}
+    .gal-back::before{content:'←';font-size:1em}
+    .gal-back:hover{opacity:.7}
+    .subcat-heading{margin-bottom:2.5rem}
+    .subcat-heading .label{display:block;margin-bottom:.4rem}
+    .hid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem}
+    .hid-card{background:#f5f5f3;border-radius:8px;overflow:hidden}
+    .hid-card__img{aspect-ratio:4/3;background:#e8e8e6;overflow:hidden}
+    .hid-card__img img{width:100%;height:100%;object-fit:cover}
+    .hid-card__body{padding:1.1rem 1.3rem 1.4rem}
+    .hid-card__name{font-size:1rem;font-weight:600;margin:0 0 .25rem}
+    .hid-card__note{font-size:.88rem;color:#666;line-height:1.5;margin:0}
+    .alt-block{margin-bottom:3.5rem}
+    .alt-block:last-child{margin-bottom:0}
+    .alt-block__fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+    @media(max-width:600px){.alt-block__fotos{grid-template-columns:1fr 1fr}}
+    .alt-block__foto{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#e8e8e6}
+    .alt-block__foto img{width:100%;height:100%;object-fit:cover}
+    .alt-block__texto{background:#f5f5f3;border-radius:8px;padding:1.8rem 2.2rem}
+    .alt-block__texto h3{font-size:1.15rem;margin:0 0 .5rem}
+    .alt-block__texto p{font-size:.93rem;line-height:1.65;color:#555;margin:0}
+  </style>
   <script>
     document.documentElement.classList.add('js-anim');
-    setTimeout(function(){ if(!window.__teulaAnimated){ document.documentElement.classList.remove('js-anim'); } }, 5000);
+    setTimeout(function(){if(!window.__teulaAnimated){document.documentElement.classList.remove('js-anim');}},5000);
   </script>
 </head>
 <body style="--acento:var(--azul-marino);--acento-contraste:var(--azul-marino);">
@@ -47,7 +72,7 @@
         </a>
         <a class="menu-link" href="hidraulica.html" aria-current="page">
           <span class="menu-link__num">02</span>
-          <span><span class="menu-link__t">Hidráulica</span><span class="menu-link__d">Depósitos, componentes y sistemas de control de la instalación.</span></span>
+          <span><span class="menu-link__t">Hidráulica</span><span class="menu-link__d">Grupos, componentes, armarios, booster ACS, depósitos.</span></span>
         </a>
         <a class="menu-link" href="contabilizacion.html">
           <span class="menu-link__num">03</span>
@@ -73,11 +98,9 @@
   </div>
 
   <main>
-
-    <!-- ============ BANNER (estilo portada, igual que Radiadores) ============ -->
     <section class="hero-clean">
       <div class="hero-clean__media">
-        <img src="../assets/img/hero-hidraulica.jpg" alt="Sala técnica con depósitos de inercia, colector y armario de control hidráulico">
+        <img src="../assets/img/hero-hidraulica.jpg" alt="Sala técnica con depósitos de inercia y armario hidráulico">
       </div>
       <div class="wrap">
         <div class="hero-clean__inner">
@@ -88,72 +111,91 @@
           </nav>
           <p class="label hero-clean__eyebrow" data-reveal data-reveal-delay="0.04">Línea 02 — Hidráulica</p>
           <h1 data-reveal data-reveal-delay="0.08">Hidráulica.</h1>
-          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Depósitos, componentes y sistemas de control para una instalación eficiente y ordenada.</p>
+          <p class="hero-clean__lead" data-reveal data-reveal-delay="0.16">Grupos, componentes, armarios, booster ACS, depósitos y soluciones a medida para una instalación eficiente y ordenada.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ CAPA 2 · GALERÍA DE 3 MODELOS (ancho completo, estilo Radiadores) ============ -->
     <section class="section" id="gama">
       <div class="wrap">
         <div class="dep-head">
-          <h2 data-reveal>Depósitos, componentes y control.</h2>
+          <h2 data-reveal>Toda la hidráulica, categoría a categoría.</h2>
           <p class="label" data-reveal>02 — Gama</p>
         </div>
       </div>
-      <div class="full-bleed cat-band">
-        <div class="model-grid">
 
-          <a class="model-card" href="depositos.html" data-reveal>
-            <span class="model-card__img">
-              <img src="../assets/img/inercia_200_general.png" alt="Depósitos de inercia y ACS">
-              <span class="model-card__cap">
-                <span class="model-card__cap-name">Depósitos <span class="arw">→</span></span>
-                <span class="model-card__cap-desc">Inercia y ACS para acumular y ceder calor con precisión.</span>
+      <div class="hid-cat-view is-active" id="hid-vista-categorias">
+        <div class="full-bleed cat-band">
+          <div class="model-grid">
+            <button class="model-card" data-hid-cat="grupos" data-reveal>
+              <span class="model-card__img">
+                <img src="../assets/img/hid-grupos.jpg" alt="Grupos hidráulicos Teula" onerror="this.style.display='none'">
+                <span class="model-card__cap">
+                  <span class="model-card__cap-name">Grupos hidráulicos <span class="arw">→</span></span>
+                  <span class="model-card__cap-desc">Bombeo y distribución montados y probados de fábrica.</span>
+                </span>
               </span>
-            </span>
-          </a>
-
-          <a class="model-card" href="componentes.html" data-reveal data-reveal-delay="0.04">
-            <span class="model-card__img">
-              <img src="../assets/img/vaso_expansion_ve_18_general.png" alt="Componentes hidráulicos: bombas, vasos, valvulería">
-              <span class="model-card__cap">
-                <span class="model-card__cap-name">Componentes <span class="arw">→</span></span>
-                <span class="model-card__cap-desc">Bombeo, vasos de expansión y valvulería de la instalación.</span>
+            </button>
+            <button class="model-card" data-hid-cat="componentes" data-reveal data-reveal-delay="0.04">
+              <span class="model-card__img">
+                <img src="../assets/img/hid-componentes.jpg" alt="Componentes hidráulicos" onerror="this.style.display='none'">
+                <span class="model-card__cap">
+                  <span class="model-card__cap-name">Componentes <span class="arw">→</span></span>
+                  <span class="model-card__cap-desc">Electroválvulas, vasos de expansión y valvulería de la instalación.</span>
+                </span>
               </span>
-            </span>
-          </a>
-
-          <a class="model-card" href="sistemas-control.html" data-reveal data-reveal-delay="0.08">
-            <span class="model-card__img">
-              <img src="../assets/img/termostato_tc_200_wifi_general.png" alt="Sistemas de control de la instalación">
-              <span class="model-card__cap">
-                <span class="model-card__cap-name">Sistemas de control <span class="arw">→</span></span>
-                <span class="model-card__cap-desc">Regulación, medida y automatización de la instalación.</span>
+            </button>
+            <button class="model-card" data-hid-cat="armarios" data-reveal data-reveal-delay="0.08">
+              <span class="model-card__img">
+                <img src="../assets/img/hid-armarios.jpg" alt="Armarios hidráulicos Teula" onerror="this.style.display='none'">
+                <span class="model-card__cap">
+                  <span class="model-card__cap-name">Armarios <span class="arw">→</span></span>
+                  <span class="model-card__cap-desc">Soluciones compactas para sala técnica ordenada y limpia.</span>
+                </span>
               </span>
-            </span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CAPA 3 · MÓDULO ESPECÍFICO ============ -->
-    <section class="section">
-      <div class="wrap">
-        <p class="label" style="margin-bottom:20px;" data-reveal>03 — Soluciones modulares</p>
-        <div class="inject-banner" data-reveal>
-          <div class="inject-banner__media"><span class="ph" style="--ph:var(--azul-marino);"><b>Banner Hidráulica</b></span></div>
-          <div class="inject-banner__body">
-            <p class="label inject-banner__eyebrow">Instalaciones modulares</p>
-            <h3>Descubre nuestras soluciones modulares.</h3>
-            <p>Grupos de bombeo, distribución y regulación montados y probados de fábrica. Cada componente ocupa su lugar exacto, listo para la sala de calderas.</p>
-            <a class="btn btn--on-dark" href="../contacto.html?interes=Hidráulica">Solicitar información <span class="arw">→</span></a>
+            </button>
+            <button class="model-card" data-hid-cat="booster" data-reveal>
+              <span class="model-card__img">
+                <img src="../assets/img/hid-booster.jpg" alt="Booster ACS Teula" onerror="this.style.display='none'">
+                <span class="model-card__cap">
+                  <span class="model-card__cap-name">Booster ACS <span class="arw">→</span></span>
+                  <span class="model-card__cap-desc">Tanques de condensado y ACS para producción eficiente de agua caliente.</span>
+                </span>
+              </span>
+            </button>
+            <button class="model-card" data-hid-cat="depositos" data-reveal data-reveal-delay="0.04">
+              <span class="model-card__img">
+                <img src="../assets/img/inercia_200_general.png" alt="Depósitos de inercia y ACS Teula">
+                <span class="model-card__cap">
+                  <span class="model-card__cap-name">Depósitos <span class="arw">→</span></span>
+                  <span class="model-card__cap-desc">Inercia 100–500 L y ACS 150–300 L para acumular calor con precisión.</span>
+                </span>
+              </span>
+            </button>
+            <button class="model-card" data-hid-cat="depositos-medida" data-reveal data-reveal-delay="0.08">
+              <span class="model-card__img">
+                <img src="../assets/img/hid-depositos-medida.jpg" alt="Depósitos a medida Teula" onerror="this.style.display='none'">
+                <span class="model-card__cap">
+                  <span class="model-card__cap-name">Depósitos a medida <span class="arw">→</span></span>
+                  <span class="model-card__cap-desc">Fabricación según especificaciones del proyecto. Volumen, forma y conexiones personalizadas.</span>
+                </span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
-    </section>
 
+      <div class="hid-subcat-view" id="hid-vista-subcategorias">
+        <div class="wrap">
+          <button class="gal-back" id="hid-btn-volver">Hidráulica</button>
+          <div class="subcat-heading">
+            <span class="label" id="hid-subcat-label"></span>
+            <h2 id="hid-subcat-titulo"></h2>
+          </div>
+          <div id="hid-subcat-contenido"></div>
+        </div>
+      </div>
+    </section>
 
     <div data-lead-form="Hidráulica"></div>
   </main>
@@ -195,5 +237,109 @@
   <script>window.TEULA_BASE = "../";</script>
   <script src="../assets/js/config.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script>
+  (function(){
+    var CATS={
+      grupos:{label:'01 — Grupos hidráulicos',titulo:'Grupos hidráulicos.',tipo:'galeria',items:[
+        {id:'grupo-mono',nombre:'Grupo monozona',nota:'Bomba simple con regulación de caudal. Para instalaciones de una sola zona.'},
+        {id:'grupo-bizona',nombre:'Grupo bizona',nota:'Doble bomba y válvula mezcladora. Ideal para instalaciones con dos circuitos a temperaturas distintas.'},
+        {id:'grupo-trizona',nombre:'Grupo trizona',nota:'Tres circuitos independientes con regulación proporcional.'},
+        {id:'grupo-solar',nombre:'Grupo solar',nota:'Estación de bombeo para captadores solares. Bomba, caudalímetro y válvula de seguridad.'},
+        {id:'grupo-recirculacion',nombre:'Grupo de recirculación ACS',nota:'Bomba de recirculación con reloj programador. Garantiza agua caliente instantánea en el grifo.'},
+        {id:'colector-modular',nombre:'Colector modular',nota:'Colector de distribución en acero inoxidable con purgador y llave de vaciado. De 2 a 12 derivaciones.'},
+        {id:'grupo-presion',nombre:'Grupo de presión',nota:'Presurización de instalaciones de agua doméstica y de calefacción.'}
+      ]},
+      componentes:{label:'02 — Componentes',titulo:'Componentes hidráulicos.',tipo:'galeria',items:[
+        {id:'electrovalvula',nombre:'Electroválvulas',nota:'Motorizada de 2 y 3 vías. 24 V CC/CA. Compatible con cualquier centralita de regulación.'}
+      ]},
+      armarios:{label:'03 — Armarios',titulo:'Armarios hidráulicos.',tipo:'alternado',bloques:[
+        {fotos:['armario-a1','armario-a2','armario-a3'],texto:{titulo:'Armario compacto',desc:'Armario de acero lacado con todos los componentes montados y probados en fábrica: bomba, válvula mezcladora, purgadores y termómetro. Instalación plug-and-play.'}},
+        {fotos:['armario-b1','armario-b2','armario-b3'],texto:{titulo:'Armario multizona',desc:'Configuración para 2 a 4 zonas independientes dentro de un mismo mueble. Incluye colector, electroválvulas y centralita de control opcional.'}},
+        {fotos:['armario-c1','armario-c2','armario-c3'],texto:{titulo:'Armario a medida',desc:'Dimensiones, acabado y configuración según proyecto. Consulta con nuestro equipo técnico las posibilidades de personalización.'}}
+      ]},
+      booster:{label:'04 — Booster ACS',titulo:'Booster ACS.',tipo:'galeria',items:[
+        {id:'tanque-condensado',nombre:'Tanque condensado de agua',nota:'Tanque de condensado para recuperación de calor de la bomba de calor. Optimiza el rendimiento del sistema.'},
+        {id:'tanque-acs',nombre:'Tanque ACS',nota:'Acumulador de agua caliente sanitaria con intercambiador de serpentín. Para producción indirecta de ACS.'}
+      ]},
+      depositos:{label:'05 — Depósitos',titulo:'Depósitos de inercia y ACS.',tipo:'galeria',items:[
+        {id:'inercia-100',nombre:'Depósito de inercia 100 L',nota:'Acumulador de inercia de 100 litros. Amortigua los arranques y paradas de la bomba de calor.'},
+        {id:'inercia-200',nombre:'Depósito de inercia 200 L',nota:'Versión de 200 litros. Para instalaciones medianas con mayor demanda de acumulación.'},
+        {id:'inercia-300',nombre:'Depósito de inercia 300 L',nota:'Acumulador de 300 litros. Instalaciones de alta potencia o con varios circuitos.'},
+        {id:'inercia-500',nombre:'Depósito de inercia 500 L',nota:'Máxima acumulación. Instalaciones industriales o edificios plurifamiliares.'},
+        {id:'acs-150',nombre:'Depósito ACS 150 L',nota:'Acumulador de agua caliente sanitaria de 150 litros con intercambiador de alta eficiencia.'},
+        {id:'acs-300',nombre:'Depósito ACS 300 L',nota:'Versión de 300 litros. Para viviendas con alta demanda de ACS o instalaciones comunitarias.'}
+      ]},
+      'depositos-medida':{label:'06 — Depósitos a medida',titulo:'Depósitos a medida.',tipo:'alternado',bloques:[
+        {fotos:['dm-a1','dm-a2','dm-a3'],texto:{titulo:'Geometría personalizada',desc:'Fabricamos depósitos en acero inoxidable AISI 316 L con la forma, el volumen y las bocas de conexión que requiere tu proyecto. Desde 100 hasta varios miles de litros.'}},
+        {fotos:['dm-b1','dm-b2','dm-b3'],texto:{titulo:'Acabado y tratamiento',desc:'Aislamiento exterior en espuma de poliuretano proyectada con carcasa de chapa o PVC, o sin aislamiento para espacios ya aislados. Verificación hidráulica a 6 bar.'}},
+        {fotos:['dm-c1','dm-c2','dm-c3'],texto:{titulo:'Integración en sala técnica',desc:'Diseñamos el conjunto pensando en el espacio disponible: armario técnico a medida, distribución de tuberías y etiquetado de circuitos incluidos en el servicio.'}}
+      ]}
+    };
+
+    var vistaCat=document.getElementById('hid-vista-categorias');
+    var vistaSubcat=document.getElementById('hid-vista-subcategorias');
+    var btnVolver=document.getElementById('hid-btn-volver');
+    var subcatLabel=document.getElementById('hid-subcat-label');
+    var subcatTit=document.getElementById('hid-subcat-titulo');
+    var subcatCont=document.getElementById('hid-subcat-contenido');
+
+    function mostrarCats(){
+      vistaSubcat.classList.remove('is-active');
+      vistaCat.classList.add('is-active');
+    }
+
+    function buildGaleria(items){
+      var html='<div class="hid-grid">';
+      items.forEach(function(item){
+        html+='<div class="hid-card">';
+        html+='<div class="hid-card__img"><img src="../assets/img/'+item.id+'-general.jpg" alt="'+item.nombre+'" onerror="this.style.display=\'none\'"></div>';
+        html+='<div class="hid-card__body"><h3 class="hid-card__name">'+item.nombre+'</h3><p class="hid-card__note">'+item.nota+'</p></div>';
+        html+='</div>';
+      });
+      html+='</div>';
+      return html;
+    }
+
+    function buildAlternado(bloques){
+      var html='';
+      bloques.forEach(function(bloque){
+        html+='<div class="alt-block">';
+        html+='<div class="alt-block__fotos">';
+        bloque.fotos.forEach(function(f){
+          html+='<div class="alt-block__foto"><img src="../assets/img/'+f+'.jpg" alt="" onerror="this.style.display=\'none\'"></div>';
+        });
+        html+='</div>';
+        if(bloque.texto){
+          html+='<div class="alt-block__texto"><h3>'+bloque.texto.titulo+'</h3><p>'+bloque.texto.desc+'</p></div>';
+        }
+        html+='</div>';
+      });
+      return html;
+    }
+
+    function mostrarSubcat(catId){
+      var cat=CATS[catId];
+      if(!cat) return;
+      subcatLabel.textContent=cat.label;
+      subcatTit.textContent=cat.titulo;
+      subcatCont.innerHTML='';
+      if(cat.tipo==='galeria') subcatCont.innerHTML=buildGaleria(cat.items);
+      else if(cat.tipo==='alternado') subcatCont.innerHTML=buildAlternado(cat.bloques);
+      vistaCat.classList.remove('is-active');
+      vistaSubcat.classList.add('is-active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    document.querySelectorAll('[data-hid-cat]').forEach(function(btn){
+      btn.addEventListener('click',function(){mostrarSubcat(btn.dataset.hidCat);});
+    });
+    btnVolver.addEventListener('click',mostrarCats);
+    window.addEventListener('popstate',function(){
+      if(vistaSubcat.classList.contains('is-active')) mostrarCats();
+    });
+    var _orig=mostrarSubcat;
+    mostrarSubcat=function(id){history.pushState({hid:id},'');_orig(id);};
+  }());
+  </script>
 </body>
 </html>
