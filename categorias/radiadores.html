@@ -8,47 +8,45 @@
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
-    .cat-view,.subcat-view,.modal-ficha{display:none}
+    .cat-view,.subcat-view{display:none}
     .cat-view.is-active,.subcat-view.is-active{display:block}
-    .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem}
+    .modal-ficha{display:none;position:fixed;inset:0;z-index:900;background:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch}
+    .modal-ficha.is-open{display:block}
+    .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem;font-family:var(--mono)}
     .gal-back::before{content:'←';font-size:1em}
     .gal-back:hover{opacity:.7}
     .subcat-heading{margin-bottom:2.5rem}
     .subcat-heading .label{display:block;margin-bottom:.4rem}
-    .canales-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
+    /* Canales */
+    .canales-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
     @media(max-width:600px){.canales-grid{grid-template-columns:1fr}}
-    .canales-grid figure{margin:0;border-radius:8px;overflow:hidden;background:#f5f5f3}
-    .canales-grid figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-    .canales-texto{background:#f5f5f3;border-radius:8px;padding:2rem 2.5rem;margin-top:.5rem}
-    .canales-texto h4{margin:0 0 .3rem;font-size:1rem}
-    .canales-texto p{margin:0 0 1.2rem;font-size:.93rem;line-height:1.6;color:#555}
-    .canales-texto p:last-child{margin-bottom:0}
-    .canales-modelo{margin-bottom:1.6rem}
+    .canales-grid figure{margin:0;border-radius:4px;overflow:hidden;background:var(--niebla);aspect-ratio:4/3}
+    .canales-grid figure img{width:100%;height:100%;object-fit:cover}
+    .canales-texto{background:var(--niebla);border-radius:4px;padding:2rem 2.5rem}
+    .canales-modelo{margin-bottom:1.4rem}
     .canales-modelo:last-child{margin-bottom:0}
-    .fancoils-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;margin-bottom:2rem}
-    .fancoil-card{background:#f5f5f3;border-radius:8px;overflow:hidden}
-    .fancoil-card__img{aspect-ratio:4/3;background:#e8e8e6;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#999}
-    .fancoil-card__img img{width:100%;height:100%;object-fit:cover}
-    .fancoil-card__body{padding:1rem 1.2rem}
-    .fancoil-card__body h4{margin:0 0 .3rem;font-size:.95rem}
-    .fancoil-card__body p{margin:0;font-size:.85rem;line-height:1.5;color:#666}
-    .fancoils-specs{background:#f5f5f3;border-radius:8px;padding:1.8rem 2.2rem;font-size:.9rem;line-height:1.65;color:#555}
-    .fancoils-specs strong{color:#1a1a1a}
-    .modal-ficha{position:fixed;inset:0;z-index:900;background:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch}
-    .modal-ficha.is-open{display:block}
+    .canales-modelo h4{font-family:var(--display);font-size:1rem;margin:0 0 .25rem}
+    .canales-modelo p{font-family:var(--texto);font-size:.9rem;line-height:1.6;color:#555;margin:0}
+    /* Fancoils */
+    .fancoils-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:clamp(14px,1.8vw,22px);margin-bottom:2rem}
+    .fancoils-specs{background:var(--niebla);border-radius:4px;padding:1.8rem 2.2rem;font-family:var(--texto);font-size:.9rem;line-height:1.65;color:#555}
+    .fancoils-specs strong{color:var(--tinta)}
+    /* Modal */
     .modal-ficha__bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.8rem;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.08)}
-    .modal-ficha__breadcrumb{font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:#888}
-    .modal-ficha__breadcrumb span{color:#1a1a1a}
-    .modal-ficha__close{background:none;border:none;cursor:pointer;font-size:2rem;line-height:1;color:#1a1a1a;padding:.2rem .5rem;transition:opacity .15s}
+    .modal-ficha__breadcrumb{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#888}
+    .modal-ficha__breadcrumb span{color:var(--tinta)}
+    .modal-ficha__close{background:none;border:none;cursor:pointer;font-size:2rem;line-height:1;color:var(--tinta);padding:.2rem .5rem;transition:opacity .15s}
     .modal-ficha__close:hover{opacity:.5}
     .modal-ficha__body{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem}
-    .modal-ficha__name{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 .4rem}
-    .modal-ficha__note{font-size:1.05rem;color:#666;margin:0 0 3rem}
-    .modal-ficha__img-ph{width:100%;aspect-ratio:16/7;background:#f0f0ee;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:.85rem;margin-bottom:3rem}
-    .modal-ficha__img-ph img{width:100%;height:100%;object-fit:cover;border-radius:8px}
-    .modal-ficha__specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;background:#f5f5f3;border-radius:8px;padding:2rem}
-    .modal-ficha__spec dt{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#888;margin-bottom:.2rem}
+    .modal-ficha__name{font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 .4rem}
+    .modal-ficha__note{font-family:var(--texto);font-size:1.05rem;color:#666;margin:0 0 3rem}
+    .modal-ficha__img-ph{width:100%;aspect-ratio:16/7;background:var(--niebla);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:.85rem;margin-bottom:3rem}
+    .modal-ficha__img-ph img{width:100%;height:100%;object-fit:cover}
+    .modal-ficha__specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;background:var(--niebla);border-radius:4px;padding:2rem}
+    .modal-ficha__spec dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#888;margin-bottom:.2rem}
     .modal-ficha__spec dd{margin:0;font-size:.95rem;font-weight:600}
+    /* subcategorías con pocas tarjetas: centradas y más grandes */
+    .subcat-grid--few{grid-template-columns:repeat(auto-fit,minmax(320px,400px));justify-content:center}
   </style>
   <script>
     document.documentElement.classList.add('js-anim');
@@ -118,7 +116,7 @@
   <main>
     <section class="hero-clean">
       <div class="hero-clean__media">
-        <img src="../assets/img/t30-banner.jpg" alt="Radiador T30 en un salón cálido con vistas a olivos">
+        <img src="../assets/img/t30-banner.jpg" alt="Radiador T30 en ambiente interior">
       </div>
       <div class="wrap">
         <div class="hero-clean__inner">
@@ -142,6 +140,7 @@
         </div>
       </div>
 
+      <!-- VISTA 1: 6 categorías -->
       <div class="cat-view is-active" id="vista-categorias">
         <div class="full-bleed cat-band">
           <div class="model-grid">
@@ -183,7 +182,7 @@
             </button>
             <button class="model-card" data-cat="fancoils" data-reveal data-reveal-delay="0.04">
               <span class="model-card__img">
-                <img src="../assets/img/fancoil-reverso.jpg" alt="Fancoils Serie Reverso Teula" onerror="this.style.display='none'">
+                <img src="../assets/img/pin-t30-1.jpg" alt="Fancoils Serie Reverso Teula">
                 <span class="model-card__cap">
                   <span class="model-card__cap-name">Fancoils <span class="arw">→</span></span>
                   <span class="model-card__cap-desc">Serie Reverso: calefacción, refrigeración y purificación en un solo equipo.</span>
@@ -192,7 +191,7 @@
             </button>
             <button class="model-card" data-cat="accesorios" data-reveal data-reveal-delay="0.08">
               <span class="model-card__img">
-                <img src="../assets/img/accesorios-valvulas.jpg" alt="Accesorios para radiadores Teula" onerror="this.style.display='none'">
+                <img src="../assets/img/cat-control.png" alt="Accesorios para radiadores Teula">
                 <span class="model-card__cap">
                   <span class="model-card__cap-name">Accesorios <span class="arw">→</span></span>
                   <span class="model-card__cap-desc">Válvulas, zócalos, tuberías, resistencias, complementos y control.</span>
@@ -203,6 +202,7 @@
         </div>
       </div>
 
+      <!-- VISTA 2: subcategorías -->
       <div class="subcat-view" id="vista-subcategorias">
         <div class="wrap">
           <button class="gal-back" id="btn-volver-cat">Radiadores</button>
@@ -216,6 +216,7 @@
     </section>
   </main>
 
+  <!-- MODAL pantalla completa -->
   <div class="modal-ficha" id="modal-ficha" role="dialog" aria-modal="true" aria-labelledby="modal-nombre">
     <div class="modal-ficha__bar">
       <span class="modal-ficha__breadcrumb">Radiadores / <span id="modal-cat-label"></span> / <span id="modal-prod-label"></span></span>
@@ -224,7 +225,7 @@
     <div class="modal-ficha__body">
       <h2 class="modal-ficha__name" id="modal-nombre"></h2>
       <p class="modal-ficha__note" id="modal-nota"></p>
-      <div class="modal-ficha__img-ph" id="modal-img-wrap"><span>Imagen del producto — próximamente</span></div>
+      <div class="modal-ficha__img-ph" id="modal-img-wrap"><span>Imagen del producto</span></div>
       <dl class="modal-ficha__specs" id="modal-specs"></dl>
     </div>
   </div>
@@ -270,54 +271,54 @@
   (function(){
     var CATS={
       t30:{label:'01 — T30',titulo:'Serie T30.',tipo:'subcats',items:[
-        {id:'t30r',nombre:'T30R',nota:'Panel horizontal recto, conexión derecha.'},
-        {id:'t30l',nombre:'T30L',nota:'Panel horizontal recto, conexión izquierda.'},
-        {id:'t30r-doble',nombre:'T30R Doble',nota:'Doble panel horizontal, conexión derecha. Mayor potencia.'},
-        {id:'t30l-doble',nombre:'T30L Doble',nota:'Doble panel horizontal, conexión izquierda. Mayor potencia.'},
-        {id:'t30r-vent',nombre:'T30R Vent',nota:'Panel horizontal con ventilador integrado, conexión derecha.'},
-        {id:'t30l-vent',nombre:'T30L Vent',nota:'Panel horizontal con ventilador integrado, conexión izquierda.'},
-        {id:'t30-tower',nombre:'T30 Tower',nota:'Panel vertical de gran formato, máxima potencia en poco ancho.'},
-        {id:'t30-tower-vent',nombre:'T30 Tower Vent',nota:'Panel vertical con ventilador integrado para convección forzada.'}
+        {id:'t30r',nombre:'T30R',nota:'Panel horizontal recto, conexión derecha.',img:'prod-t30-hero.png'},
+        {id:'t30l',nombre:'T30L',nota:'Panel horizontal recto, conexión izquierda.',img:'prod-t30-hero.png'},
+        {id:'t30r-doble',nombre:'T30R Doble',nota:'Doble panel horizontal, conexión derecha. Mayor potencia.',img:'amb-t30-doble.png'},
+        {id:'t30l-doble',nombre:'T30L Doble',nota:'Doble panel horizontal, conexión izquierda. Mayor potencia.',img:'amb-t30-doble.png'},
+        {id:'t30r-vent',nombre:'T30R Vent',nota:'Panel horizontal con ventilador integrado, conexión derecha.',img:'vent-banner.jpg'},
+        {id:'t30l-vent',nombre:'T30L Vent',nota:'Panel horizontal con ventilador integrado, conexión izquierda.',img:'vent-banner.jpg'},
+        {id:'t30-tower',nombre:'T30 Tower',nota:'Panel vertical de gran formato, máxima potencia en poco ancho.',img:'tower-banner.jpg'},
+        {id:'t30-tower-vent',nombre:'T30 Tower Vent',nota:'Panel vertical con ventilador integrado para convección forzada.',img:'tower-banner.jpg'}
       ]},
       decor:{label:'02 — Decor',titulo:'Serie Decor.',tipo:'subcats',items:[
-        {id:'bel',nombre:'Bel',nota:'Líneas sobrias y acabado liso.'},
-        {id:'besta',nombre:'Besta',nota:'Perfil delgado, elegancia contenida.'},
-        {id:'cento',nombre:'Cento',nota:'Formato cuadrado, presencia central.'},
-        {id:'veta',nombre:'Veta',nota:'Acabado veteado, textura natural.'},
-        {id:'vertica',nombre:'Vertica',nota:'Vertical puro, máxima altura.'},
-        {id:'meiga',nombre:'Meiga',nota:'Formas curvas, carácter escultórico.'},
-        {id:'heat-e',nombre:'Heat-E',nota:'Con resistencia eléctrica auxiliar.'},
-        {id:'nova-e',nombre:'Nova-E',nota:'Nova con resistencia eléctrica integrada.'},
-        {id:'nova-plan-e',nombre:'Nova Plan-E',nota:'Nova plana con resistencia eléctrica.'}
+        {id:'bel',nombre:'Bel',nota:'Líneas sobrias y acabado liso.',img:'decor-cristal.jpg'},
+        {id:'besta',nombre:'Besta',nota:'Perfil delgado, elegancia contenida.',img:'decor-cristal.jpg'},
+        {id:'cento',nombre:'Cento',nota:'Formato cuadrado, presencia central.',img:'decor-cristal.jpg'},
+        {id:'veta',nombre:'Veta',nota:'Acabado veteado, textura natural.',img:'decor-vinilos.jpg'},
+        {id:'vertica',nombre:'Vertica',nota:'Vertical puro, máxima altura.',img:'decor-cristal.jpg'},
+        {id:'meiga',nombre:'Meiga',nota:'Formas curvas, carácter escultórico.',img:'decor-cristal.jpg'},
+        {id:'heat-e',nombre:'Heat-E',nota:'Con resistencia eléctrica auxiliar.',img:'decor-cristal.jpg'},
+        {id:'nova-e',nombre:'Nova-E',nota:'Nova con resistencia eléctrica integrada.',img:'decor-cristal.jpg'},
+        {id:'nova-plan-e',nombre:'Nova Plan-E',nota:'Nova plana con resistencia eléctrica.',img:'decor-cristal.jpg'}
       ]},
       toallero:{label:'03 — Toallero',titulo:'Serie Toalleros.',tipo:'subcats',items:[
-        {id:'iria',nombre:'Iria',nota:'Diseño horizontal clásico.'},
-        {id:'arosa',nombre:'Arosa',nota:'Formato compacto de baño.'},
-        {id:'artai',nombre:'Artai',nota:'Líneas geométricas definidas.'},
-        {id:'cadro',nombre:'Cadro',nota:'Marco cuadrado y equilibrado.'},
-        {id:'esteiro',nombre:'Esteiro',nota:'Perfil esbelto y vertical.'},
-        {id:'lois',nombre:'Lois',nota:'Toallero de diseño neutro.'},
-        {id:'nerea',nombre:'Nerea',nota:'Acabado refinado y suave.'},
-        {id:'celtia',nombre:'Celtia',nota:'Inspiración en formas célticas.'},
-        {id:'aramis',nombre:'Aramis',nota:'Elegancia clásica actualizada.'},
-        {id:'carnota',nombre:'Carnota',nota:'Arquitectónico, de gran presencia.'},
-        {id:'corme',nombre:'Corme',nota:'Proporciones equilibradas.'},
-        {id:'larino',nombre:'Lariño',nota:'Formato cuadrado horizontal.'},
-        {id:'louro',nombre:'Louro',nota:'Toallero vertical de cocina.'},
-        {id:'pindo',nombre:'Pindo',nota:'Formato mural de doble barra.'},
-        {id:'muros',nombre:'Muros',nota:'Diseño mural ligero.'},
-        {id:'larino-e',nombre:'Lariño-E',nota:'Lariño con resistencia eléctrica auxiliar.'},
-        {id:'xinzo',nombre:'Xinzo',nota:'Toallero mixto hidráulico-eléctrico.'}
+        {id:'iria',nombre:'Iria',nota:'Diseño horizontal clásico.',img:'toallero-carnota-1.jpg'},
+        {id:'arosa',nombre:'Arosa',nota:'Formato compacto de baño.',img:'toallero-carnota-1.jpg'},
+        {id:'artai',nombre:'Artai',nota:'Líneas geométricas definidas.',img:'toallero-carnota-1.jpg'},
+        {id:'cadro',nombre:'Cadro',nota:'Marco cuadrado y equilibrado.',img:'toallero-carnota-1.jpg'},
+        {id:'esteiro',nombre:'Esteiro',nota:'Perfil esbelto y vertical.',img:'toallero-carnota-2.jpg'},
+        {id:'lois',nombre:'Lois',nota:'Toallero de diseño neutro.',img:'toallero-carnota-2.jpg'},
+        {id:'nerea',nombre:'Nerea',nota:'Acabado refinado y suave.',img:'toallero-carnota-2.jpg'},
+        {id:'celtia',nombre:'Celtia',nota:'Inspiración en formas célticas.',img:'toallero-carnota-2.jpg'},
+        {id:'aramis',nombre:'Aramis',nota:'Elegancia clásica actualizada.',img:'toallero-carnota-1.jpg'},
+        {id:'carnota',nombre:'Carnota',nota:'Arquitectónico, de gran presencia.',img:'toallero-carnota-1.jpg'},
+        {id:'corme',nombre:'Corme',nota:'Proporciones equilibradas.',img:'toallero-carnota-2.jpg'},
+        {id:'larino',nombre:'Lariño',nota:'Formato cuadrado horizontal.',img:'toallero-carnota-2.jpg'},
+        {id:'louro',nombre:'Louro',nota:'Toallero vertical de cocina.',img:'toallero-carnota-1.jpg'},
+        {id:'pindo',nombre:'Pindo',nota:'Formato mural de doble barra.',img:'toallero-carnota-2.jpg'},
+        {id:'muros',nombre:'Muros',nota:'Diseño mural ligero.',img:'toallero-carnota-1.jpg'},
+        {id:'larino-e',nombre:'Lariño-E',nota:'Lariño con resistencia eléctrica auxiliar.',img:'toallero-carnota-2.jpg'},
+        {id:'xinzo',nombre:'Xinzo',nota:'Toallero mixto hidráulico-eléctrico.',img:'toallero-carnota-1.jpg'}
       ]},
       canales:{label:'04 — Canales',titulo:'Canales de suelo.',tipo:'especial-canales'},
       fancoils:{label:'05 — Fancoils',titulo:'Fancoils Serie Reverso.',tipo:'especial-fancoils'},
       accesorios:{label:'06 — Accesorios',titulo:'Accesorios.',tipo:'subcats',items:[
-        {id:'valvulas',nombre:'Válvulas y cabezales',nota:'Válvulas de zona, cabezales termoeléctricos y termoestáticos.'},
-        {id:'zocalos',nombre:'Zócalos',nota:'Zócalos de acabado para instalación limpia al pie del muro.'},
-        {id:'tuberias',nombre:'Tuberías',nota:'Tuberías multicapa y conexiones de obra.'},
-        {id:'resistencias',nombre:'Resistencias',nota:'Resistencias eléctricas de apoyo para modo eléctrico.'},
-        {id:'complementos',nombre:'Complementos',nota:'Soportes, tapas, tornillería y elementos de fijación.'},
-        {id:'control',nombre:'Control',nota:'Termostatos, controladores Wi-Fi y sistemas de regulación.'}
+        {id:'valvulas',nombre:'Válvulas y cabezales',nota:'Válvulas de zona, cabezales termoeléctricos y termoestáticos.',img:'cat-control.png'},
+        {id:'zocalos',nombre:'Zócalos',nota:'Zócalos de acabado para instalación limpia al pie del muro.',img:'cat-control.png'},
+        {id:'tuberias',nombre:'Tuberías',nota:'Tuberías multicapa y conexiones de obra.',img:'cat-control.png'},
+        {id:'resistencias',nombre:'Resistencias',nota:'Resistencias eléctricas de apoyo para modo eléctrico.',img:'cat-control.png'},
+        {id:'complementos',nombre:'Complementos',nota:'Soportes, tapas, tornillería y elementos de fijación.',img:'cat-control.png'},
+        {id:'control',nombre:'Control',nota:'Termostatos, controladores Wi-Fi y sistemas de regulación.',img:'termostato_tc_200_wifi_general.png'}
       ]}
     };
 
@@ -335,6 +336,7 @@
     var modalImgWrap=document.getElementById('modal-img-wrap');
     var modalSpecs=document.getElementById('modal-specs');
     var btnCerrar=document.getElementById('btn-cerrar-modal');
+    var _catActual='';
 
     function mostrarCats(){
       vistaSubcat.classList.remove('is-active');
@@ -342,15 +344,20 @@
       document.body.style.overflow='';
     }
 
-    function buildSubcatGrid(items){
-      var html='<div class="subcat-grid">';
+    function buildSubcatGrid(catId,items){
+      var few=items.length<=3;
+      var html='<div class="subcat-grid'+(few?' subcat-grid--few':'')+'">';
       items.forEach(function(item,i){
-        var delay=i%3*0.04;
+        var delay=(i%3)*0.04;
         html+='<button class="subcat-card" data-prod="'+item.id+'" data-reveal data-reveal-delay="'+delay+'">';
         html+='<span class="subcat-card__img">';
-        html+='<img src="../assets/img/ph-'+item.id+'.jpg" alt="'+item.nombre+'" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'subcat-card__img--ph\')">';
-        html+='<span class="subcat-card__cap"><h3 class="subcat-card__title">'+item.nombre+'</h3>';
-        html+='<span class="subcat-card__note">'+item.nota+'</span></span></span></button>';
+        if(item.img){
+          html+='<img src="../assets/img/'+item.img+'" alt="'+item.nombre+'">';
+        }
+        html+='<span class="subcat-card__cap">';
+        html+='<h3 class="subcat-card__title">'+item.nombre+'</h3>';
+        html+='<span class="subcat-card__note">'+item.nota+'</span>';
+        html+='</span></span></button>';
       });
       html+='</div>';
       return html;
@@ -358,42 +365,47 @@
 
     function buildCanales(){
       return '<div class="canales-grid">'+
-        '<figure><img src="../assets/img/canales-colores.jpg" alt="Gama de colores de canales Teula" onerror="this.style.background=\'#e8e8e6\'"></figure>'+
-        '<figure><img src="../assets/img/canales-rejilla-enrollable.jpg" alt="Rejilla enrollable para canal de suelo" onerror="this.style.background=\'#e8e8e6\'"></figure>'+
+        '<figure><img src="../assets/img/canales-triovent-salon.jpg" alt="Canal de suelo Teula en salón"></figure>'+
+        '<figure><img src="../assets/img/canales-triovent-detalle.jpg" alt="Detalle rejilla enrollable canal de suelo"></figure>'+
         '</div>'+
         '<div class="canales-texto">'+
-        '<div class="canales-modelo"><h4>Quattrovent</h4><p>Canal de suelo de fondo 100 mm y ancho 300 mm. Ventilador 24 V CC (opción 230 V disponible). Solo calefacción. Conexión eurocono 3/4".</p></div>'+
-        '<div class="canales-modelo"><h4>Octavent</h4><p>Canal de suelo de fondo 105 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. Conectado al circuito hidráulico reversible.</p></div>'+
+        '<div class="canales-modelo"><h4>Quattrovent</h4><p>Canal de suelo de fondo 100 mm y ancho 300 mm. Ventilador 24 V CC. Solo calefacción. Conexión eurocono 3/4".</p></div>'+
+        '<div class="canales-modelo"><h4>Octavent</h4><p>Canal de suelo de fondo 105 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. Circuito hidráulico reversible.</p></div>'+
         '<div class="canales-modelo"><h4>Tetravent</h4><p>Canal de baja silueta: fondo 80 mm y ancho 300 mm. Ventilador 24 V CC. Calor y frío activo. La solución más discreta para cristaleras y bajo ventana.</p></div>'+
         '</div>';
     }
 
     function buildFancoils(){
       var tipos=[
-        {id:'hw',sigla:'HW',nombre:'High Wall',desc:'Instalación en pared alta. Modelos HW400, HW600, HW800.'},
-        {id:'fs',sigla:'FS',nombre:'Floor / Low Wall',desc:'Instalación en pared baja o a pie de muro. Modelos FS200, FS400, FS600, FS800.'},
-        {id:'sm',sigla:'SM',nombre:'Slim Profile',desc:'Perfil bajado para debajo de ventana. Modelos SM200, SM400, SM600, SM800.'},
-        {id:'bt',sigla:'BT',nombre:'Bathroom',desc:'Versión para baño con protección contra la humedad. Modelos BT200, BT400.'}
+        {id:'hw',sigla:'HW',nombre:'High Wall',desc:'Instalación en pared alta.',img:'pin-t30-1.jpg'},
+        {id:'fs',sigla:'FS',nombre:'Floor / Low Wall',desc:'Instalación en pared baja o a pie de muro.',img:'pin-t30-2.jpg'},
+        {id:'sm',sigla:'SM',nombre:'Slim Profile',desc:'Perfil bajado para debajo de ventana.',img:'pin-t30-1.jpg'},
+        {id:'bt',sigla:'BT',nombre:'Bathroom',desc:'Versión para baño con protección contra la humedad.',img:'pin-t30-2.jpg'}
       ];
-      var html='<div class="fancoils-grid">';
-      tipos.forEach(function(t){
-        html+='<div class="fancoil-card">';
-        html+='<div class="fancoil-card__img"><img src="../assets/img/reverso-'+t.id+'.jpg" alt="Fancoil Reverso '+t.nombre+'" onerror="this.parentNode.innerHTML=\''+t.sigla+'\'"></div>';
-        html+='<div class="fancoil-card__body"><h4>'+t.sigla+' — '+t.nombre+'</h4><p>'+t.desc+'</p></div>';
-        html+='</div>';
+      var html='<div class="subcat-grid">';
+      tipos.forEach(function(t,i){
+        var delay=(i%3)*0.04;
+        html+='<button class="subcat-card" data-reveal data-reveal-delay="'+delay+'">';
+        html+='<span class="subcat-card__img">';
+        html+='<img src="../assets/img/'+t.img+'" alt="Fancoil Reverso '+t.nombre+'">';
+        html+='<span class="subcat-card__cap">';
+        html+='<h3 class="subcat-card__title">'+t.sigla+' — '+t.nombre+'</h3>';
+        html+='<span class="subcat-card__note">'+t.desc+'</span>';
+        html+='</span></span></button>';
       });
       html+='</div>';
-      html+='<div class="fancoils-specs"><strong>Características comunes Serie Reverso:</strong> Motor inverter DC · Ventilador tangencial de aluminio · Frontal de vidrio templado · 8 velocidades · Control Wi-Fi · Calefacción + refrigeración + deshumidificación + purificación · Acabados RAL mate y Butlerfinish cepillado.</div>';
+      html+='<div class="fancoils-specs" style="margin-top:2rem"><strong>Características comunes Serie Reverso:</strong> Motor inverter DC · Ventilador tangencial de aluminio · Frontal de vidrio templado · 8 velocidades · Control Wi-Fi · Calefacción + refrigeración + purificación.</div>';
       return html;
     }
 
     function mostrarSubcat(catId){
       var cat=CATS[catId];
       if(!cat) return;
+      _catActual=catId;
       subcatLabel.textContent=cat.label;
       subcatTit.textContent=cat.titulo;
       subcatCont.innerHTML='';
-      if(cat.tipo==='subcats') subcatCont.innerHTML=buildSubcatGrid(cat.items);
+      if(cat.tipo==='subcats') subcatCont.innerHTML=buildSubcatGrid(catId,cat.items);
       else if(cat.tipo==='especial-canales') subcatCont.innerHTML=buildCanales();
       else if(cat.tipo==='especial-fancoils') subcatCont.innerHTML=buildFancoils();
       subcatCont.querySelectorAll('[data-prod]').forEach(function(el){
@@ -409,13 +421,18 @@
       if(!cat||cat.tipo!=='subcats') return;
       var prod=cat.items.find(function(i){return i.id===prodId;});
       if(!prod) return;
-      modalCatLbl.textContent=cat.label.split(' — ')[1]||catId;
+      var catNombre=cat.label.split(' — ')[1]||catId;
+      modalCatLbl.textContent=catNombre;
       modalProdLbl.textContent=prod.nombre;
       modalNombre.textContent=prod.nombre;
       modalNota.textContent=prod.nota;
-      modalImgWrap.innerHTML='<img src="../assets/img/'+prodId+'-general.jpg" alt="'+prod.nombre+'" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" onerror="this.parentNode.innerHTML=\'<span>Imagen del producto — próximamente</span>\'">';
-      modalSpecs.innerHTML='<div class="modal-ficha__spec"><dt>Referencia</dt><dd>'+prodId.toUpperCase()+'</dd></div>'+
-        '<div class="modal-ficha__spec"><dt>Categoría</dt><dd>'+(cat.label.split(' — ')[1]||catId)+'</dd></div>'+
+      if(prod.img){
+        modalImgWrap.innerHTML='<img src="../assets/img/'+prod.img+'" alt="'+prod.nombre+'">';
+      } else {
+        modalImgWrap.innerHTML='<span>Imagen del producto — próximamente</span>';
+      }
+      modalSpecs.innerHTML='<div class="modal-ficha__spec"><dt>Referencia</dt><dd>'+prod.id.toUpperCase()+'</dd></div>'+
+        '<div class="modal-ficha__spec"><dt>Categoría</dt><dd>'+catNombre+'</dd></div>'+
         '<div class="modal-ficha__spec"><dt>Conexión</dt><dd>Eurocono 3/4"</dd></div>'+
         '<div class="modal-ficha__spec"><dt>Temperatura</dt><dd>35 – 45 °C</dd></div>';
       modal.classList.add('is-open');
@@ -429,19 +446,21 @@
     }
 
     document.querySelectorAll('[data-cat]').forEach(function(btn){
-      btn.addEventListener('click',function(){mostrarSubcat(btn.dataset.cat);});
+      btn.addEventListener('click',function(){
+        history.pushState({cat:btn.dataset.cat},'');
+        mostrarSubcat(btn.dataset.cat);
+      });
     });
-    btnVolver.addEventListener('click',mostrarCats);
+    btnVolver.addEventListener('click',function(){history.back();});
     btnCerrar.addEventListener('click',cerrarModal);
     document.addEventListener('keydown',function(e){
       if(e.key==='Escape'&&modal.classList.contains('is-open')) cerrarModal();
     });
-    window.addEventListener('popstate',function(){
-      if(modal.classList.contains('is-open')) cerrarModal();
-      else if(vistaSubcat.classList.contains('is-active')) mostrarCats();
+    window.addEventListener('popstate',function(e){
+      if(modal.classList.contains('is-open')){cerrarModal();return;}
+      if(e.state&&e.state.cat) mostrarSubcat(e.state.cat);
+      else mostrarCats();
     });
-    var _orig=mostrarSubcat;
-    mostrarSubcat=function(id){history.pushState({cat:id},'');_orig(id);};
   }());
   </script>
 </body>
