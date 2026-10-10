@@ -8,6 +8,10 @@
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
+        /* <button> con el aspecto exacto de los <a> originales */
+    button.model-card,button.subcat-card{all:unset;display:block;box-sizing:border-box;width:100%;cursor:pointer;position:relative}
+    button.model-card:focus-visible,button.subcat-card:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
+    .subcat-view [data-reveal],.subcat-view .subcat-card{opacity:1 !important}
     .cat-view,.subcat-view{display:none}
     .cat-view.is-active,.subcat-view.is-active{display:block}
     .modal-ficha{display:none;position:fixed;inset:0;z-index:900;background:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -349,7 +353,7 @@
       var html='<div class="subcat-grid'+(few?' subcat-grid--few':'')+'">';
       items.forEach(function(item,i){
         var delay=(i%3)*0.04;
-        html+='<button class="subcat-card" data-prod="'+item.id+'" data-reveal data-reveal-delay="'+delay+'">';
+        html+='<button class="subcat-card" data-prod="'+item.id+'">';
         html+='<span class="subcat-card__img">';
         if(item.img){
           html+='<img src="../assets/img/'+item.img+'" alt="'+item.nombre+'">';
@@ -385,7 +389,7 @@
       var html='<div class="subcat-grid">';
       tipos.forEach(function(t,i){
         var delay=(i%3)*0.04;
-        html+='<button class="subcat-card" data-reveal data-reveal-delay="'+delay+'">';
+        html+='<button class="subcat-card">';
         html+='<span class="subcat-card__img">';
         html+='<img src="../assets/img/'+t.img+'" alt="Fancoil Reverso '+t.nombre+'">';
         html+='<span class="subcat-card__cap">';

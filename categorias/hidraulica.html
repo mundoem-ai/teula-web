@@ -8,6 +8,10 @@
   <link rel="icon" href="../assets/logos/isotipo_verde-mar.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
+        /* <button> con el aspecto exacto de los <a> originales */
+    button.model-card,button.subcat-card{all:unset;display:block;box-sizing:border-box;width:100%;cursor:pointer;position:relative}
+    button.model-card:focus-visible,button.subcat-card:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
+    .subcat-view [data-reveal],.subcat-view .subcat-card{opacity:1 !important}
     .cat-view,.subcat-view{display:none}
     .cat-view.is-active,.subcat-view.is-active{display:block}
     .gal-back{display:inline-flex;align-items:center;gap:.45em;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem;font-family:var(--mono)}
@@ -301,7 +305,7 @@
       var html='<div class="subcat-grid'+(few?' subcat-grid--few':'')+'">';
       items.forEach(function(item,i){
         var delay=(i%3)*0.04;
-        html+='<div class="subcat-card" data-reveal data-reveal-delay="'+delay+'">';
+        html+='<div class="subcat-card">';
         html+='<span class="subcat-card__img">';
         if(item.img){
           html+='<img src="../assets/img/'+item.img+'" alt="'+item.nombre+'">';
