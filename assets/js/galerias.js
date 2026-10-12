@@ -19,7 +19,7 @@
         '<span class="subcat-card__cap"><h3 class="subcat-card__title">' + esc(it.nombre) + '</h3>' +
         '<span class="subcat-card__note">' + esc(it.nota) + '</span></span></span>';
     } else {
-      inner = '<img src="' + IMG + it.img + '" alt="' + esc(it.nombre) + '" loading="lazy">' +
+      inner = '<img src="' + IMG + it.img + '" alt="' + esc(it.nombre) + '"' + (it.pos ? ' style="object-position:' + esc(it.pos) + '"' : "") + ' loading="lazy">' +
         '<span class="model-card__cap"><span class="model-card__cap-name">' + esc(it.nombre) + '</span>' +
         '<span class="model-card__cap-desc">' + esc(it.nota) + '</span></span>';
     }
@@ -31,7 +31,7 @@
 
   function gridHTML(cat, clickable) {
     var n = cat.items.length;
-    var cls = "model-grid" + (n === 1 ? " model-grid--n1" : n === 2 ? " model-grid--n2" : "") + (cat.destacar ? " model-grid--foco" : "");
+    var cls = "model-grid" + (cat.sinAmpliar ? "" : n === 1 ? " model-grid--n1" : n === 2 ? " model-grid--n2" : "") + (cat.destacar ? " model-grid--foco" : "");
     return '<div class="full-bleed cat-band"><div class="' + cls + '">' +
       cat.items.map(function (it) { return cardHTML(it, clickable); }).join("") +
       "</div></div>" +
