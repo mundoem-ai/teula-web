@@ -32,7 +32,7 @@
 
   function gridHTML(cat, clickable) {
     var n = cat.items.length;
-    var cls = "model-grid" + (n === 1 ? " model-grid--n1" : n === 2 ? " model-grid--n2" : "");
+    var cls = "model-grid" + (n === 1 ? " model-grid--n1" : n === 2 ? " model-grid--n2" : "") + (cat.destacar ? " model-grid--foco" : "");
     return '<div class="full-bleed cat-band"><div class="' + cls + '">' +
       cat.items.map(function (it) { return cardHTML(it, clickable); }).join("") +
       "</div></div>" +
@@ -61,6 +61,29 @@
       window.scrollTo(0, Math.max(0, y));
     }
 
+    /* Foco: resalta el modelo bajo el cursor / con foco de teclado y atenúa el resto. */
+    function bindFoco() {
+      var g = $(".model-grid--foco", cont);
+      if (!g) return;
+      var hover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+      function set(card) {
+        g.classList.toggle("has-foco", !!card);
+        Array.prototype.forEach.call(g.querySelectorAll(".model-card.is-foco"), function (c) {
+          if (c !== card) c.classList.remove("is-foco");
+        });
+        if (card) card.classList.add("is-foco");
+      }
+      if (hover) {
+        g.addEventListener("mouseover", function (e) { set(e.target.closest(".model-card")); });
+        g.addEventListener("mouseleave", function () { set(null); });
+        g.addEventListener("click", function () { set(null); });
+      }
+      g.addEventListener("focusin", function (e) {
+        if (e.target.matches && e.target.matches(":focus-visible")) set(e.target.closest(".model-card"));
+      });
+      g.addEventListener("focusout", function () { set(null); });
+    }
+
     function showCats() {
       closeFicha();
       root.classList.remove("is-sub");
@@ -77,6 +100,7 @@
       openCat = id;
       title.textContent = cat.titulo;
       cont.innerHTML = cat.bloques ? altHTML(cat) : gridHTML(cat, !!(cfg.ficha && cat.ficha));
+      bindFoco();
       root.classList.add("is-sub");
       vCat.classList.remove("is-active");
       vSub.classList.add("is-active");

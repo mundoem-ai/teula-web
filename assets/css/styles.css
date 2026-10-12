@@ -1603,6 +1603,15 @@ body.menu-open { overflow: hidden; }
 .model-card:hover .model-card__cap-more { max-height: 7em; opacity: 1; margin-top: 6px; }
 .model-card__cap-desc { font-family: var(--texto); font-weight: 300; font-size: 0.82rem; line-height: 1.35; color: rgba(255,255,255,0.9); }
 .model-card__cap-specs { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.02em; line-height: 1.5; color: rgba(255,255,255,0.68); }
+
+/* Galería con foco (Toalleros): sin zoom ni segunda foto. El modelo bajo el cursor
+   (o con foco de teclado) queda a opacidad completa con su etiqueta; el resto baja.
+   La clase la pone galerias.js solo con ratón real (hover: hover). */
+.model-grid--foco .model-card__img { aspect-ratio: 3 / 2; }
+.model-grid--foco .model-card { transition: opacity 0.25s ease; }
+.model-grid--foco .model-card:hover .model-card__img { transform: none; box-shadow: none; }
+.model-grid--foco .model-card.is-foco .model-card__cap-more { max-height: 7em; opacity: 1; margin-top: 6px; }
+.model-grid--foco.has-foco .model-card:not(.is-foco) { opacity: 0.45; }
 @media (max-width: 900px) { .model-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .model-grid { grid-template-columns: 1fr; } }
 
