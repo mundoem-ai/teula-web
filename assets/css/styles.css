@@ -1658,19 +1658,44 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
   .alt-block--rev .alt-block__fotos, .alt-block--rev .alt-block__texto { order: 0; }
 }
 
-/* Ficha de producto a pantalla completa (mismo diseño que /productos/t30.html) */
-.ficha-overlay { display: none; position: fixed; inset: 0; z-index: 900; background: var(--blanco); overflow-y: auto; overscroll-behavior: contain; }
-.ficha-overlay.is-open { display: block; }
+/* Ficha de producto: panel flotante vertical sobre fondo oscurecido */
+.ficha-overlay {
+  display: none; position: fixed; inset: 0; z-index: 900;
+  align-items: center; justify-content: center;
+  background: rgba(8,10,12,0.55);
+}
+.ficha-overlay.is-open { display: flex; animation: ficha-fade 0.2s ease; }
+.ficha-panel {
+  position: relative; width: min(100% - 24px, 560px); max-height: 90vh; max-height: 90dvh;
+  background: var(--blanco); border-radius: 6px; box-shadow: 0 24px 64px rgba(8,10,12,0.35);
+  overflow: hidden; animation: ficha-up 0.22s ease;
+}
+.ficha-body {
+  max-height: 90vh; max-height: 90dvh; overflow-y: auto; overscroll-behavior: contain;
+  padding: 26px clamp(16px, 4vw, 28px) 24px;
+}
 .ficha-close {
-  position: fixed; top: clamp(14px, 2vw, 28px); right: clamp(14px, 2vw, 28px); z-index: 2;
-  width: 64px; height: 64px; border: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
-  background: #fff; color: var(--tinta); font: 400 2rem/1 var(--texto);
-  box-shadow: 0 6px 24px rgba(8,10,12,0.3); transition: background 0.2s ease, transform 0.2s ease;
+  position: absolute; top: 10px; right: 10px; z-index: 3;
+  width: 44px; height: 44px; border: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  background: #fff; color: var(--tinta); font: 400 1.25rem/1 var(--texto);
+  box-shadow: 0 2px 12px rgba(8,10,12,0.25);
 }
 .ficha-close:hover { background: var(--verde-lima); }
 .ficha-close:focus-visible { outline: 3px solid var(--verde-mar); outline-offset: 3px; }
-.ficha-h3 { font-family: var(--display); font-size: 1.4rem; margin-bottom: 20px; }
-.ficha-overlay .model-hero { min-height: clamp(420px, 66vh, 720px); }
+.ficha-sec + .ficha-sec { margin-top: 20px; }
+.ficha-sec .label { margin-bottom: 6px; }
+.ficha-h3 { font-family: var(--display); font-size: 1.3rem; margin: 0 0 12px; padding-right: 52px; }
+.ficha-sec + .ficha-sec .ficha-h3 { padding-right: 0; }
+.ficha-body .subcat-card__img { aspect-ratio: 4 / 3; }
+.ficha-body .prod-meta { grid-template-columns: repeat(2, 1fr); margin-bottom: 0; padding: 16px 0; }
+.ficha-body .tech-schema { margin-top: 16px; }
+.ficha-body .prod-hero__cta { flex-direction: column; align-items: stretch; gap: 10px; }
+.ficha-body .prod-hero__cta .btn { justify-content: center; flex-wrap: wrap; width: 100%; max-width: 100%; box-sizing: border-box; white-space: normal; text-align: center; }
+@keyframes ficha-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ficha-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ficha-overlay.is-open, .ficha-panel { animation: none; }
+}
 
 /* En el nivel 2 se oculta el titular de la sección: solo «← Categoría» y el título */
 #modelos.is-sub .gal-intro { display: none; }

@@ -53,7 +53,7 @@
     var root = $("#modelos"), vCat = $("#vista-categorias"), vSub = $("#vista-subcategorias");
     var title = $("#subcat-titulo"), cont = $("#subcat-contenido");
     if (!root || !vCat || !vSub) return;
-    var ov = null, openCat = null;
+    var ov = null, openCat = null, lastProd = null;
 
     function toTop() {
       var y = root.getBoundingClientRect().top + window.pageYOffset - 70;
@@ -82,35 +82,19 @@
       toTop();
     }
 
-    /* ---------- Ficha de producto (replica productos/t30.html) ---------- */
+    /* ---------- Ficha de producto: panel flotante vertical ---------- */
     function fichaHTML(cat, it) {
       var s = series[it.serie] || {};
-      var banner = it.banner || s.banner || it.img;
-      var lead = (it.nota ? it.nota + " " : "") + (s.lead || "");
-      var specs = it.specs || s.specs || [];
       var meta = it.meta || s.meta || [];
-      var gal = it.gal || s.gal || [[it.img, it.det || it.img, it.nombre]];
       var esquema = it.esquema || s.esquema;
-      var nombreCat = cat.corto || cat.titulo;
-      var h = "";
-      h += '<section class="model-hero"><div class="model-hero__media"><img src="' + IMG + banner + '" alt="' + esc(it.nombre) + '"></div>' +
-        '<div class="model-hero__top"><nav class="breadcrumb" aria-label="Ruta"><span>' + esc(cfg.raiz) + '</span><span class="sep">/</span>' +
-        "<span>" + esc(nombreCat) + '</span><span class="sep">/</span><span>' + esc(it.nombre) + "</span></nav></div>" +
-        '<div class="model-hero__body"><h1>' + esc(it.nombre) + '.</h1><p class="model-hero__lead">' + esc(lead) + "</p></div></section>";
-      if (specs.length) {
-        h += '<div class="model-specs">' + specs.map(function (p) {
-          return '<div class="model-specs__item"><div class="label">' + esc(p[0]) + "</div><div>" + esc(p[1]) + "</div></div>";
-        }).join("") + "</div>";
-      }
-      h += '<section class="section"><div class="wrap"><p class="label" style="margin-bottom:8px;">Galería</p>' +
-        '<h3 class="ficha-h3">' + esc(it.nombre) + ', en detalle.</h3><div class="subcat-grid">' +
-        gal.map(function (g) {
-          return '<div class="subcat-card"><span class="subcat-card__img"><span class="rollover">' +
-            '<img class="rollover__img rollover__img--general" src="' + IMG + g[0] + '" alt="' + esc(g[2]) + '">' +
-            '<span class="subcat-card__cap"><h3 class="subcat-card__title">' + esc(g[2]) + "</h3></span></span></span></div>";
-        }).join("") + "</div></div></section>";
+      /* Una sola foto: la primera de gal (item o serie); con fotoPropia, la del propio modelo. */
+      var g = cat.fotoPropia ? [it.img, it.img, it.nombre] : (it.gal || s.gal || [[it.img, it.img, it.nombre]])[0];
+      var h = '<section class="ficha-sec"><p class="label">' + esc(String(cfg.raiz).toUpperCase()) + "</p>" +
+        '<h3 class="ficha-h3">' + esc(it.nombre) + ', en detalle.</h3>' +
+        '<div class="subcat-card"><span class="subcat-card__img"><img src="' + IMG + g[0] + '" alt="' + esc(g[2] || it.nombre) + '">' +
+        '<span class="subcat-card__cap"><h3 class="subcat-card__title">' + esc(g[2] || it.nombre) + "</h3></span></span></div></section>";
       if (meta.length || esquema) {
-        h += '<section class="section section--tight"><div class="wrap"><p class="label" style="margin-bottom:8px;">Datos técnicos</p>' +
+        h += '<section class="ficha-sec"><p class="label">Datos técnicos</p>' +
           '<h3 class="ficha-h3">' + (esquema ? "Esquema y dimensiones." : "Características.") + "</h3>";
         if (meta.length) {
           h += '<div class="prod-meta">' + meta.map(function (p) {
@@ -118,13 +102,12 @@
           }).join("") + "</div>";
         }
         if (esquema) h += '<figure class="tech-schema"><img src="' + IMG + esquema + '" alt="Esquema técnico de ' + esc(it.nombre) + '"></figure>';
-        h += "</div></section>";
+        h += "</section>";
       }
-      h += '<section class="section section--tight"><div class="wrap"><div class="prod-hero__cta">' +
+      h += '<section class="ficha-sec"><div class="prod-hero__cta">' +
         '<a class="btn is-soon" href="#" aria-disabled="true">Descargar ficha técnica (PDF) <span class="arw">↓</span></a>' +
-        '<a class="btn btn--gray is-soon" href="#" aria-disabled="true">Descargar manual de instalación (PDF) <span class="arw">↓</span></a>' +
         '<a class="btn btn--ghost" href="' + (window.TEULA_BASE || "../") + "contacto.html?interes=" + encodeURIComponent(cfg.interes || cfg.raiz) +
-        '">Solicitar información <span class="arw">→</span></a></div></div></section>';
+        '">Solicitar información <span class="arw">→</span></a></div></section>';
       return h;
     }
 
@@ -135,10 +118,11 @@
       ov.setAttribute("role", "dialog");
       ov.setAttribute("aria-modal", "true");
       ov.setAttribute("aria-label", "Ficha de producto");
-      ov.innerHTML = '<button type="button" class="ficha-close" aria-label="Cerrar ficha">✕</button><div class="ficha-body"></div>';
+      ov.innerHTML = '<div class="ficha-panel"><button type="button" class="ficha-close" aria-label="Cerrar ficha">✕</button><div class="ficha-body"></div></div>';
       document.body.appendChild(ov);
       $(".ficha-close", ov).addEventListener("click", requestClose);
       ov.addEventListener("click", function (e) {
+        if (e.target === ov) { requestClose(); return; }
         var soon = e.target.closest && e.target.closest(".is-soon");
         if (soon) e.preventDefault();
       });
@@ -150,8 +134,9 @@
       var it = cat && cat.items && cat.items.filter(function (x) { return x.id === prodId; })[0];
       if (!it) return;
       ensureOverlay();
+      lastProd = prodId;
       $(".ficha-body", ov).innerHTML = fichaHTML(cat, it);
-      ov.scrollTop = 0;
+      $(".ficha-body", ov).scrollTop = 0;
       ov.classList.add("is-open");
       document.documentElement.style.overflow = "hidden";
       $(".ficha-close", ov).focus();
@@ -162,8 +147,16 @@
       document.documentElement.style.overflow = "";
     }
 
+    /* Devuelve el foco al modelo que abrió la ficha (la rejilla puede haberse repintado). */
+    function restoreFocus() {
+      if (!lastProd) return;
+      var b = cont.querySelector('[data-prod="' + lastProd + '"]');
+      if (b) b.focus({ preventScroll: true });
+    }
+
     function requestClose() {
-      if (history.state && history.state.prod) history.back(); else closeFicha();
+      if (history.state && history.state.prod) history.back();
+      else { closeFicha(); restoreFocus(); }
     }
 
     /* ---------- Eventos ---------- */
@@ -188,7 +181,10 @@
     window.addEventListener("popstate", function (e) {
       var st = e.state;
       if (st && st.cat && st.prod) { if (openCat !== st.cat) showSub(st.cat); openFicha(st.cat, st.prod); }
-      else if (st && st.cat) showSub(st.cat);
+      else if (st && st.cat) {
+        if (openCat === st.cat && vSub.classList.contains("is-active")) { closeFicha(); restoreFocus(); }
+        else showSub(st.cat);
+      }
       else showCats();
     });
   };
