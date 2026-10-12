@@ -10,13 +10,12 @@
   }
   function $(s, r) { return (r || document).querySelector(s); }
 
-  /* Tarjeta de modelo. Con item.det -> rollover (foto general + detalle); sin él, una sola foto. */
+  /* Tarjeta de modelo. Con item.det -> pie de foto en subcat-card; sin él, rótulo model-card__cap. */
   function cardHTML(it, clickable) {
     var inner;
     if (it.det) {
       inner = '<span class="rollover">' +
         '<img class="rollover__img rollover__img--general" src="' + IMG + it.img + '" alt="' + esc(it.nombre) + '" loading="lazy">' +
-        '<img class="rollover__img rollover__img--detalle" src="' + IMG + it.det + '" alt="Detalle de ' + esc(it.nombre) + '" loading="lazy">' +
         '<span class="subcat-card__cap"><h3 class="subcat-card__title">' + esc(it.nombre) + '</h3>' +
         '<span class="subcat-card__note">' + esc(it.nota) + '</span></span></span>';
     } else {
@@ -61,29 +60,6 @@
       window.scrollTo(0, Math.max(0, y));
     }
 
-    /* Foco: resalta el modelo bajo el cursor / con foco de teclado y atenúa el resto. */
-    function bindFoco() {
-      var g = $(".model-grid--foco", cont);
-      if (!g) return;
-      var hover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
-      function set(card) {
-        g.classList.toggle("has-foco", !!card);
-        Array.prototype.forEach.call(g.querySelectorAll(".model-card.is-foco"), function (c) {
-          if (c !== card) c.classList.remove("is-foco");
-        });
-        if (card) card.classList.add("is-foco");
-      }
-      if (hover) {
-        g.addEventListener("mouseover", function (e) { set(e.target.closest(".model-card")); });
-        g.addEventListener("mouseleave", function () { set(null); });
-        g.addEventListener("click", function () { set(null); });
-      }
-      g.addEventListener("focusin", function (e) {
-        if (e.target.matches && e.target.matches(":focus-visible")) set(e.target.closest(".model-card"));
-      });
-      g.addEventListener("focusout", function () { set(null); });
-    }
-
     function showCats() {
       closeFicha();
       root.classList.remove("is-sub");
@@ -100,7 +76,6 @@
       openCat = id;
       title.textContent = cat.titulo;
       cont.innerHTML = cat.bloques ? altHTML(cat) : gridHTML(cat, !!(cfg.ficha && cat.ficha));
-      bindFoco();
       root.classList.add("is-sub");
       vCat.classList.remove("is-active");
       vSub.classList.add("is-active");
@@ -132,7 +107,6 @@
         gal.map(function (g) {
           return '<div class="subcat-card"><span class="subcat-card__img"><span class="rollover">' +
             '<img class="rollover__img rollover__img--general" src="' + IMG + g[0] + '" alt="' + esc(g[2]) + '">' +
-            '<img class="rollover__img rollover__img--detalle" src="' + IMG + g[1] + '" alt="Detalle: ' + esc(g[2]) + '">' +
             '<span class="subcat-card__cap"><h3 class="subcat-card__title">' + esc(g[2]) + "</h3></span></span></span></div>";
         }).join("") + "</div></div></section>";
       if (meta.length || esquema) {
