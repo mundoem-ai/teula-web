@@ -1666,7 +1666,7 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 }
 .ficha-overlay.is-open { display: flex; animation: ficha-fade 0.2s ease; }
 .ficha-panel {
-  position: relative; width: min(100% - 24px, 560px); max-height: 90vh; max-height: 90dvh;
+  position: relative; width: min(100% - 24px, 1040px); max-height: 90vh; max-height: 90dvh;
   background: var(--blanco); border-radius: 6px; box-shadow: 0 24px 64px rgba(8,10,12,0.35);
   overflow: hidden; animation: ficha-up 0.22s ease;
 }
@@ -1687,7 +1687,7 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 .ficha-h3 { font-family: var(--display); font-size: 1.3rem; margin: 0 0 12px; padding-right: 52px; }
 .ficha-sec + .ficha-sec .ficha-h3 { padding-right: 0; }
 .ficha-body .subcat-card__img { aspect-ratio: 4 / 3; }
-.ficha-body .prod-meta { grid-template-columns: repeat(2, 1fr); margin-bottom: 0; padding: 16px 0; }
+.ficha-body .prod-meta { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 0; padding: 16px 0; }
 .ficha-body .tech-schema { margin-top: 16px; }
 .ficha-body .prod-hero__cta { flex-direction: column; align-items: stretch; gap: 10px; }
 .ficha-body .prod-hero__cta .btn { justify-content: center; flex-wrap: wrap; width: 100%; max-width: 100%; box-sizing: border-box; white-space: normal; text-align: center; }
