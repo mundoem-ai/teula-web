@@ -38,6 +38,19 @@
       (cat.nota ? '<p class="gal-nota">' + esc(cat.nota) + "</p>" : "");
   }
 
+  /* Galería en fila a ancho de página: tarjetas no clicables con solo el nombre sobre la foto.
+     Sin "foto" se muestra el placeholder (.ph) con el nombre. */
+  function galeriaHTML(cat) {
+    return '<div class="full-bleed cat-band"><div class="model-grid model-grid--fila">' +
+      cat.galeria.map(function (g) {
+        var media = g.foto
+          ? '<img src="' + IMG + g.foto + '" alt="' + esc(g.titulo) + '" loading="lazy">' +
+            '<span class="model-card__cap"><span class="model-card__cap-name">' + esc(g.titulo) + "</span></span>"
+          : '<span class="ph" style="--ph:var(--azul-marino);"><b>' + esc(g.titulo) + "</b></span>";
+        return '<div class="model-card"><span class="model-card__img">' + media + "</span></div>";
+      }).join("") + "</div></div>";
+  }
+
   function altHTML(cat) {
     return '<div class="wrap">' + cat.bloques.map(function (b, i) {
       var n = b.fotos.length;
@@ -96,7 +109,7 @@
       title.textContent = cat.titulo;
       title.style.display = cat.hero ? "none" : "";
       setHero(cat.hero || null);
-      cont.innerHTML = cat.bloques ? altHTML(cat) : gridHTML(cat, !!(cfg.ficha && cat.ficha));
+      cont.innerHTML = cat.galeria ? galeriaHTML(cat) : cat.bloques ? altHTML(cat) : gridHTML(cat, !!(cfg.ficha && cat.ficha));
       root.classList.add("is-sub");
       vCat.classList.remove("is-active");
       vSub.classList.add("is-active");

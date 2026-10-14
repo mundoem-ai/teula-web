@@ -1712,3 +1712,8 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
   .hero-clean--armarios .hero-clean__media img { object-position: 70% center; }
   .hero-clean--armarios::after { background: linear-gradient(180deg, rgba(8,18,22,0.15) 0%, rgba(8,18,22,0.35) 45%, rgba(8,18,22,0.72) 100%); }
 }
+
+/* Galería en fila (Armarios): 3 tarjetas iguales a ancho de página, 3:2; una debajo de otra en tablet y móvil */
+.model-grid--fila .model-card__img { aspect-ratio: 3 / 2; }
+.model-card__img .ph { position: absolute; inset: 0; }
+@media (max-width: 900px) { .model-grid--fila { grid-template-columns: 1fr; } }
