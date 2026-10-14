@@ -55,6 +55,24 @@
     if (!root || !vCat || !vSub) return;
     var ov = null, openCat = null, lastProd = null;
 
+    /* Hero de la página: si la categoría trae "hero", se sustituye imagen, título y descripción;
+       al volver a las categorías se restauran los valores originales. */
+    var hero = $(".hero-clean"), heroBase = null, heroClase = "";
+    var hImg = hero && $(".hero-clean__media img", hero), hH1 = hero && $("h1", hero), hLead = hero && $(".hero-clean__lead", hero);
+    if (hImg && hH1 && hLead) {
+      heroBase = { img: hImg.getAttribute("src"), alt: hImg.getAttribute("alt") || "", titulo: hH1.textContent, lead: hLead.textContent };
+    }
+    function setHero(h) {
+      if (!heroBase) return;
+      hImg.setAttribute("src", h ? IMG + h.img : heroBase.img);
+      hImg.setAttribute("alt", h ? (h.alt || "") : heroBase.alt);
+      hH1.textContent = h ? h.titulo : heroBase.titulo;
+      hLead.textContent = h ? h.lead : heroBase.lead;
+      if (heroClase) hero.classList.remove(heroClase);
+      heroClase = (h && h.clase) || "";
+      if (heroClase) hero.classList.add(heroClase);
+    }
+
     function toTop() {
       var y = root.getBoundingClientRect().top + window.pageYOffset - 70;
       window.scrollTo(0, Math.max(0, y));
@@ -62,6 +80,7 @@
 
     function showCats() {
       closeFicha();
+      setHero(null);
       root.classList.remove("is-sub");
       vSub.classList.remove("is-active");
       vCat.classList.add("is-active");
@@ -75,11 +94,13 @@
       closeFicha();
       openCat = id;
       title.textContent = cat.titulo;
+      title.style.display = cat.hero ? "none" : "";
+      setHero(cat.hero || null);
       cont.innerHTML = cat.bloques ? altHTML(cat) : gridHTML(cat, !!(cfg.ficha && cat.ficha));
       root.classList.add("is-sub");
       vCat.classList.remove("is-active");
       vSub.classList.add("is-active");
-      toTop();
+      if (cat.hero) window.scrollTo(0, 0); else toTop();
     }
 
     /* ---------- Ficha de producto: panel flotante vertical ---------- */
