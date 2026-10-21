@@ -1646,15 +1646,17 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 
 /* Bloques alternados foto(s) + texto */
 .alt-block { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; padding-block: clamp(24px, 3.5vw, 48px); }
+.alt-block--rev { grid-template-columns: 1fr 1.3fr; } /* la foto cae a la derecha: la columna ancha va con ella, para que todas midan lo mismo */
 .alt-block--rev .alt-block__fotos { order: 2; }
 .alt-block--rev .alt-block__texto { order: 1; }
 .alt-block__fotos { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: clamp(8px, 1vw, 14px); }
 .alt-block__fotos figure { margin: 0; width: 100%; overflow: hidden; border-radius: 4px; aspect-ratio: 4 / 3; }
 .alt-block__fotos img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.alt-block__fotos--uno figure { aspect-ratio: 16 / 9; } /* foto única: proporción de las fotos de origen, sin recortes */
 .alt-block__texto h3 { font-family: var(--display); font-size: clamp(1.3rem, 2vw, 1.7rem); letter-spacing: -0.01em; color: var(--verde-mar); margin: 0 0 12px; }
 .alt-block__texto p { font-family: var(--texto); font-weight: 300; font-size: 1rem; line-height: 1.65; color: var(--tinta-suave); margin: 0; max-width: 52ch; }
 @media (max-width: 800px) {
-  .alt-block { grid-template-columns: 1fr; }
+  .alt-block, .alt-block--rev { grid-template-columns: 1fr; }
   .alt-block--rev .alt-block__fotos, .alt-block--rev .alt-block__texto { order: 0; }
 }
 
@@ -1713,8 +1715,6 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
   .hero-clean--armarios::after { background: linear-gradient(180deg, rgba(8,18,22,0.15) 0%, rgba(8,18,22,0.35) 45%, rgba(8,18,22,0.72) 100%); }
 }
 
-/* Galería en fila (Armarios): 3 tarjetas iguales a ancho de página, 3:2; una debajo de otra en tablet y móvil */
-.model-grid--fila .model-card__img { aspect-ratio: 3 / 2; }
 /* Hero de Booster ACS (Hidráulica): el equipo queda en el tercio izquierdo-centro sobre pared blanca;
    el degradado oscuro cubre el lado del texto y el coche desenfocado de la derecha queda sin tocar */
 .hero-clean--booster .hero-clean__media img { object-position: 38% center; }
@@ -1730,5 +1730,7 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
   .hero-clean--booster::after { background: linear-gradient(180deg, rgba(8,18,22,0.25) 0%, rgba(8,18,22,0.45) 45%, rgba(8,18,22,0.80) 100%); }
 }
 
+/* Galería en fila (Armarios): 3 tarjetas iguales a ancho de página, 3:2; una debajo de otra en tablet y móvil */
+.model-grid--fila .model-card__img { aspect-ratio: 3 / 2; }
 .model-card__img .ph { position: absolute; inset: 0; }
 @media (max-width: 900px) { .model-grid--fila { grid-template-columns: 1fr; } }
