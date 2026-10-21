@@ -1715,5 +1715,20 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 
 /* Galería en fila (Armarios): 3 tarjetas iguales a ancho de página, 3:2; una debajo de otra en tablet y móvil */
 .model-grid--fila .model-card__img { aspect-ratio: 3 / 2; }
+/* Hero de Booster ACS (Hidráulica): el equipo queda en el tercio izquierdo-centro sobre pared blanca;
+   el degradado oscuro cubre el lado del texto y el coche desenfocado de la derecha queda sin tocar */
+.hero-clean--booster .hero-clean__media img { object-position: 38% center; }
+.hero-clean--booster .hero-clean__inner { max-width: 440px; } /* texto estrecho: el equipo ocupa el tercio izquierdo-centro de la foto */
+.hero-clean--booster::after {
+  background:
+    linear-gradient(180deg, rgba(8,10,12,0) 40%, rgba(8,10,12,0.50) 100%),
+    linear-gradient(90deg, rgba(8,10,12,0.72) 0%, rgba(8,10,12,0.52) 34%, rgba(8,10,12,0.12) 58%, rgba(8,10,12,0) 70%);
+}
+@media (max-width: 560px) {
+  .hero-clean--booster .hero-clean__media img { object-position: 36% center; }
+  .hero-clean--booster .hero-clean__inner { max-width: none; }
+  .hero-clean--booster::after { background: linear-gradient(180deg, rgba(8,18,22,0.25) 0%, rgba(8,18,22,0.45) 45%, rgba(8,18,22,0.80) 100%); }
+}
+
 .model-card__img .ph { position: absolute; inset: 0; }
 @media (max-width: 900px) { .model-grid--fila { grid-template-columns: 1fr; } }
