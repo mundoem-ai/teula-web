@@ -1717,9 +1717,9 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 
 /* Hero de Booster ACS (Hidráulica): el equipo queda en el tercio izquierdo-centro sobre pared blanca;
    el degradado oscuro cubre el lado del texto y el coche desenfocado de la derecha queda sin tocar */
-/* El equipo ocupa del 12 % al 95 % del alto de la foto: se baja el encuadre y la altura mínima crece con el ancho (hero ≤ 2:1) para que se vea completo */
-.hero-clean--booster .hero-clean__media img { object-position: 38% 85%; }
-.hero-clean--booster .hero-clean__inner { max-width: 440px; min-height: max(clamp(520px, 76vh, 800px), 50vw); } /* texto estrecho: el equipo ocupa el tercio izquierdo-centro de la foto */
+/* Misma altura que el hero de la portada; la foto se recorta por abajo (se ve la parte alta del equipo) */
+.hero-clean--booster .hero-clean__media img { object-position: 38% 0%; }
+.hero-clean--booster .hero-clean__inner { max-width: 440px; } /* texto estrecho: el equipo ocupa el tercio izquierdo-centro de la foto */
 .hero-clean--booster::after {
   background:
     linear-gradient(180deg, rgba(8,10,12,0) 40%, rgba(8,10,12,0.50) 100%),
@@ -1727,7 +1727,7 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 }
 @media (max-width: 560px) {
   .hero-clean--booster .hero-clean__media img { object-position: 36% center; }
-  .hero-clean--booster .hero-clean__inner { max-width: none; min-height: clamp(520px, 76vh, 800px); }
+  .hero-clean--booster .hero-clean__inner { max-width: none; }
   .hero-clean--booster::after { background: linear-gradient(180deg, rgba(8,18,22,0.25) 0%, rgba(8,18,22,0.45) 45%, rgba(8,18,22,0.80) 100%); }
 }
 
