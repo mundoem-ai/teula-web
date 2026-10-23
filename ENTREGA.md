@@ -17,7 +17,7 @@ Una web **estática**: HTML, CSS y JavaScript. No hay servidor propio, base de d
 | `productos/` | 33 fichas de producto estáticas |
 | `contacto.html`, `formacion.html`, `tarifas.html` | Contacto, landing de formación y tarifas (esta última sin enlazar desde la navegación) |
 | `assets/` | `css/`, `js/` (`main.js`, `galerias.js`, `config.js`), `img/`, `fonts/`, `logos/` |
-| `tarifa/` | PDF de tarifas (37 MB) |
+| `tarifa/` | Retirada: el PDF de tarifas se quitó del repositorio el 23/10/2026 por confidencialidad. Pendiente decidir si se publica y dónde. |
 
 ## 2. Requisitos del alojamiento
 

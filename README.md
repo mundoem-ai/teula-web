@@ -27,8 +27,7 @@ sitio/
 │   ├── decor.html
 │   ├── canales.html             incluye modelo Triovent (rejilla madera/aluminio)
 │   └── toallero.html            incluye modelo Carnota
-├── tarifa/                      Tarifa PDF (archivo conservado, sin enlazar)
-│   └── Tarifa-Teula-2026.pdf
+├── tarifa/                      (vacía: el PDF de tarifas se retiró del repositorio el 23/10/2026)
 ├── assets/
 │   ├── css/styles.css           Diseño (colores, tipografías, maquetación)
 │   ├── js/config.js             ← ENLACES (lo único a editar a menudo)
