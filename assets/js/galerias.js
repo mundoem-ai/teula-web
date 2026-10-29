@@ -15,7 +15,7 @@
     var inner;
     if (it.det) {
       inner = '<span class="rollover">' +
-        '<img class="rollover__img rollover__img--general" src="' + IMG + it.img + '" alt="' + esc(it.nombre) + '" loading="lazy">' +
+        '<img class="rollover__img rollover__img--general" src="' + IMG + it.img + '" alt="' + esc(it.nombre) + '"' + (it.pos ? ' style="object-position:' + esc(it.pos) + '"' : "") + ' loading="lazy">' +
         '<span class="subcat-card__cap"><h3 class="subcat-card__title">' + esc(it.nombre) + '</h3>' +
         '<span class="subcat-card__note">' + esc(it.nota) + '</span></span></span>';
     } else {
