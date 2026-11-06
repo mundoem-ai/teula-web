@@ -1735,3 +1735,47 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 .model-grid--fila .model-card__img { aspect-ratio: 3 / 2; }
 .model-card__img .ph { position: absolute; inset: 0; }
 @media (max-width: 900px) { .model-grid--fila { grid-template-columns: 1fr; } }
+
+/* ============ TEULA STUDIO ============ */
+.studio__tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 36px; }
+.studio__tab {
+  font-family: var(--texto); font-weight: 600; font-size: 0.92rem;
+  padding: 11px 20px; border-radius: 999px; border: 1px solid var(--gris-linea);
+  background: var(--blanco); color: var(--tinta-suave); cursor: pointer;
+}
+.studio__tab.is-active { background: var(--verde-mar); border-color: var(--verde-mar); color: var(--blanco); }
+.studio__panel { display: none; }
+.studio__panel.is-active { display: block; }
+
+.studio-itinerario { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.studio-itinerario__item { display: flex; flex-direction: column; gap: 12px; }
+.studio-itinerario__item img,
+.studio-itinerario__placeholder {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px;
+  background: var(--niebla);
+}
+.studio-itinerario__placeholder {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--tinta-suave); font-family: var(--mono); font-size: 0.78rem;
+  border: 1px dashed var(--gris-linea);
+}
+.studio-itinerario__num { font-family: var(--mono); font-size: 0.72rem; color: var(--verde-mar); }
+.studio-itinerario__item h4 { font-family: var(--display); font-weight: 400; font-size: 1.1rem; margin: 2px 0 4px; }
+.studio-itinerario__item p { color: var(--tinta-suave); font-size: 0.92rem; margin: 0; }
+@media (max-width: 860px) { .studio-itinerario { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .studio-itinerario { grid-template-columns: 1fr; } }
+
+.studio-calc { max-width: 640px; background: var(--papel); border: 1px solid var(--gris-linea); border-radius: 16px; padding: 36px; }
+.studio-calc h3 { font-family: var(--display); font-weight: 400; margin: 0 0 8px; }
+.studio-calc__form { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; margin: 20px 0; }
+.studio-calc__form .lf-field { flex: 1 1 160px; margin-bottom: 0; }
+/* Los campos .lf-field están pensados para fondo oscuro (formulario de contacto): aquí, fondo claro */
+.studio-calc .lf-field label { color: var(--tinta-suave); }
+.studio-calc .lf-field input { background: var(--blanco); border-color: var(--gris-linea); color: var(--tinta); }
+.studio-calc .lf-field input::placeholder { color: var(--tinta-suave); opacity: 0.6; }
+.studio-calc .lf-field input:focus { outline-color: var(--verde-mar); }
+.studio-calc__result { display: flex; gap: 32px; margin: 20px 0; }
+.studio-calc__disclaimer { font-size: 0.82rem; color: var(--tinta-suave); }
+.studio-calc__cta { margin-top: 18px; font-weight: 600; }
+.studio-calc__cta a { color: var(--verde-mar); }
+@media (max-width: 560px) { .studio-calc { padding: 24px 20px; } }

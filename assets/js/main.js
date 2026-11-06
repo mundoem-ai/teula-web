@@ -132,11 +132,12 @@
   /* --- Formulario unificado inyectable: <div data-lead-form="Interés"></div> --- */
   document.querySelectorAll("[data-lead-form]").forEach(function (host) {
     var interes = host.getAttribute("data-lead-form");
+    var num = host.getAttribute("data-lead-num");
     var opts = ["Radiadores BT", "Hidráulica", "Contabilización", "Formación", "Otro"].map(function (o) {
       return "<option" + (o === interes ? " selected" : "") + ">" + o + "</option>";
     }).join("");
     host.innerHTML = '<section class="section" id="contacto"><div class="wrap"><form class="lead-form" novalidate data-reveal>' +
-      '<div class="lead-form__head"><p class="label">Contacto</p><h3>Solicita información</h3><p>Cuéntanos qué necesitas. Un único formulario para particulares y profesionales — sin compromiso.</p></div>' +
+      '<div class="lead-form__head"><p class="label">' + (num ? num + " — " : "") + 'Contacto</p><h3>Solicita información</h3><p>Cuéntanos qué necesitas. Un único formulario para particulares y profesionales — sin compromiso.</p></div>' +
       '<div class="lf-type"><input type="radio" name="tipo" id="tipo-particular" value="particular" checked><label for="tipo-particular">Particular</label>' +
       '<input type="radio" name="tipo" id="tipo-profesional" value="profesional"><label for="tipo-profesional">Profesional</label></div>' +
       '<div class="lf-role lf-field"><label for="rol">Perfil profesional</label><select id="rol" name="rol"><option value="arquitecto">Arquitecto</option><option value="instalador">Instalador</option><option value="administrador">Administrador de fincas</option></select></div>' +
@@ -241,4 +242,46 @@
     /* Ante cualquier fallo del sistema de animación, mostrar el contenido */
     forceShow();
   }
+
+  /* --- Teula Studio: pestañas Filosofía / Itinerario / Contacta --- */
+  (function () {
+    var tabs = document.querySelectorAll(".studio__tab");
+    if (!tabs.length) return;
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var target = tab.getAttribute("data-studio-tab");
+        tabs.forEach(function (t) {
+          var active = t === tab;
+          t.classList.toggle("is-active", active);
+          t.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        document.querySelectorAll(".studio__panel").forEach(function (p) {
+          var active = p.id === "studio-panel-" + target;
+          p.classList.toggle("is-active", active);
+          p.hidden = !active;
+        });
+      });
+    });
+  })();
+
+  /* --- Teula Studio: calculadora de potencia orientativa --- */
+  (function () {
+    var btn = document.getElementById("studio-calc-btn");
+    if (!btn) return;
+    var W_POR_M2 = 90; /* estimación orientativa, ajustable */
+    btn.addEventListener("click", function () {
+      var largo = parseFloat(document.getElementById("studio-calc-largo").value);
+      var ancho = parseFloat(document.getElementById("studio-calc-ancho").value);
+      var result = document.getElementById("studio-calc-result");
+      if (!largo || !ancho || largo <= 0 || ancho <= 0) {
+        result.hidden = true;
+        return;
+      }
+      var area = largo * ancho;
+      var potencia = Math.round((area * W_POR_M2) / 50) * 50; /* redondeo a 50 W */
+      document.getElementById("studio-calc-area").textContent = area.toFixed(1).replace(".", ",");
+      document.getElementById("studio-calc-potencia").textContent = potencia.toLocaleString("es-ES");
+      result.hidden = false;
+    });
+  })();
 })();
