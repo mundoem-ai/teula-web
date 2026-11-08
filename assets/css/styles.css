@@ -366,7 +366,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 /* ============================================================
    DEPARTAMENTOS (rejilla de categorías)
    ============================================================ */
-.dep-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+.dep-head { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 12px; margin-bottom: 40px; }
 .dep-head h2 {
   font-family: var(--display);
   font-size: clamp(1.9rem, 3.4vw, 2.9rem);
@@ -898,6 +898,7 @@ body.menu-open { overflow: hidden; }
 .hero-clean__inner {
   position: relative;
   min-height: clamp(520px, 76vh, 800px);
+  min-height: clamp(520px, 76svh, 800px);
   display: flex; flex-direction: column; justify-content: flex-end;
   padding-block: 40px clamp(48px, 7vw, 84px);
   max-width: 680px;
@@ -950,7 +951,7 @@ body.menu-open { overflow: hidden; }
 .cat-card__go .arw { transition: transform 0.2s ease; }
 
 /* ---------- Hero de categoría partido (sin lavado de color) ---------- */
-.cathero { display: grid; grid-template-columns: 1.02fr 0.98fr; min-height: clamp(420px, 58vh, 620px); }
+.cathero { display: grid; grid-template-columns: 1.02fr 0.98fr; min-height: clamp(420px, 58vh, 620px); min-height: clamp(420px, 58svh, 620px); }
 .cathero__panel {
   background: var(--verde-mar); color: #fff;
   display: flex; flex-direction: column; justify-content: center;
@@ -1546,7 +1547,7 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 560px) { .model-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Ficha de modelo, estilo Caleido: banner + specs + galería ---------- */
-.model-hero { position: relative; overflow: hidden; isolation: isolate; color: #fff; min-height: clamp(360px, 56vh, 620px); display: flex; flex-direction: column; justify-content: flex-end; }
+.model-hero { position: relative; overflow: hidden; isolation: isolate; color: #fff; min-height: clamp(360px, 56vh, 620px); min-height: clamp(360px, 56svh, 620px); display: flex; flex-direction: column; justify-content: flex-end; }
 .model-hero__media { position: absolute; inset: 0; z-index: -2; }
 .model-hero__media img { width: 100%; height: 100%; object-fit: cover; }
 .model-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(8,10,12,0.72) 0%, rgba(8,10,12,0.18) 46%, rgba(8,10,12,0) 68%); }
@@ -1740,7 +1741,7 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 .studio__tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 36px; }
 .studio__tab {
   font-family: var(--texto); font-weight: 600; font-size: 0.92rem;
-  padding: 11px 20px; border-radius: 999px; border: 1px solid var(--gris-linea);
+  padding: 11px 20px; border-radius: 3px; border: 1px solid var(--gris-linea);
   background: var(--blanco); color: var(--tinta-suave); cursor: pointer;
 }
 .studio__tab.is-active { background: var(--verde-mar); border-color: var(--verde-mar); color: var(--blanco); }
@@ -1779,3 +1780,11 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 .studio-calc__cta { margin-top: 18px; font-weight: 600; }
 .studio-calc__cta a { color: var(--verde-mar); }
 @media (max-width: 560px) { .studio-calc { padding: 24px 20px; } }
+
+/* Etiquetas de apartado (01–05) un poco más grandes */
+.intro .label,
+.dep-head .label,
+.feature__eyebrow,
+.lead-form__head .label {
+  font-size: 0.88rem; /* antes 0.72rem, heredado de .label */
+}
