@@ -133,7 +133,7 @@
   document.querySelectorAll("[data-lead-form]").forEach(function (host) {
     var interes = host.getAttribute("data-lead-form");
     var num = host.getAttribute("data-lead-num");
-    var opts = ["Radiadores BT", "Hidráulica", "Contabilización", "Formación", "Otro"].map(function (o) {
+    var opts = ["Radiadores BT", "Hidráulica", "Contabilización", "Formación", "Teula Studio", "Otro"].map(function (o) {
       return "<option" + (o === interes ? " selected" : "") + ">" + o + "</option>";
     }).join("");
     host.innerHTML = '<section class="section" id="contacto"><div class="wrap"><form class="lead-form" novalidate data-reveal>' +
@@ -243,45 +243,4 @@
     forceShow();
   }
 
-  /* --- Teula Studio: pestañas Filosofía / Itinerario / Contacta --- */
-  (function () {
-    var tabs = document.querySelectorAll(".studio__tab");
-    if (!tabs.length) return;
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        var target = tab.getAttribute("data-studio-tab");
-        tabs.forEach(function (t) {
-          var active = t === tab;
-          t.classList.toggle("is-active", active);
-          t.setAttribute("aria-selected", active ? "true" : "false");
-        });
-        document.querySelectorAll(".studio__panel").forEach(function (p) {
-          var active = p.id === "studio-panel-" + target;
-          p.classList.toggle("is-active", active);
-          p.hidden = !active;
-        });
-      });
-    });
-  })();
-
-  /* --- Teula Studio: calculadora de potencia orientativa --- */
-  (function () {
-    var btn = document.getElementById("studio-calc-btn");
-    if (!btn) return;
-    var W_POR_M2 = 90; /* estimación orientativa, ajustable */
-    btn.addEventListener("click", function () {
-      var largo = parseFloat(document.getElementById("studio-calc-largo").value);
-      var ancho = parseFloat(document.getElementById("studio-calc-ancho").value);
-      var result = document.getElementById("studio-calc-result");
-      if (!largo || !ancho || largo <= 0 || ancho <= 0) {
-        result.hidden = true;
-        return;
-      }
-      var area = largo * ancho;
-      var potencia = Math.round((area * W_POR_M2) / 50) * 50; /* redondeo a 50 W */
-      document.getElementById("studio-calc-area").textContent = area.toFixed(1).replace(".", ",");
-      document.getElementById("studio-calc-potencia").textContent = potencia.toLocaleString("es-ES");
-      result.hidden = false;
-    });
-  })();
 })();
