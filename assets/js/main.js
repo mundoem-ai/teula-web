@@ -84,7 +84,7 @@
   var SEARCH = [
     { t: "Radiadores", u: "categorias/radiadores.html", c: "--verde-lima", k: "baja temperatura toalleros decor t30 canales accesorios control" },
     { t: "Hidráulica", u: "categorias/hidraulica.html", c: "--azul-marino", k: "depositos componentes armarios sistemas de control bombeo" },
-    { t: "Contabilización", u: "categorias/contabilizacion.html", c: "--amarillo-ambar", k: "contadores medicion comunicaciones servicios lecturas" },
+    { t: "Sistemas de control", u: "categorias/contabilizacion.html", c: "--amarillo-ambar", k: "contadores medicion comunicaciones servicios lecturas" },
     { t: "T30", u: "productos/t30.html", c: "--verde-lima", k: "radiador ficha producto baja temperatura" },
     { t: "Tower", u: "productos/tower.html", c: "--verde-lima", k: "radiador vertical estrecho ficha producto" },
     { t: "Decor", u: "productos/decor.html", c: "--verde-lima", k: "radiador vertical espejo ficha producto" },
@@ -133,7 +133,7 @@
   document.querySelectorAll("[data-lead-form]").forEach(function (host) {
     var interes = host.getAttribute("data-lead-form");
     var num = host.getAttribute("data-lead-num");
-    var opts = ["Radiadores BT", "Hidráulica", "Contabilización", "Formación", "Teula Studio", "Otro"].map(function (o) {
+    var opts = ["Radiadores BT", "Hidráulica", "Sistemas de control", "Formación", "Teula Studio", "Otro"].map(function (o) {
       return "<option" + (o === interes ? " selected" : "") + ">" + o + "</option>";
     }).join("");
     host.innerHTML = '<section class="section" id="contacto"><div class="wrap"><form class="lead-form" novalidate data-reveal>' +
