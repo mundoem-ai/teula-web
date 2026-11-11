@@ -1705,7 +1705,7 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 #modelos.is-sub .gal-head { padding-top: clamp(28px, 4vw, 56px); }
 
 /* Hero de Armarios (Hidráulica): degradado solo por la izquierda, sobre la pared vacía de la foto */
-.hero-clean--armarios .hero-clean__media img { object-position: 62% center; }
+.hero-clean--armarios .hero-clean__media img { object-position: 62% 14%; }
 .hero-clean--armarios::after {
   background:
     linear-gradient(180deg, rgba(8,10,12,0) 55%, rgba(8,10,12,0.30) 100%),
