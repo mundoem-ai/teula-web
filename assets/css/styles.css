@@ -1788,3 +1788,11 @@ button.model-card:focus-visible { outline: 2px solid var(--verde-mar); outline-o
 .lead-form__head .label {
   font-size: 0.88rem; /* antes 0.72rem, heredado de .label */
 }
+
+/* Invitación a contactar bajo las series de Radiadores: como el título del formulario, en Bakbak One y Verde Mar */
+.gal-nota--cta {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.05;
+  color: var(--verde-mar); max-width: 34ch;
+  margin: clamp(28px, 4vw, 48px) 0 0; padding-inline: 0;
+}
